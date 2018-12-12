@@ -10,9 +10,17 @@ const Greeting = ({ currentUser, logout }) => {
         </div>
     );
     const noUser = () => (
-        <div className="greetings-Links">
-            <Link to='/signup' className="gLinks">Sign Up</Link>
-            <Link to='/login' className="gLinks">Log In</Link>
+        <div className="nav-bar">
+            <div className="nav-left">
+                <img src="/assets/eton_logo.png" alt="eton_logo" className="eton-logo" />
+                <h1>Eton</h1>   
+            </div>
+            
+            <div className="nav-right">
+                <Link to='/signup' className="e-links signup-link">Sign Up</Link>
+                <p className="or">or</p>
+                <Link to='/login' className="e-links login-link">Log In</Link>
+            </div>
         </div>
     );
 

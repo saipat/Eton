@@ -1,0 +1,72 @@
+.nav-bar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.nav-left{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 150px;
+}
+
+.nav-left .eton-logo{
+    width: 55px;
+    height: 55px;
+    margin-top: 11px;
+}
+
+.nav-left h1{
+    font-family: 'Andada';
+    -webkit-font-smoothing: antialiased;
+    margin: 20px 0 0 10px;
+}
+
+.nav-right{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-right: 50px;
+}
+
+.e-links, .or{
+    margin-right: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: "Soleil",
+    Helvetica,
+    Arial,
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.e-links{
+    color: #00a82d;
+    cursor: pointer;
+}
+
+.signup-link{
+    padding-bottom: 12px;
+}
+
+.login-link{
+    border: 2px solid #00a82d;
+    padding: 5px 36px;
+    border-radius: 2px;;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin-bottom: 3px;
+}
+
+.or{
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+    // font-family: 'Alegreya Sans';
+}
+
+
+
+
