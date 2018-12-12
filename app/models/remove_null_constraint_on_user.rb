@@ -1,0 +1,2 @@
+class RemoveNullConstraintOnUser < ApplicationRecord
+end

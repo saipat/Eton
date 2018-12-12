@@ -1,0 +1,33 @@
+export const signup = user => (
+    $.ajax({
+        method: 'POST',
+        url: 'api/users',
+        data: {user}
+    })
+);
+
+export const login = user => (
+    $.ajax({
+        method: 'POST',
+        url: 'api/session',
+        data: {user}
+    })
+);
+
+export const logout = () => (
+    $.ajax({
+        method: 'delete',
+        url: 'api/session'
+    })
+);
+
+export const demoUser = () => (
+    $.ajax({
+        method: 'POST',
+        url: 'api/session',
+        data: {user: {
+            email: 'demo.user@eton.com',
+            password: '123456'
+        }}
+    })
+);
