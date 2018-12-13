@@ -31,8 +31,7 @@
 }
 
 .e-links, .or{
-    margin-right: 25%;
-    padding-bottom: 20px;
+    margin-right: 26px;
     font-size: 15px;
     text-decoration: none;
     font-family: "Soleil",
@@ -85,11 +84,11 @@
     -webkit-font-smoothing: antialiased;
     position: absolute;
     box-sizing: border-box;
-    width: 50%;
+    width: 55%;
 }
 
 .eton_home_bg h2{
-    font-size: 56px;
+    font-size: 52px;
     line-height: 72px;
     padding: 0 40px 0 0;
     font-weight: bold;
@@ -127,6 +126,52 @@
     letter-spacing: 1.5px;
 }
 
+@media only screen and (max-width: 1068px) {
+
+    .e-links, .or{
+        margin-right: 16px;
+        font-size: 15px;
+        text-decoration: none;
+        font-family: "Soleil",
+        Helvetica,
+        Arial,
+        sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .eton_home_bg h2 {
+        font-size: 38px;
+        line-height: 50px;
+        padding: 0 0px 0 0;
+    }
+
+    .eton_home_bg p {
+        font-family: "Soleil_Light", Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .home-btn {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 968px) {
+    .eton_home_bg h2 {
+        font-size: 24px;
+        line-height: 30px;
+        padding: 0 0 0 0;
+    }
+
+    .home-btn {
+        font-size: 12px;
+        top: 470px;
+    }
+
+    .content {
+        width: 80%;
+    }
+}
 
 
 

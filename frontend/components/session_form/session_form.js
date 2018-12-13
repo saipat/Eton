@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
 
     demoUser(){
         const user = {
-            email: 'demouser.email',
+            email: 'demouser@email',
             password: '123456'
         };
        
@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="form-css">
                     <input type="email" value={this.state.email} onChange={this.update("email")} placeholder="email" className="user-inputs"/>
                     <br />
-                    <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="password" className="user-inputs"/>
+                    <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="password" className="user-inputs second"/>
                     <br />
                     <br />
                      {this.renderErrors()}
