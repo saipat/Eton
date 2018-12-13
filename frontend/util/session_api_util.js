@@ -21,13 +21,3 @@ export const logout = () => (
     })
 );
 
-export const demoUser = () => (
-    $.ajax({
-        method: 'POST',
-        url: 'api/session',
-        data: {user: {
-            email: 'demo.user@eton.com',
-            password: '123456'
-        }}
-    })
-);
