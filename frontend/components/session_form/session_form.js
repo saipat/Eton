@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
 
     demoUser(){
         const user = {
-            email: 'demouser@email',
+            email: 'demouser11@email',
             password: '123456'
         };
        
