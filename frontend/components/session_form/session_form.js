@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
                 className = "eton_background" / >
                 <div className="session-form">
                 <div className="create-user">
-                     < img src = "/assets/eton_logo.png"
+                     < img src={window.etonLogoURL}
                      alt = "eton_logo"
                      className = "eton-logo-form" / >
                      <h1>Eton</h1>

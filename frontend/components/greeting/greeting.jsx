@@ -21,7 +21,7 @@ class Greeting extends React.Component {
             <div>
                 <div className="nav-bar">
                     <div className="nav-left">
-                        <img src="/assets/eton_logo.png" alt="eton_logo" className="eton-logo" />
+                        <img src={window.etonLogoURL} alt="eton_logo" className="eton-logo" />
                         <h1>Eton</h1>
                     </div>
 
