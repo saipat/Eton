@@ -14,13 +14,14 @@
 .nav-left .eton-logo{
     width: 55px;
     height: 55px;
-    margin-top: 6%;
+    margin-top: 14%;
 }
 
 .nav-left h1{
     font-family: 'Andada';
     -webkit-font-smoothing: antialiased;
     margin: 20px 0 0 10px;
+    font-weight: bold;
 }
 
 .nav-right{
@@ -113,6 +114,7 @@
     color: #00A82D;
     font-family: "Soleil_Bold", Helvetica, Arial, sans-serif;
     font-size: 16px;
+    font-weight: bold;
     min-width: 240px;
     text-transform: uppercase;
     box-sizing: border-box;

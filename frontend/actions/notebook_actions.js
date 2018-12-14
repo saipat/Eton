@@ -22,6 +22,8 @@ const removeNotebooks = notebookId => ({
 export const fetchNotebooks = () => dispatch => (
     NotebookAPIUtil.fetchNotebooks()
     .then(notebooks => dispatch(receiveALLNotebooks(notebooks)))
+
+    // dispatch(receiveALLNotebooks([{},{},{}]))
 );
 export const fetchNotebook = id => dispatch => (
     NotebookAPIUtil.fetchNotebook(id)

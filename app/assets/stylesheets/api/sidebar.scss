@@ -1,12 +1,20 @@
-.sidebar{
-      height: 100%;
-      width: 270px;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      overflow-x: hidden;
-      padding-top: 20px;
+.grid-container{
+     display: grid;
+     grid-template-columns: 28% 30% auto;
+     grid-template-rows: 800px;
+     grid-gap: 50px;
+     padding-right: 30px;
+}
+
+.sidebar {
+    height: auto;
+    width: 250px;
+    top: -10px;
+    left: 0;
+    padding-top: -10px;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
 }
 .sd-title {
     position: relative;
@@ -26,11 +34,12 @@
     margin-top: 0;
     font-size: 14px;
     left: 40px;
+    color: #ccc;
 }
 
 .sd-search{
     margin-top: 20px;
-    margin-left: 16px;
+    margin-left: 14px;
     position: relative;
 }
 .sd-search-input{
@@ -68,6 +77,18 @@
 .fa-plus {
     margin-right: 10px;
     margin-left: 10px;
+    padding: 8px;
+    color: #00a82d;
+    background-color: white;
+    border: 1px solid white;
+    transition: all 0.5s ease;
+    border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+}
+
+.fa-plus:hover{
+    color: white;
+    background-color: #00a82d;
 }
 
 .new-note{
@@ -87,62 +108,42 @@
     text-rendering: optimizeLegibility;
     line-height: 1.5;
 }
-.sidenav a,
-.dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
+
+.star-btn,
+.all-notes-btn,
+.notebook-btn {
+    background-color: #1a1a1a;
+    flex: 1;
+    font-size: 14px;
+    color: #ccc;
     text-align: left;
-    cursor: pointer;
-    outline: none;
+    max-width: 185px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 3px;
+    margin-left: 10px;
+    border: 0;
 }
 
-/* On mouse-over */
-.sidenav a:hover,
-.dropdown-btn:hover {
-    color: #f1f1f1;
+.star-btn:hover,
+.all-notes-btn:hover{
+    font-weight: bold;
 }
 
-/* Main content */
-.main {
-    margin-left: 200px;
-    /* Same as the width of the sidenav */
-    font-size: 20px;
-    /* Increased text to enable scrolling */
-    padding: 0px 10px;
+.fa-chevron-right{
+    margin-right: 20px;
+}
+.fa-star,
+.fa-book {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.all-notes-btn, .notebook-btn{
+    margin-top: 10px;
+}
+.fa-sticky-note-o{
+    margin-left: 15px;
+    margin-right: 12px;
 }
 
-/* Add an active class to the active dropdown button */
-.active {
-    background-color: green;
-    color: white;
-}
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container {
-    display: none;
-    background-color: #262626;
-    padding-left: 8px;
-}
-
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-    float: right;
-    padding-right: 8px;
-}
-
-/* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-
-    .sidenav a {
-        font-size: 18px;
-    }
-}

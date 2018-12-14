@@ -24,17 +24,7 @@ class Sidebar extends React.Component {
         let dropdown = document.getElementsByClassName("dropdown-btn");
         let i;
 
-        for (i = 0; i < dropdown.length; i++) {
-            dropdown[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                let dropdownContent = this.nextElementSibling;
-                if (dropdownContent.style.display === "block") {
-                    dropdownContent.style.display = "none";
-                } else {
-                    dropdownContent.style.display = "block";
-                }
-            });
-        }
+       
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -46,18 +36,23 @@ class Sidebar extends React.Component {
                         <input type="search" placeholder="search all values" className="sd-search-input"></input>
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
                     </form>
-                    <div>
+                    <div className="new-btn">
                         <button className="new-note"><i className="fa fa-plus"></i>New Note</button>
                     </div>
-                    <button class="dropdown-btn">Dropdown
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-container">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                   <div>
+                        <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
+                   </div>
+                   <div>
+                        <button className="all-notes-btn">
+                            <i class="fa fa-sticky-note-o"></i>All Notes
+                        </button>
+                   </div>
+                    <div>
+                        <button className="notebook-btn"><i className="fa fa-caret-right"></i><i className="fa fa-book"></i>Notebook</button>
                     </div>
                 </div>
+                <div>hi</div>
+                <div>di</div>
             </div>
             
         )
