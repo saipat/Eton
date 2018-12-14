@@ -1,0 +1,148 @@
+.sidebar{
+      height: 100%;
+      width: 270px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      overflow-x: hidden;
+      padding-top: 20px;
+}
+.sd-title {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.sidebar-logo {
+    width: 30px;
+    height: 30px;
+    display: inline;
+}
+
+.sd-title h3{
+    display: inline;
+    position: absolute;
+    top: 5px;
+    margin-top: 0;
+    font-size: 14px;
+    left: 40px;
+}
+
+.sd-search{
+    margin-top: 20px;
+    margin-left: 16px;
+    position: relative;
+}
+.sd-search-input{
+    background: #333;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 0;
+    width: 227px;
+    height: 33px;
+    color: #fff;
+    caret-color: #fff;
+    font-size: 17px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    font-weight: 300;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border: 1px;
+}
+
+#search-icon {
+    opacity: 1;
+    color: #666;
+    background: #333;
+    border-radius: 4px;
+    position: absolute;
+    left: 180px;
+    bottom: 0;
+    width: auto;
+    border: 0;
+}
+
+.fa-plus {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.new-note{
+    background-color:#00a82d;
+    border-radius: 5px;
+    padding: 0 6px;
+    margin: 12px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #fff;
+    width: 230px;
+    height: 40px;
+    font-size: 14px;
+    padding-right: 1px;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+}
+.sidenav a,
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover,
+.dropdown-btn:hover {
+    color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
+    font-size: 20px;
+    /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: green;
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
