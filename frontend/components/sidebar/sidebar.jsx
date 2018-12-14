@@ -6,39 +6,38 @@ class Sidebar extends React.Component {
 
         this.state = {
             currentUser: this.props.currentUser,
-            logout: this.props.logout
+            logout: this.props.logout,
+            showMenu: false
         };
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchNotebooks();
     }
 
-    // jQuery(document).ready(function(e) {
-    //     function t(t) {
-    //         e(t).bind("click", function (t) {
-    //             t.preventDefault();
-    //             e(this).parent().fadeOut()
-    //         })
-    //     }
-    //     e(".dropdown-toggle").click(function () {
-    //         var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
-    //         e(".button-dropdown .dropdown-menu").hide();
-    //         e(".button-dropdown .dropdown-toggle").removeClass("active");
-    //         if (t) {
-    //             e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
-    //         }
-    //     });
-    //     e(document).bind("click", function (t) {
-    //         var n = e(t.target);
-    //         if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
-    //     });
-    //     e(document).bind("click", function (t) {
-    //         var n = e(t.target);
-    //         if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
-    //     })
-    // });
+    showMenu(event) {
+        event.preventDefault();
 
+        this.setState({ showMenu: true }, () => {
+            document.addEventListener('click', this.closeMenu);
+        });
+    }
+
+
+    closeMenu(event) {
+        if (!this.dropdownMenu.contains(event.target)) {
+
+            this.setState({ showMenu: false }, () => {
+                document.removeEventListener('click', this.closeMenu);
+            });
+
+        }
+    }
+
+
+    
 
 
     render() {
@@ -72,46 +71,46 @@ class Sidebar extends React.Component {
                             <i className="fa fa fa-bookmark-o"></i>All Notes
                         </button>
                    </div>
-                   
-                    <div className="dropdown">
-                        <button className="dropbtn">
-                            <i className="fa fa-caret-right"></i><i className="fa fa-book"></i>
-                            Notebook
-                        </button>
-                        <div className="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                        </div>
-                    </div> 
-                    <div>
-                        <button className="button-dropdown">
-                        <a href="javascript:void(0)" className="dropdown-toggle">
-                             <i className="fa fa-caret-right"></i>
-                                <i className="fa fa-book"></i>
-                             Notebook
-                         </a>
-                        <ul className="dropdown-menu">
-                        <li>
-                            <a href="#">
-                             <i className="fa fa-book"></i>
-                            Drop Item 1
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i className="fa fa-book"></i>
-                            Drop Item 2
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i className="fa fa-book"></i>
-                            Drop Item 3
-                            </a>
-                        </li>
-                        </ul>
-                    </button>
 
+                    <div>
+                        <button className="button-dropdown" onClick={this.showMenu}>
+                            <i className="fa fa-caret-right"></i>
+                            <i className="fa fa-book"></i>
+                             Notebook
+                         </button>
+                        {
+                            this.state.showMenu ? 
+                            (
+                                    <ul className="dropdown-menu" ref={(element) => {
+                                        this.dropdownMenu = element;
+                                    }}
+                                    >
+                                    <li>
+                                        <a href="http://localhost:3000/#/side">
+                                            <i className="fa fa-book"></i>
+                                            Drop Item 1
+                                         </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:3000/#/side">
+                                            <i className="fa fa-book"></i>
+                                            Drop Item 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:3000/#/side">
+                                            <i className="fa fa-book"></i>
+                                            Drop Item 1
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            ) : ( null ) 
+                        }
+                       
                     </div>
+
+                    
                     <div>
                         <button className="tags-btn">
                             <i className="fa fa-tag"></i>Tags
@@ -124,7 +123,6 @@ class Sidebar extends React.Component {
                     </div>
                 </div>
                 <div>hi</div>
-                <div>di</div>
             </div>
             
         )

@@ -1,6 +1,6 @@
 .grid-container{
      display: grid;
-     grid-template-columns: 28% 30% auto;
+     grid-template-columns: 28% auto;
      grid-template-rows: 800px;
      grid-gap: 50px;
      padding-right: 30px;
@@ -198,15 +198,28 @@
 
 .dropdown-menu{
     list-style-type: none;
-    display: none;
     position: absolute;
     left: 0;
     padding: 0;
     margin: 0;
-    margin-top: 3px;
+    margin-top: 13px;
+    margin-left: 69px;
     text-align: left;
 }
 
-.dropdown-menu.active {
-    display: block;
+.dropdown-menu li a{
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 18px;
 }
+
+.button-dropdown:active {
+    background-color: white;
+    margin-bottom: 100px;
+}
+
+.dropdown-menu li:last-child {
+    margin-bottom: 90px;
+    color: #f9654f;
+}
+
