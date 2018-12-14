@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
     has_many :notebooks,
         foreign_key: :user_id,
-        class_name: 'Notebooks'
+        class_name: 'Notebook'
 
     attr_reader :password
     after_initialize :ensure_session_token

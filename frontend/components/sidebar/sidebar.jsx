@@ -1,4 +1,5 @@
 import React from 'react';
+import NotebookContainer from '../notebooks/notebook_container';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -7,10 +8,12 @@ class Sidebar extends React.Component {
         this.state = {
             currentUser: this.props.currentUser,
             logout: this.props.logout,
-            showMenu: false
+            showMenu: false,
+            showNotebooks: false
         };
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.showNotebooks = this.showNotebooks.bind(this);
     }
 
     componentDidMount() {
@@ -25,21 +28,23 @@ class Sidebar extends React.Component {
         });
     }
 
-
     closeMenu(event) {
         if (!this.dropdownMenu.contains(event.target)) {
 
             this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             });
-
         }
     }
 
+    showNotebooks(event){
+        event.preventDefault();
 
+        this.setState({
+            showNotebooks: true
+        });
+    }
     
-
-
     render() {
         if (this.props.notebooks === undefined) {
             return null;
@@ -122,7 +127,7 @@ class Sidebar extends React.Component {
                         </button>
                     </div>
                 </div>
-                <div>hi</div>
+                <div><NotebookContainer /></div>
             </div>
             
         )

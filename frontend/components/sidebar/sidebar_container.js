@@ -1,16 +1,7 @@
-import {
-    connect
-} from 'react-redux';
-import {
-    withRouter
-} from 'react-router-dom';
-import {
-    logout
-} from '../../actions/session_actions';
-import {
-    fetchNotebook,
-    fetchNotebooks
-} from '../../actions/notebook_actions';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { logout } from '../../actions/session_actions';
+import { fetchNotebook, fetchNotebooks } from '../../actions/notebook_actions';
 import Sidebar from './sidebar';
 
 const mapStateToProps = state => {

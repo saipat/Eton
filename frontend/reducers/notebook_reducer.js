@@ -5,12 +5,12 @@ import {
 } from '../actions/notebook_actions';
 import { merge } from 'lodash';
 
-const notebookReducer = (state = {notebooks: {1: {title: "orange", user_id: 1}} }, action) => {
+const notebookReducer = (state = {1: {title: "orange", user_id: 5}}, action) => {
     Object.freeze(state);
 
     switch(action.type){
         case RECEIVE_NOTEBOOKS:
-            return merge({}, action.notebooks);
+            return merge({}, state, action.notebooks);
         case RECEIVE_NOTEBOOK:
             return merge({}, state, {[action.notebook.id]: action.notebook});
         case REMOVE_NOTEBOOK:

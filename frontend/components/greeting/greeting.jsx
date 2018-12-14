@@ -50,8 +50,8 @@ class Greeting extends React.Component {
     ifUser(){
         return(
         <div>
-            <h2>Hello, {this.state.currentUser.email}</h2>
-            <button onClick={this.state.logout}>Log Out</button>
+            <h2>Hello, {this.props.currentUser.email}</h2>
+            <button onClick={this.props.logout}>Log Out</button>
         </div>
         )
     };
