@@ -3,11 +3,9 @@ import {
     RECEIVE_NOTEBOOK,
     REMOVE_NOTEBOOK
 } from '../actions/notebook_actions';
-import {
-    merge
-} from 'lodash';
+import { merge } from 'lodash';
 
-const NotebookReducer = (state = {}, action) => {
+const notebookReducer = (state = {notebooks: {1: {title: "orange", user_id: 1}} }, action) => {
     Object.freeze(state);
 
     switch(action.type){
@@ -24,5 +22,5 @@ const NotebookReducer = (state = {}, action) => {
     }
 };
 
-export default NotebookReducer;
+export default notebookReducer;
 

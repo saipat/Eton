@@ -19,23 +19,23 @@ const removeNotebooks = notebookId => ({
     notebookId
 });
 
-export default fetchNotebooks = () => dispatch => (
+export const fetchNotebooks = () => dispatch => (
     NotebookAPIUtil.fetchNotebooks()
     .then(notebooks => dispatch(receiveALLNotebooks(notebooks)))
 );
-export default fetchNotebook = notebook => dispatch => (
-    NotebookAPIUtil.fetchNotebook(notebook)
+export const fetchNotebook = id => dispatch => (
+    NotebookAPIUtil.fetchNotebook(id)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
-export default createNotebook = notebook => dispatch => (
+export const createNotebook = notebook => dispatch => (
     NotebookAPIUtil.createNotebook(notebook)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
-export default updateNotebook = notebook => dispatch => (
-    NotebookAPIUtil.updateNotebook(notebook)
+export const updateNotebook = id => dispatch => (
+    NotebookAPIUtil.updateNotebook(id)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
-export default deleteNotebook = notebookId => dispatch => (
+export const deleteNotebook = notebookId => dispatch => (
     NotebookAPIUtil.deleteNotebook(notebookId)
     .then(notebookId => dispatch(removeNotebooks(notebookId)))
 );
