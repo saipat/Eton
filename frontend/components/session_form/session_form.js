@@ -66,8 +66,7 @@ class SessionForm extends React.Component {
 
         return (
             <div className="wrapper">
-                < img src = "/assets/eton_fw_back.png"
-                alt = "eton_background"
+                < img src = {window.backgroundURL}
                 className = "eton_background" / >
                 <div className="session-form">
                 <div className="create-user">
