@@ -14,6 +14,31 @@ class Sidebar extends React.Component {
         this.props.fetchNotebooks();
     }
 
+    // jQuery(document).ready(function(e) {
+    //     function t(t) {
+    //         e(t).bind("click", function (t) {
+    //             t.preventDefault();
+    //             e(this).parent().fadeOut()
+    //         })
+    //     }
+    //     e(".dropdown-toggle").click(function () {
+    //         var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+    //         e(".button-dropdown .dropdown-menu").hide();
+    //         e(".button-dropdown .dropdown-toggle").removeClass("active");
+    //         if (t) {
+    //             e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("active")
+    //         }
+    //     });
+    //     e(document).bind("click", function (t) {
+    //         var n = e(t.target);
+    //         if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+    //     });
+    //     e(document).bind("click", function (t) {
+    //         var n = e(t.target);
+    //         if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("active");
+    //     })
+    // });
+
 
 
     render() {
@@ -44,11 +69,58 @@ class Sidebar extends React.Component {
                    </div>
                    <div>
                         <button className="all-notes-btn">
-                            <i class="fa fa-sticky-note-o"></i>All Notes
+                            <i className="fa fa fa-bookmark-o"></i>All Notes
                         </button>
                    </div>
+                   
+                    <div className="dropdown">
+                        <button className="dropbtn">
+                            <i className="fa fa-caret-right"></i><i className="fa fa-book"></i>
+                            Notebook
+                        </button>
+                        <div className="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div> 
                     <div>
-                        <button className="notebook-btn"><i className="fa fa-caret-right"></i><i className="fa fa-book"></i>Notebook</button>
+                        <button className="button-dropdown">
+                        <a href="javascript:void(0)" className="dropdown-toggle">
+                             <i className="fa fa-caret-right"></i>
+                                <i className="fa fa-book"></i>
+                             Notebook
+                         </a>
+                        <ul className="dropdown-menu">
+                        <li>
+                            <a href="#">
+                             <i className="fa fa-book"></i>
+                            Drop Item 1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"> <i className="fa fa-book"></i>
+                            Drop Item 2
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"> <i className="fa fa-book"></i>
+                            Drop Item 3
+                            </a>
+                        </li>
+                        </ul>
+                    </button>
+
+                    </div>
+                    <div>
+                        <button className="tags-btn">
+                            <i className="fa fa-tag"></i>Tags
+                        </button>
+                    </div>
+                    <div>
+                        <button className="trash-btn">
+                            <i className="fa fa-trash-o"></i>Trash
+                        </button>
                     </div>
                 </div>
                 <div>hi</div>
