@@ -1,3 +1,85 @@
 // Place all the styles related to the Notebooks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notebook-container h2{
+    flex: 1;
+    min-width: 200px;
+    font-size: 20px;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 12px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.notebook-container .nb-navbar{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nb-navbar p{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.move-right{
+    margin-right: 3%;
+    height: 20px;
+    width: 50px;
+    border: none;
+    margin-top: 14px;
+}
+
+.move-center{
+    margin-left: 57em;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #00a82d;
+    padding: 0;
+    vertical-align: middle;
+    float: right;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+table{
+    width: 100%;
+    height: 100%;
+}
+
+thead {
+   background: #f8f8f8;
+   font-size: 12px;
+   line-height: 20px;
+   border-left: none;
+   border-right: none;
+   border-top: 1px solid #ededed;
+   border-bottom: 1px solid #ededed;
+   color: #b3b3b3;
+   transition: all 0.1s ease-out;
+   align-items: center;
+}
+
+.fa-arrow-up{
+    margin-left: 10px; 
+}
+
+.title{
+    width: 38%;
+    text-align: left;
+}
+th{
+   margin-right: 30px;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+}

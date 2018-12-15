@@ -1,5 +1,5 @@
 import React from 'react';
-import NotebookContainer from '../notebooks/notebook_container';
+import NotebookIndexContainer from '../notebooks/notebook_index_container';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -50,10 +50,12 @@ class Sidebar extends React.Component {
             return null;
         }
         let notebooks = Object.values(this.props.notebooks);
-        let dropdown = document.getElementsByClassName("dropdown-btn");
-        let i;
+        // let title = notebooks.map(notebook => {
+        //     return (
 
-       
+        //     );
+        // };
+
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -68,16 +70,16 @@ class Sidebar extends React.Component {
                     <div className="new-btn">
                         <button className="new-note"><i className="fa fa-plus"></i>New Note</button>
                     </div>
-                   <div>
+                    <div className="divs">
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
                    </div>
-                   <div>
+                    <div className="divs">
                         <button className="all-notes-btn">
                             <i className="fa fa fa-bookmark-o"></i>All Notes
                         </button>
                    </div>
 
-                    <div>
+                    <div className="divs">
                         <button className="button-dropdown" onClick={this.showMenu}>
                             <i className="fa fa-caret-right"></i>
                             <i className="fa fa-book"></i>
@@ -90,19 +92,19 @@ class Sidebar extends React.Component {
                                         this.dropdownMenu = element;
                                     }}
                                     >
-                                    <li>
+                                    <li className="lists">
                                         <a href="http://localhost:3000/#/side">
                                             <i className="fa fa-book"></i>
-                                            Drop Item 1
+                                            {}
                                          </a>
                                     </li>
-                                    <li>
+                                    <li className="lists">
                                         <a href="http://localhost:3000/#/side">
                                             <i className="fa fa-book"></i>
                                             Drop Item 1
                                         </a>
                                     </li>
-                                    <li>
+                                    <li className="lists">
                                         <a href="http://localhost:3000/#/side">
                                             <i className="fa fa-book"></i>
                                             Drop Item 1
@@ -116,18 +118,20 @@ class Sidebar extends React.Component {
                     </div>
 
                     
-                    <div>
+                    <div className="divs">
                         <button className="tags-btn">
                             <i className="fa fa-tag"></i>Tags
                         </button>
                     </div>
-                    <div>
+                    <div className="divs">
                         <button className="trash-btn">
                             <i className="fa fa-trash-o"></i>Trash
                         </button>
                     </div>
                 </div>
-                <div><NotebookContainer /></div>
+                <div>
+                    <NotebookIndexContainer />
+                </div>
             </div>
             
         )

@@ -1,11 +1,11 @@
 import { fetchNotebooks, fetchNotebook, createNotebook, updateNotebook, deleteNotebook } from '../../actions/notebook_actions';
-import Notebook from './notebook';
+import NotebookIndex from './notebook_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
     return ({
-        notebooks: state.entities.notebooks,
+        notebooks: Object.values(state.entities.notebooks),
         currentUser: state.entities.users[state.session.id]
     });
 };
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => {
     });
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Notebook));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NotebookIndex));

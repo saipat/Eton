@@ -12,3 +12,16 @@ demo1 = User.create!(
   email: 'demouser11@email',
   password: '123456'
 )
+
+Notebook.delete_all
+
+notebook1 = Notebook.create!(
+  name: 'Fsp',
+  user_id: demo1.id
+)
+
+notebook2 = Notebook.create!(
+  name: 'Physics',
+  user_id: demo1.id
+)
+

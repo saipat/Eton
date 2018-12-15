@@ -5,7 +5,7 @@ import {
 } from '../actions/notebook_actions';
 import { merge } from 'lodash';
 
-const notebookReducer = (state = {1: {title: "orange", user_id: 5}}, action) => {
+const notebookReducer = (state = {1: {name: "orange", user_id: 1}}, action) => {
     Object.freeze(state);
 
     switch(action.type){
