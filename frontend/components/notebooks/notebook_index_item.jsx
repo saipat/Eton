@@ -7,26 +7,39 @@ import {
 } from '../../util/date_util';
 
 
-const NotebookIndexItem = props => {
-    let created_at = formatTime(props.notebook.created_at);
-    console.log(created_at);
-    
-    return(
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>{props.notebook.name}</td>
-                        <td> - </td>
-                        <td>{props.notebook.updated_at}</td>
-                        <td>Only you</td>
-                        <td>...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
+class NotebookIndexItem extends React.Component{
+    constructor(props){
+        super(props);
+        // debugger
+        this.state = {
+            notebook: props.notebook
+        };
+
+        console.log("constructor",this.state);
+        console.log("constructor props", props.notebook);
+    }
+
+    render(){
+        console.log("render", this.state);
+        let updated_at = formatTime(this.state.notebook.updated_at);
+        return (
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td className="nb-name"><i className="fa fa-caret-right"></i>{this.state.notebook.name}</td>
+                            <td className="nb-create"> - </td>
+                            <td className="nb-update">{updated_at}</td>
+                            <td className="nb-only">Only you</td>
+                            <td className="nb-u">...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
 }
+
 
    
 

@@ -14,6 +14,7 @@ class Sidebar extends React.Component {
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -37,25 +38,28 @@ class Sidebar extends React.Component {
         }
     }
 
-    showNotebooks(event){
+    handleSubmit(event){
         event.preventDefault();
+        this.showMenu(event);
+        this.showNotebooks();
+    }
 
+    showNotebooks(){
         this.setState({
             showNotebooks: true
         });
+        const notebooks = Object.values(this.props.notebooks);
+        console.log(notebooks);
+        return {
+
+        };
     }
-    
+
     render() {
         if (this.props.notebooks === undefined) {
             return null;
         }
-        let notebooks = Object.values(this.props.notebooks);
-        // let title = notebooks.map(notebook => {
-        //     return (
-
-        //     );
-        // };
-
+        
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -80,7 +84,7 @@ class Sidebar extends React.Component {
                    </div>
 
                     <div className="divs">
-                        <button className="button-dropdown" onClick={this.showMenu}>
+                        <button className="button-dropdown" onClick={this.handleSubmit}>
                             <i className="fa fa-caret-right"></i>
                             <i className="fa fa-book"></i>
                              Notebook
@@ -92,32 +96,33 @@ class Sidebar extends React.Component {
                                         this.dropdownMenu = element;
                                     }}
                                     >
+                                    
+                                        <li className="lists">
+                                            <a href="http://localhost:3000/#/side">
+                                                <i className="fa fa-book"></i>
+                                                
+                                            </a>
+                                        </li>
+                                    
+                                    
                                     <li className="lists">
                                         <a href="http://localhost:3000/#/side">
                                             <i className="fa fa-book"></i>
-                                            {}
-                                         </a>
-                                    </li>
-                                    <li className="lists">
-                                        <a href="http://localhost:3000/#/side">
-                                            <i className="fa fa-book"></i>
-                                            Drop Item 1
+                                               
                                         </a>
                                     </li>
                                     <li className="lists">
                                         <a href="http://localhost:3000/#/side">
                                             <i className="fa fa-book"></i>
-                                            Drop Item 1
+                                                
                                         </a>
                                     </li>
                                     
                                 </ul>
                             ) : ( null ) 
                         }
-                       
                     </div>
 
-                    
                     <div className="divs">
                         <button className="tags-btn">
                             <i className="fa fa-tag"></i>Tags

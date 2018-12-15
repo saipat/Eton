@@ -55,15 +55,16 @@
 table{
     width: 100%;
     height: 100%;
+    border-top: 2px soild black;
 }
 
 thead {
    background: #f8f8f8;
    font-size: 12px;
-   line-height: 20px;
+   line-height: 40px;
    border-left: none;
    border-right: none;
-   border-top: 1px solid #ededed;
+   border-top: 1px solid #black;
    border-bottom: 1px solid #ededed;
    color: #b3b3b3;
    transition: all 0.1s ease-out;
@@ -77,9 +78,26 @@ thead {
 .title{
     width: 38%;
     text-align: left;
+    padding-left: 10px;
 }
 th{
    margin-right: 30px;
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     text-rendering: optimizeLegibility;
+}
+
+.nb-name{
+    width: 46%;
+}
+
+.nb-create{
+    width: 13%;
+}
+
+.nb-update{
+    width: 16%;
+}
+
+.np-only{
+    width: 18%;
 }

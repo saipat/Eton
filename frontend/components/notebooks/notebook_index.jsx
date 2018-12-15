@@ -4,7 +4,7 @@ import NotebookIndexItem from './notebook_index_item';
 class NotebookIndex extends React.Component{
     constructor(props){
         super(props);
-
+       
         this.state = {
             currentUser: this.props.currentUser
         };

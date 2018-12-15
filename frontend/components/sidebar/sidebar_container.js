@@ -6,7 +6,7 @@ import Sidebar from './sidebar';
 
 const mapStateToProps = state => {
     return ({
-        notebooks: state.entities.notebooks,
+        notebooks: Object.values(state.entities.notebooks),
         currentUser: state.entities.users[state.session.id]
     });
 };
