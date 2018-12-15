@@ -1,5 +1,6 @@
 import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
+import NotebookDropdown from './notebook_dropdown';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -18,12 +19,12 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
+        // debugger
         this.props.fetchNotebooks();
     }
 
     showMenu(event) {
         event.preventDefault();
-
         this.setState({ showMenu: true }, () => {
             document.addEventListener('click', this.closeMenu);
         });
@@ -39,6 +40,7 @@ class Sidebar extends React.Component {
     }
 
     handleSubmit(event){
+        // debugger
         event.preventDefault();
         this.showMenu(event);
         this.showNotebooks();
@@ -48,18 +50,13 @@ class Sidebar extends React.Component {
         this.setState({
             showNotebooks: true
         });
-        const notebooks = Object.values(this.props.notebooks);
-        console.log(notebooks);
-        return {
-
-        };
     }
 
     render() {
         if (this.props.notebooks === undefined) {
             return null;
         }
-        
+        const notebooks = Object.values(this.props.notebooks);
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -97,26 +94,7 @@ class Sidebar extends React.Component {
                                     }}
                                     >
                                     
-                                        <li className="lists">
-                                            <a href="http://localhost:3000/#/side">
-                                                <i className="fa fa-book"></i>
-                                                
-                                            </a>
-                                        </li>
-                                    
-                                    
-                                    <li className="lists">
-                                        <a href="http://localhost:3000/#/side">
-                                            <i className="fa fa-book"></i>
-                                               
-                                        </a>
-                                    </li>
-                                    <li className="lists">
-                                        <a href="http://localhost:3000/#/side">
-                                            <i className="fa fa-book"></i>
-                                                
-                                        </a>
-                                    </li>
+                                     <NotebookDropdown notebooks={notebooks} />
                                     
                                 </ul>
                             ) : ( null ) 

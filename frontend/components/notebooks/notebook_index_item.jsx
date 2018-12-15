@@ -10,17 +10,12 @@ import {
 class NotebookIndexItem extends React.Component{
     constructor(props){
         super(props);
-        // debugger
         this.state = {
             notebook: props.notebook
         };
-
-        console.log("constructor",this.state);
-        console.log("constructor props", props.notebook);
     }
 
     render(){
-        console.log("render", this.state);
         let updated_at = formatTime(this.state.notebook.updated_at);
         return (
             <div>
