@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-
+import SidebarContainer from '../sidebar/sidebar_container';
 
 
 class Greeting extends React.Component {
@@ -50,8 +50,7 @@ class Greeting extends React.Component {
     ifUser(){
         return(
         <div>
-            <h2>Hello, {this.props.currentUser.email}</h2>
-            <button onClick={this.props.logout}>Log Out</button>
+            <SidebarContainer />
         </div>
         )
     };

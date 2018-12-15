@@ -35,7 +35,7 @@ class NotebookIndex extends React.Component{
                 <button className="move-right"><i className="fa fa-sort-amount-desc"></i></button>
             </div>
             <table>
-                <thead>
+                <thead className="head">
                     <tr className="tr-head">
                         <th className="title">TITLE<i className="fa fa-arrow-up"></i></th>
                         <th>CREATED BY </th>

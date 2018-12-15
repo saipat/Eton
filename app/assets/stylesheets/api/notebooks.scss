@@ -62,13 +62,12 @@ thead {
    background: #f8f8f8;
    font-size: 12px;
    line-height: 40px;
-   border-left: none;
-   border-right: none;
-   border-top: 1px solid #black;
-   border-bottom: 1px solid #ededed;
+ 
    color: #b3b3b3;
-   transition: all 0.1s ease-out;
-   align-items: center;
+}
+
+.head{
+      border-top: 1px solid black;
 }
 
 .fa-arrow-up{

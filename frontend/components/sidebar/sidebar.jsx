@@ -1,6 +1,7 @@
 import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
-import NotebookDropdown from './notebook_dropdown';
+import NotebookDropdown from './notebook_dropdown'; 
+import { logout } from '../../actions/session_actions';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -19,7 +20,6 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
         this.props.fetchNotebooks();
     }
 
@@ -40,7 +40,6 @@ class Sidebar extends React.Component {
     }
 
     handleSubmit(event){
-        // debugger
         event.preventDefault();
         this.showMenu(event);
         this.showNotebooks();
@@ -111,6 +110,9 @@ class Sidebar extends React.Component {
                             <i className="fa fa-trash-o"></i>Trash
                         </button>
                     </div>
+                    <div>
+                        <button className="signout-btn" onClick={this.props.logout}><i className="fa fa-sign-out"></i>Sign Out</button>
+                    </div> 
                 </div>
                 <div>
                     <NotebookIndexContainer />

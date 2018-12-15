@@ -121,7 +121,8 @@
 .dropdown .dropbtn,
 .button-dropdown,
 .tags-btn, 
-.trash-btn {
+.trash-btn, 
+.signout-btn {
     background-color: #1a1a1a;
     flex: 1;
     font-size: 14px;
@@ -141,7 +142,8 @@
 .button-dropdown:hover,
 .lists:hover,
 .tags-btn:hover, 
-.trash-btn:hover {
+.trash-btn:hover, 
+.signout-btn:hover {
     font-weight: bold;
 }
 
@@ -151,13 +153,14 @@
 .fa-star,
 .fa-book,
 .fa-caret-right {
-    margin-left: 10px;
+    margin-left: 7px;
     margin-right: 10px;
 }
 
 .fa-tag,
 .fa-bookmark-o, 
-.fa-trash-o {
+.fa-trash-o, 
+.fa-sign-out {
     margin-left: 30px;
     margin-right:18px;
 }
@@ -167,7 +170,8 @@
 .dropdown .dropbtn,
 .button-dropdown,
 .tags-btn,
-.trash-btn {
+.trash-btn,
+.signout-btn {
     margin-top: 10px;
 }
 
