@@ -17,7 +17,7 @@ class NotebookIndex extends React.Component{
     }
 
     handleClick(){
-        console.log(this.props.openModal.toString());
+        // console.log("inside index --------", this.props);
         this.props.openModal('createNotebook');
     }
 
@@ -25,8 +25,11 @@ class NotebookIndex extends React.Component{
         let lists = this.props.notebooks.map( notebook => {
             return (
                 <NotebookIndexItem 
-                    key={notebook.name}
+                    key={notebook.id}
                     notebook={notebook}
+                    openModal={this.props.openModal} 
+                    fetchNotebook={this.props.fetchNotebook}
+                    deleteNotebook={this.props.deleteNotebook}
                 />
             )
         });
@@ -49,6 +52,7 @@ class NotebookIndex extends React.Component{
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
+                   
                
             </table>
                 

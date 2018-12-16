@@ -7,19 +7,34 @@ class NotebookIndexItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            notebook: props.notebook
+            notebook: this.props.notebook
         };
+        console.log("inside index item-----", this.state);
+        
         this.myFunction = this.myFunction.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.deleteClick = this.deleteClick.bind(this);
     }
 
-myFunction() {
-    var x = document.getElementById("Demo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
+    myFunction() {
+        var x = document.getElementById(`menu-${this.state.notebook.id}`);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
     }
-}
+
+    handleClick() {   
+        // console.log("inside handle click-----", this.state.notebook);
+        this.myFunction();
+        this.props.openModal('editNotebook', this.state.notebook);
+    }
+
+    deleteClick(){
+        this.myFunction();
+        this.props.deleteNotebook(this.state.notebook.id);
+    }
 
     render(){
         let updated_at = formatTime(this.state.notebook.updated_at);
@@ -36,9 +51,9 @@ myFunction() {
                         </tr>
                     </tbody>
                 </table>
-                <div id="Demo" className="w3-dropdown-content w3-bar-block w3-border">
-                    <a href="#" className="w3-bar-item w3-button">Rename Notebook</a>
-                    <a href="#" className="w3-bar-item w3-button">Delete Notebook</a>
+                <div id={`menu-${this.state.notebook.id}`} className="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="#" className="w3-bar-item w3-button" onClick={this.handleClick}>Rename Notebook</a>
+                    <a href="#" className="w3-bar-item w3-button" onClick={this.deleteClick}>Delete Notebook</a>
                 </div>
             </div>
         )

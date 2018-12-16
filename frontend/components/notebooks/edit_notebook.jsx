@@ -1,41 +1,59 @@
 import React from 'react';
-import { connect } from 'tls';
 
 class EditNotebookForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.state ={
             notebook: this.props.notebook
         };
+        // console.log("inside edit-----",this.state);
+        
         this.closeForm = this.closeForm.bind(this);
+        this.handleEditSubmit = this.handleEditSubmit.bind(this);
     }
 
-    componentDidMount(){
-        this.props.fetchNotebook(this.props.match.params.notebookId);
-    }
-
-    closeForm(event) {
-        event.preventDefault();
+    closeForm() {
         this.props.closeModal();
     }
 
+    handleEditSubmit() {
+        // console.log(this.state.notebook);
+        this.props.updateNotebook(this.state.notebook);
+        this.closeForm();
+    }
+
+    update() {
+        let nb = this.state.notebook;
+        return e => {
+            nb.name = e.currentTarget.value;
+            this.setState({
+                notebook: nb
+            });
+        };
+    }
+
     render(){
+        // console.log("inside render: ",this.state);
+        
         return(
             <div className="renameNotebook">
-                <div>
-                    <h2>Rename notebook</h2>
-                    <button onClick={this.closeForm}><i class="fa fa-times"></i></button>
+                <div className="e-form-top">
+                    <h2>Rename notebook
+                    <button onClick={this.closeForm} className="e-close-btn"><i className="fa fa-close"></i></button>
+                    </h2>
                 </div>
 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="e-nb-form">
                     <label>
                         Name
-                        <input type="text" value={this.state.notebook.name} onChange={this.update} placeholder={this.state.notebook.name}/>
+                        <br></br>
+                        <input type="text" value={this.state.notebook.name} onChange={this.update()} placeholder={this.state.name} className="input"/>
                     </label>
-                    <div>
-                        <button onClick={this.closeForm}>Close</button>
-                        <input type="submit" value="Continue" />
+                    <div className="line"></div>
+                    <div className="nf-btn">
+                        <button onClick={this.closeForm} className="btns">Close</button>
+                        <input type="submit" value="Continue" onClick={this.handleEditSubmit} className="btns"/>
                     </div>
                 </form>
             </div>

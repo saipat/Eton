@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
         createNotebook: notebook => dispatch(createNotebook(notebook)),
         updateNotebook: notebook => dispatch(updateNotebook(notebook)),
         deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId)),
-        openModal: modal => dispatch(openModal(modal))
+        openModal: (modal,notebook) => dispatch(openModal(modal, notebook))
     });
 };
 

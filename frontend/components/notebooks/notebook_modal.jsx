@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateNotebookContainer from './create_notebook_container';
+import EditNotebookContainer from './edit_notebook_container';
 
 const Modal = ({modal}) => {
     if (!modal) {
@@ -7,11 +8,15 @@ const Modal = ({modal}) => {
     }
     
     let component;
-    
-    switch (modal) {
+    // console.log("modal>>>>>>>>>", modal);
 
+    switch (modal.modal) {
+        
         case 'createNotebook':
             component = <CreateNotebookContainer />;
+            break;
+        case 'editNotebook':
+            component = <EditNotebookContainer notebook={modal.notebook} />;
             break;
         default:
             return null;

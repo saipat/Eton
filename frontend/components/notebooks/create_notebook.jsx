@@ -7,29 +7,28 @@ class CreateNotebookForm extends React.Component{
         this.state = {
             name: ''
         };
-        console.log(this.state);
+        // console.log(this.state);
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.closeForm  =this.closeForm.bind(this);
     }
 
-    update(name) {
+    update() {
         return e => this.setState({
             name: e.currentTarget.value
         });
     }
-
+    
     closeForm(){
         this.props.closeModal();
     }
 
     handleSubmit(){
-        const notebook = {name: this.state.name, user_id: this.props.currentUser.id}
+        const notebook = {name: this.state.name, user_id: this.props.currentUser.id};
         this.props.createNotebook(notebook);
         this.closeForm();
     }
-
 
     render(){
         return (
@@ -43,7 +42,7 @@ class CreateNotebookForm extends React.Component{
                     <label>
                         Name
                         <br></br>
-                        <input type="text" value={this.state.name} onChange={this.update('name')} placeholder="Notebook name" className="input" />
+                        <input type="text" value={this.state.name} onChange={this.update()} placeholder="Notebook name" className="input" />
                     </label>
                     <div className="line"></div>
                     <div className="nf-btn">

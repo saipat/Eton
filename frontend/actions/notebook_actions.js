@@ -33,8 +33,8 @@ export const createNotebook = notebook => dispatch => (
     NotebookAPIUtil.createNotebook(notebook)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
-export const updateNotebook = id => dispatch => (
-    NotebookAPIUtil.updateNotebook(id)
+export const updateNotebook = notebook => dispatch => (
+    NotebookAPIUtil.updateNotebook(notebook)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
 export const deleteNotebook = notebookId => dispatch => (

@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchNotebook, updateNotebook } from '../../actions/notebook_actions';
-import EditNotebookForm from './create_notebook';
+import EditNotebookForm from './edit_notebook';
 import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    let notebookId = ownProps.match.params.notebookId;
-    let notebook = state.entities.notebooks[notebookId];
+   console.log("ownprops", ownProps);
     return ({
-        currentUser: state.entities.users[state.session.id],
-        notebook: notebook
+        currentUser: state.entities.users[state.session.id]
+        // notebook: state.entities.notebooks[state.entities.notebooks[currentUserId]]
     });
 };
 

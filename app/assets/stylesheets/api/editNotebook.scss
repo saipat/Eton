@@ -1,0 +1,73 @@
+.renameNotebook {
+    position: absolute;
+    background-color: white;
+    width: 42%;
+    height: 28%;
+    left: 30%;
+    top: 30%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    color: #777;
+}
+
+.e-form-top {
+    display: flex;
+    align-items: row;
+}
+
+
+.renameNotebook h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.e-close-btn {
+    background-color: white;
+    border: none;
+    margin-left: 9%;
+}
+
+.fa-close {
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.e-nb-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #7a8083;
+}
+
+.e-nb-form {
+    margin-left: 30px;
+}
+
+.input {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    z-index: 1;
+    width: 85%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: text;
+    text-rendering: auto;
+    padding-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ededed;
+    line-height: 2.5;
+}
