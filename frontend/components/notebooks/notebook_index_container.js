@@ -2,6 +2,7 @@ import { fetchNotebooks, fetchNotebook, createNotebook, updateNotebook, deleteNo
 import NotebookIndex from './notebook_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
     return ({
@@ -16,7 +17,8 @@ const mapDispatchToProps = dispatch => {
         fetchNotebook: id => dispatch(fetchNotebook(id)),
         createNotebook: notebook => dispatch(createNotebook(notebook)),
         updateNotebook: notebook => dispatch(updateNotebook(notebook)),
-        deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId))
+        deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId)),
+        openModal: modal => dispatch(openModal(modal))
     });
 };
 

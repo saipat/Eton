@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import SidebarContainer from './sidebar/sidebar_container';
+import NotebookModalContainer from './notebooks/notebook_modal_container';
 
 const App = () => (
     <div className="main">
@@ -15,6 +16,7 @@ const App = () => (
                 <ProtectedRoute path="/side" component={SidebarContainer} />
                 <Route path="/" component={GreetingContainer} />
             </Switch>
+            <NotebookModalContainer />
         </div>
 
     </div>

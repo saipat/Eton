@@ -62,7 +62,6 @@ thead {
    background: #f8f8f8;
    font-size: 12px;
    line-height: 40px;
- 
    color: #b3b3b3;
 }
 
@@ -75,32 +74,72 @@ thead {
 }
 
 .title{
-    width: 38%;
+    width: 28%;
     text-align: left;
     padding-left: 10px;
 }
 th{
-   margin-right: 30px;
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     text-rendering: optimizeLegibility;
 }
 
 .nb-name{
-    width: 46%;
+    width:38%;
+}
+
+.nb-name0{
+    width: 60%;
 }
 
 .nb-create{
-    width: 13%;
-}
-
-.nb-update{
     width: 16%;
 }
 
-.np-only{
-    width: 18%;
+.nb-update{
+    width: 19%;
 }
 
-.list-name{
+.nb-only{
+    width: 14%;   
+}
+
+.nb-name,
+.nb-create,
+.nb-update,
+.nb-only {
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.nb-create,
+.nb-update,
+.nb-only{
+    color: #777;
+}
+
+.list-name, {
     color: #ccc;
+}
+
+.nb-u button{
+    background-color: white;
+    border: none;
+    padding-left: 50px; 
+}
+
+.nb-name .fa-caret-right{
+    color: #777;
+}
+
+
+.w3-border{
+    box-shadow: 0 0 0 1px rgba(99, 114, 130, .16),
+    0 4px 12px rgba(27, 39, 51, .08);
+    text-align: left;
+    list-style: none;
+    border-radius: 3px;
+    color: #666;
+    font-size: 14px;
+    left: 86%;
 }

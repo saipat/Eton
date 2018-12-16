@@ -9,10 +9,16 @@ class NotebookIndex extends React.Component{
             currentUser: this.props.currentUser
         };
 
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchNotebooks();
+    }
+
+    handleClick(){
+        console.log(this.props.openModal.toString());
+        this.props.openModal('createNotebook');
     }
 
     render() {
@@ -26,11 +32,10 @@ class NotebookIndex extends React.Component{
         });
         return (
           <div className="notebook-container">
-
             <h2>Notebooks</h2>
             <div className="nb-navbar">
                 <p>My notebook list</p>
-                <button className="move-center"><i className="fa fa-book"></i>
+                <button className="move-center" onClick={this.handleClick}><i className="fa fa-book"></i>
                 New Notebook</button>
                 <button className="move-right"><i className="fa fa-sort-amount-desc"></i></button>
             </div>
@@ -44,6 +49,7 @@ class NotebookIndex extends React.Component{
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
+               
             </table>
                 
             {lists}

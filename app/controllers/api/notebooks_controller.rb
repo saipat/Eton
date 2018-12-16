@@ -1,4 +1,8 @@
 class Api::NotebooksController < ApplicationController
+    def new
+        @notebook = Notebook.new
+    end
+    
     def create
         @notebook = Notebook.new(notebook_params)
         if @notebook.save
