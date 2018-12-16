@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy, :show]
 
-    # resources :notes, only: [:new, :create, :index, :show, :update, :destroy]
+    resources :notes
 
     resources :notebooks, only: [:create, :index, :show, :update, :destroy] do
-      # resources :notes, only: [:index]
+      resources :notes, only: [:index]
     end
 
 

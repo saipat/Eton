@@ -5,9 +5,7 @@ import {
 } from '../actions/notebook_actions';
 import { merge } from 'lodash';
 
-const notebookReducer = (state = {
-        
-    }, action) => {
+const notebookReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch(action.type){

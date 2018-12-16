@@ -11,10 +11,10 @@
 #  updated_at     :datetime         not null
 #
 
-require 'test_helper'
+class Note < ApplicationRecord
+    validates :title, :notebook_id, presence: true
 
-class NoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    belongs_to :notebook,
+        foreign_key: :notebook_id,
+        class_name: 'Notebook'
 end
