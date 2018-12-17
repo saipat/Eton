@@ -1,3 +1,6 @@
+.main{
+    background-color: #f7f7f7;
+}
 
 .nav-bar {
     display: flex;
@@ -127,6 +130,108 @@
     -webkit-font-smoothing: antialiased;
     letter-spacing: 1.5px;
 }
+
+.below-bg{
+    background-color: #f7f7f7;
+    height: auto;
+}
+
+.brain-img{
+    width: 12%;
+    height: 12%;
+    display: block;
+    margin: 6% auto;
+}
+
+.below-bg h1{
+    font-family: "Soleil_Light", Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    line-height: 64px;
+    margin-left:  30%;
+    
+}
+
+.below-brain{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 20%;
+}
+
+.brain-div {
+    color: #888b8d;
+    font-family: "Soleil_Light", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    line-height: 2;
+    margin-top: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    width: 77%;
+    margin-top: 14%;
+    margin-left: 17%;
+}
+
+.div1{
+    margin-top: 32px;
+}
+
+.div3 {
+    margin-right: 10px;
+}
+
+.steps-img{
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+    height: 10%;
+    padding-top: 8%;
+}
+
+.steps-div{
+    margin-top: 20px;
+    background-color: white;
+}
+
+.steps-div h1{
+    font-family: "Soleil_Light", Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    line-height: 64px;
+    text-align: center;
+    margin-top: 3%;
+}
+.steps-div h2{
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0 auto;
+    max-width: 800px;
+    width: auto;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.footer-row{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding-left: 8%;
+    padding-top: 30px;
+}
+
+.footer-row p {
+    text-decoration: none;
+    color: #000;
+    transition: .1s color ease-in-out;
+    font-family: "Soleil_Bold", Helvetica,Arial, sans-serif;
+}
+
+.footer-image{
+    width: 20%;
+    height: 20%;
+    display: block;
+    margin: 0 auto;
+    margin-left: 56%;
+}
+
 
 @media only screen and (max-width: 1068px) {
 

@@ -1,13 +1,15 @@
 import React from 'react';
 
 
-class NotebookIndex extends React.Component {
+class NoteIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showMessage: this.props.notes.length === 0
         };
         this.closeButton = this.closeButton.bind(this);
+        console.log("inside constructor in NotIndex_---", this.props.notes);
+        
     }
 
     closeButton(){
@@ -17,6 +19,9 @@ class NotebookIndex extends React.Component {
     }
 
     render() {
+        // debugger
+        console.log("inside render in NoteIndex -------", this.props.notes);
+        
         let notes = this.props.notes.map( note => {
             <NoteIndexItem 
                 key={note.title}
@@ -53,4 +58,4 @@ class NotebookIndex extends React.Component {
 
 }
 
-export default NotebookIndex;
+export default NoteIndex;

@@ -4,6 +4,7 @@ import NoteIndexContainer from '../notes/note_index_container';
 import NotebookDropdown from './notebook_dropdown'; 
 import NoteEditorContainer from '../notes/note_editor_container';
 import { logout } from '../../actions/session_actions';
+import NoteIndexItem from '../notes/note_index_item';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -14,14 +15,22 @@ class Sidebar extends React.Component {
             logout: this.props.logout,
             showMenu: false,
             showNotebooks: false,
-            showEditor: false
+            showEditor: false,
+            showNotes: false,
+            // notes: this.props.notes,
+            notes: [{titel: 'note 1'}],
+            notebooks: this.props.notebooks
         };
+
+        
+        
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.createNewNote = this.createNewNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
+        this.showNotesClick = this.showNotesClick.bind(this);
     }
 
     componentDidMount() {
@@ -69,11 +78,28 @@ class Sidebar extends React.Component {
 
     }
 
+    showNotesClick() {
+        this.setState({
+            showNotes: true
+        });
+        console.log("this.props.fetchNotes()");
+        
+        // this.props.fetchNotes();
+    }
+
     render() {
+        console.log("Inside render in Sidebar ------", this.state.notes);
+
         if (this.props.notebooks === undefined) {
             return null;
         }
         const notebooks = Object.values(this.props.notebooks);
+
+        // let displayNotes;
+        // if(this.state.showNotes){
+        //     debugger
+        //     displayNotes = <NoteIndexItem notes={this.state.notes} />;
+        // }
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -93,7 +119,7 @@ class Sidebar extends React.Component {
                    </div>
                     <div className="divs">
                         <button className="all-notes-btn">
-                            <i className="fa fa fa-bookmark-o"></i>All Notes
+                            <i className="fa fa fa-bookmark-o" onClick={this.showNotesClick}></i>All Notes
                         </button>
                    </div>
 
@@ -111,7 +137,7 @@ class Sidebar extends React.Component {
                                     }}
                                     >
                                     
-                                     <NotebookDropdown notebooks={notebooks} />
+                                     <NotebookDropdown notebooks={notebooks} notes={this.state.notes}/>
                                     
                                 </ul>
                             ) : ( null ) 
@@ -135,7 +161,9 @@ class Sidebar extends React.Component {
 
                 { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
                         <div className="notes">
-                            <NoteIndexContainer />
+                           { console.log("*****", this.state.notes) }
+                            
+                            <NoteIndexContainer notes={this.state.notes} />
                         </div>
                     {   this.state.showEditor ? 
                             <NoteEditorContainer/> 

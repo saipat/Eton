@@ -9,7 +9,7 @@ class NotebookIndexItem extends React.Component{
         this.state = {
             notebook: this.props.notebook
         };
-        console.log("inside index item-----", this.state);
+        // console.log("inside index item-----", this.state);
         
         this.myFunction = this.myFunction.bind(this);
         this.handleClick = this.handleClick.bind(this);

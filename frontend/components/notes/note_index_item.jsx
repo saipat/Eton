@@ -1,13 +1,13 @@
 import React from 'react';
 
-class NoteIndexItem extends reacts.Component {
+class NoteIndexItem extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            "note1"
+           <h2>note 1</h2>
         );
     }
 }

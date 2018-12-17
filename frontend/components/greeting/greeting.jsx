@@ -19,6 +19,7 @@ class Greeting extends React.Component {
     noUser(){
         return (
             <div>
+            <div className="main">
                 <div className="nav-bar">
                     <div className="nav-left">
                         <img src={window.etonLogoURL} alt="eton_logo" className="eton-logo" />
@@ -38,10 +39,31 @@ class Greeting extends React.Component {
                         <p>Evernote helps you capture and prioritize ideas, projects, and to-do lists, so nothing falls through the cracks.</p>
                         <button className="home-btn">Sign up for free</button>
                     </div>
-                    <div>
-                        
+                </div>
+                <div className="below-bg">
+                    <img src={window.brainURL} alt="brain image" className="brain-img" />
+                    <h1>Focus on what matters most</h1>
+                </div>
+                <div className="below-brain">
+                    <div className="div1 brain-div">
+                        <p>Manage everything from big projects to personal moments.</p>
                     </div>
-
+                    <div className="div2 brain-div">
+                        Capture ideas and inspiration in notes, voice, and pictures.
+                    </div>
+                    <div className="div3 brain-div">
+                        Never lose track of your tasks and deadlines.
+                    </div>
+                </div>
+            </div>
+                <div className="steps-div">
+                    <img src={window.stepsURL} alt="steps image" className="steps-img"/>
+                    <h1>At work, at home, and everywhere in between</h1>
+                    <h2>Evernote’s plans and pricing are designed to fit your needs.</h2>
+                </div>
+                <div className="footer-row">
+                        <p>Choose a language: English<i className="fa fa-caret-down"></i></p>
+                        <img src={window.footerURL} alt="footer image" className="footer-image"></img>
                 </div>
             </div>
         )

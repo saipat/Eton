@@ -5,5 +5,39 @@
 }
 
 .e-div-top{
-    margin-left: 90%;
+    margin-left: 78%;
+    display: flex;
+    align-items: right;
+}
+
+.e-form{
+    margin-left: 30px;
+}
+
+.footer{
+    height: 50px;
+    border-top: 1px solid #ececec;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 65%;
+}
+
+.footer-form{
+    display: flex;
+    align-items: left;
+}
+
+.e-tag{
+    background-color: white;
+    border: none;
+    color: #777;
+}
+
+.e-input{
+    background-color: white;
+    border: none;
+    box-shadow: none;
 }
