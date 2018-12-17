@@ -1,4 +1,4 @@
-import * as NoteAPIUtil from '../util/notes_api_util';
+import * as NoteAPIUtil from '../util/note_api_util';
 
 export const RECEIVE_NOTES = "RECEIVE_NOTES";
 export const RECEIVE_NOTE = "RECEIVE_NOTE";

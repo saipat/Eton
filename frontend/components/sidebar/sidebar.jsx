@@ -1,5 +1,6 @@
 import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
+import NoteIndexContainer from '../notes/note_index_container';
 import NotebookDropdown from './notebook_dropdown'; 
 import { logout } from '../../actions/session_actions';
 
@@ -43,6 +44,7 @@ class Sidebar extends React.Component {
         event.preventDefault();
         this.showMenu(event);
         this.showNotebooks();
+        
     }
 
     showNotebooks(){
@@ -114,9 +116,19 @@ class Sidebar extends React.Component {
                         <button className="signout-btn" onClick={this.props.logout}><i className="fa fa-sign-out"></i>Sign Out</button>
                     </div> 
                 </div>
-                <div>
-                    <NotebookIndexContainer />
+
+                {this.state.showNotebooks ? <div className="notbook-grid"><NotebookIndexContainer /></div> : <div className="note-grid">
+                    <div className="notes-grid">
+                        <NoteIndexContainer />
+                    </div>
+                    <div className="editor">
+
+                    </div>
                 </div>
+            }
+
+                
+               
             </div>
             
         )
