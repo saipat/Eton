@@ -7,6 +7,7 @@ import Sidebar from './sidebar';
 const mapStateToProps = state => {
     return ({
         notebooks: Object.values(state.entities.notebooks),
+        notes: Object.values(state.entities.notebooks),
         currentUser: state.entities.users[state.session.id]
     });
 };
@@ -15,6 +16,7 @@ const mapDispatchToProps = dispatch => {
     return ({
         fetchNotebooks: () => dispatch(fetchNotebooks()),
         fetchNotebook: id => dispatch(fetchNotebook(id)),
+        createNote: note => dispatch(createNote(note)),
         logout: () => dispatch(logout())
     });
 };

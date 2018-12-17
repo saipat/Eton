@@ -12,12 +12,15 @@ class Sidebar extends React.Component {
             currentUser: this.props.currentUser,
             logout: this.props.logout,
             showMenu: false,
-            showNotebooks: false
+            showNotebooks: false,
+            showEditor: false
         };
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.createNewNote = this.createNewNote.bind(this);
+        this.saveNote = this.saveNote.bind(this);
     }
 
     componentDidMount() {
@@ -43,14 +46,26 @@ class Sidebar extends React.Component {
     handleSubmit(event){
         event.preventDefault();
         this.showMenu(event);
-        this.showNotebooks();
-        
+        this.showNotebooks(); 
     }
 
     showNotebooks(){
         this.setState({
             showNotebooks: true
         });
+    }
+
+    createNewNote() {
+        this.setState({
+            showEditor: true
+        });
+        this.setState({
+            showNotebooks: false
+        });
+    }
+
+    saveNote() {
+        
     }
 
     render() {
@@ -70,7 +85,7 @@ class Sidebar extends React.Component {
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
                     </form>
                     <div className="new-btn">
-                        <button className="new-note"><i className="fa fa-plus"></i>New Note</button>
+                        <button className="new-note" onClick={this.createNewNote}><i className="fa fa-plus"></i>New Note</button>
                     </div>
                     <div className="divs">
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
@@ -85,7 +100,7 @@ class Sidebar extends React.Component {
                         <button className="button-dropdown" onClick={this.handleSubmit}>
                             <i className="fa fa-caret-right"></i>
                             <i className="fa fa-book"></i>
-                             Notebook
+                             Notebooks
                          </button>
                         {
                             this.state.showMenu ? 
@@ -117,17 +132,25 @@ class Sidebar extends React.Component {
                     </div> 
                 </div>
 
-                {this.state.showNotebooks ? <div className="notbook-grid"><NotebookIndexContainer /></div> : <div className="note-grid">
-                    <div className="notes-grid">
-                        <NoteIndexContainer />
+                { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
+                        <div className="notes">
+                            <NoteIndexContainer />
+                        </div>
+                    {   this.state.showEditor ? 
+                            (<div className="editor">
+                                <button onClick={this.saveNote}>Save</button>
+                                <form>
+                                    <input type="text"></input>
+                                </form>
+                                <textarea placeholder="Type notes content in here"></textarea>
+                            </div> )
+                             : 
+                            <div></div>
+                        
+                    }
+                     
                     </div>
-                    <div className="editor">
-
-                    </div>
-                </div>
-            }
-
-                
+                }
                
             </div>
             
