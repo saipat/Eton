@@ -2,6 +2,7 @@ import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
 import NoteIndexContainer from '../notes/note_index_container';
 import NotebookDropdown from './notebook_dropdown'; 
+import NoteEditorContainer from '../notes/note_editor_container';
 import { logout } from '../../actions/session_actions';
 
 class Sidebar extends React.Component {
@@ -65,7 +66,7 @@ class Sidebar extends React.Component {
     }
 
     saveNote() {
-        
+
     }
 
     render() {
@@ -137,13 +138,7 @@ class Sidebar extends React.Component {
                             <NoteIndexContainer />
                         </div>
                     {   this.state.showEditor ? 
-                            (<div className="editor">
-                                <button onClick={this.saveNote}>Save</button>
-                                <form>
-                                    <input type="text"></input>
-                                </form>
-                                <textarea placeholder="Type notes content in here"></textarea>
-                            </div> )
+                            <NoteEditorContainer/> 
                              : 
                             <div></div>
                         
