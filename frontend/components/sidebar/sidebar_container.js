@@ -6,6 +6,7 @@ import { fetchNotes, createNote } from '../../actions/note_actions';
 import Sidebar from './sidebar';
 
 const mapStateToProps = state => {
+    
     return ({
         notebooks: Object.values(state.entities.notebooks),
         notes: Object.values(state.entities.notes),

@@ -1,4 +1,5 @@
 import React from 'react';
+import NoteIndexItem from './note_index_item';
 
 
 class NoteIndex extends React.Component {
@@ -8,7 +9,7 @@ class NoteIndex extends React.Component {
             showMessage: this.props.notes.length === 0
         };
         this.closeButton = this.closeButton.bind(this);
-        console.log("inside constructor in NotIndex_---", this.props.notes);
+        console.log("inside constructor in NotIndex -----", this.props.notes);
         
     }
 
@@ -22,13 +23,13 @@ class NoteIndex extends React.Component {
         // debugger
         console.log("inside render in NoteIndex -------", this.props.notes);
         
-        let notes = this.props.notes.map( note => {
+        let notes = this.props.notes.map( note => (
             <NoteIndexItem 
                 key={note.title}
                 note={note}
             />
-        });
-
+    ));
+        // debugger
         let notes_length = notes.length;
 
         if(this.state.showMessage) {

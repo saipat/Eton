@@ -5,8 +5,22 @@ class NoteEditor extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+       
+                title: '', 
+                plain_txt_body: '',
+                rich_txt_body: ''
+        
+        };
+        console.log("inside noteEditor constructor, this.state.note =>", this.state);
+        console.log("inside noteEditor constructor, this.state.note.title =>", this.state.title);
+        console.log("what is props/", this.props);
+        
+        
         this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
+        this.updateTitle = this.updateTitle.bind(this);
+        this.updateBody = this.updateBody.bind(this);
     }
 
     deleteNote() {
@@ -14,7 +28,27 @@ class NoteEditor extends React.Component{
     }
 
     saveNote() {
+        console.log("clicked Save!!!");
+        console.log(this.state.note);
+        
+        this.props.createNote(this.state);
+        this.updateTitle();
+        this.updateBody();
+    }
 
+    updateTitle(){
+        console.log(this.state);
+        
+        return e => this.setState({
+            title: e.currentTarget.value
+        });
+    }
+
+    updateBody() {
+        return e => this.setState({
+            plain_txt_body: e.currentTarget.value ,
+           rich_txt_body: e.currentTarget.value
+        });
     }
 
     render(){
@@ -23,14 +57,15 @@ class NoteEditor extends React.Component{
                 <form className="e-form">
                     <div className="e-div-top">
                         <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
-                        <button onClick={this.saveNote}className="e-save" onClick={this.saveNote}>Save</button>
+                        <button onClick={this.saveNote} className="e-save" >Save</button>
                     </div>
                
-                    <input type="text" placeholder="Note Title"></input>
+                    <input type="text" placeholder="Note Title" onChange={this.updateTitle()} value={this.state.title}/>
+                    
                     <br></br>
                     <br></br>
                     <br></br>
-                    <textarea placeholder="Type notes content in here" ></textarea>
+                    <textarea placeholder="Type notes content in here" onChange={this.updateBody()} value={this.state.plain_txt_body}></textarea>
                 </form>
                     <div className="footer">
                     <form className="footer-form">

@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 
-const mapStateToProps = (state, ownParams) => {
-    let notebookId = ownParams.match.params.notebookId;
+const mapStateToProps = (state, ownProps) => {
+    let notebookId = ownProps.match.params.notebookId;
     let notebook = state.entities.notebooks[notebookId];
+    let noteId = ownProps.match.params.noteId;
+    let note = state.entities.notes[noteId];
     return ({
-        notebook
+        notebook, 
+        note
         // currentUser: state.entities.users[state.session.id]
     });
 };

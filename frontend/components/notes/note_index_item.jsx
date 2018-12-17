@@ -3,11 +3,18 @@ import React from 'react';
 class NoteIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        
+        // console.log("inside NoteIndexItem -------", this.props);
     }
 
     render() {
         return (
-           <h2>note 1</h2>
+            <div>
+                <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
+                <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
+                <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
+            </div>
+           
         );
     }
 }

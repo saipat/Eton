@@ -19,7 +19,7 @@ class NotebookDropdown extends React.Component {
     }
 
     render(){
-        console.log("Inside dropdown -------", this.state);
+        // console.log("Inside dropdown -------", this.state);
         let lists = this.state.notebooks.map((notebook) => {
             return (
 

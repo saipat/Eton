@@ -18,8 +18,7 @@ class Sidebar extends React.Component {
             showEditor: false,
             showNotes: false,
             // notes: this.props.notes,
-            notes: [{titel: 'note 1'}],
-            notebooks: this.props.notebooks
+            // notes: [{title: 'note 1'}]
         };
 
         
@@ -31,10 +30,12 @@ class Sidebar extends React.Component {
         this.createNewNote = this.createNewNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.showNotesClick = this.showNotesClick.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchNotebooks();
+        this.props.fetchNotes();
     }
 
     showMenu(event) {
@@ -79,16 +80,27 @@ class Sidebar extends React.Component {
     }
 
     showNotesClick() {
-        this.setState({
-            showNotes: true
-        });
-        console.log("this.props.fetchNotes()");
+        console.log("I clicked u!!!!");
+        console.log(this.props.notes);
         
+        this.setState({
+            showNotes: true,
+            showNotebooks: false
+        });
+        // console.log("this.props.fetchNotes()");
         // this.props.fetchNotes();
     }
 
+    logoutUser() {
+        return (e) => {
+            e.preventDefault();
+            this.props.logout();
+            this.props.history.push('/');
+        };
+    }
+
     render() {
-        console.log("Inside render in Sidebar ------", this.state.notes);
+        console.log("Inside render in Sidebar ------", this.props.notes);
 
         if (this.props.notebooks === undefined) {
             return null;
@@ -118,8 +130,8 @@ class Sidebar extends React.Component {
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
                    </div>
                     <div className="divs">
-                        <button className="all-notes-btn">
-                            <i className="fa fa fa-bookmark-o" onClick={this.showNotesClick}></i>All Notes
+                        <button className="all-notes-btn" onClick={this.showNotesClick}>
+                            <i className="fa fa fa-bookmark-o" ></i>All Notes
                         </button>
                    </div>
 
@@ -137,7 +149,7 @@ class Sidebar extends React.Component {
                                     }}
                                     >
                                     
-                                     <NotebookDropdown notebooks={notebooks} notes={this.state.notes}/>
+                                     <NotebookDropdown notebooks={notebooks} notes={this.props.notes}/>
                                     
                                 </ul>
                             ) : ( null ) 
@@ -155,18 +167,17 @@ class Sidebar extends React.Component {
                         </button>
                     </div>
                     <div>
-                        <button className="signout-btn" onClick={this.props.logout}><i className="fa fa-sign-out"></i>Sign Out</button>
+                        <button className="signout-btn" onClick={this.logoutUser()}><i className="fa fa-sign-out"></i>Sign Out</button>
                     </div> 
                 </div>
 
                 { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
+                        {this.state.showNotes}
                         <div className="notes">
-                           { console.log("*****", this.state.notes) }
-                            
-                            <NoteIndexContainer notes={this.state.notes} />
+                            <NoteIndexContainer notes={this.props.notes} />
                         </div>
                     {   this.state.showEditor ? 
-                            <NoteEditorContainer/> 
+                            <NoteEditorContainer notes={this.props.notes} notebooks={this.props.notebooks}/> 
                              : 
                             <div></div>
                         

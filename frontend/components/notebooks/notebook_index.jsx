@@ -16,6 +16,10 @@ class NotebookIndex extends React.Component{
         this.props.fetchNotebooks();
     }
 
+    componentDidUpdate(){
+        this.props.fetchNotebooks();
+    }
+
     handleClick(){
         // console.log("inside index --------", this.props);
         this.props.openModal('createNotebook');

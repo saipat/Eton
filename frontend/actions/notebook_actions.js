@@ -14,9 +14,9 @@ const receiveNotebook = notebook => ({
     notebook
 });
 
-const removeNotebooks = notebookId => ({
+const removeNotebooks = notebook => ({
     type: REMOVE_NOTEBOOK,
-    notebookId
+    notebook
 });
 
 export const fetchNotebooks = () => dispatch => (
@@ -39,5 +39,5 @@ export const updateNotebook = notebook => dispatch => (
 );
 export const deleteNotebook = notebookId => dispatch => (
     NotebookAPIUtil.deleteNotebook(notebookId)
-    .then(notebookId => dispatch(removeNotebooks(notebookId)))
+    .then(notebook => dispatch(removeNotebooks(notebook)))
 );

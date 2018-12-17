@@ -11,11 +11,12 @@ const App = () => (
     <div className="main">
         <div>
             <NotebookModalContainer />
+                <ProtectedRoute path="/" component={SidebarContainer} />
             <Switch>
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
-                <ProtectedRoute exact path="/side" component={SidebarContainer} />
                 <Route exact path="/" component={GreetingContainer} />
+                <Redirect to="/" component={GreetingContainer} />
             </Switch>
         </div>
 
