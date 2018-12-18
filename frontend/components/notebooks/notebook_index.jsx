@@ -17,7 +17,8 @@ class NotebookIndex extends React.Component{
     // }
 
     componentDidUpdate(){
-        this.props.fetchNotebooks();
+        //need condition
+        // this.props.fetchNotebooks(_____);
     }
 
     handleClick(){

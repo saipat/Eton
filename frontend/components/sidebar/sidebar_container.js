@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     return ({
         fetchNotebooks: () => dispatch(fetchNotebooks()),
         fetchNotebook: id => dispatch(fetchNotebook(id)),
-        createNote: note => dispatch(createNote(note)),
+        createNote: (note, notebookId) => dispatch(createNote(note, notebookId)),
         fetchNotes: () => dispatch(fetchNotes()),
         logout: () => dispatch(logout())
     });

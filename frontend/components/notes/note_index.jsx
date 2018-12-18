@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item';
+import NoteEditorContainer from './note_editor_container';
 
 
 class NoteIndex extends React.Component {
@@ -8,20 +9,27 @@ class NoteIndex extends React.Component {
 
         // notebook:this.props.notebook
         this.state = {
-            showMessage: this.props.notes.length === 0
+            showMessage: this.props.notes.length === 0,
+            selectedNote: null
         };
+
         this.closeButton = this.closeButton.bind(this);
+        this.setSelectedNote= this.setSelectedNote.bind(this);
         // console.log("inside constructor in NoteIndex -----", this.props);
         
     }
 
+    setSelectedNote(notebook) {
+        this.setState({ selectedNote: note });
+    }
+
     componentDidMount(){
-        if(this.props.selectedNotebook){
-            this.props.fetchNotes(this.props.selectedNotebook.id);
-        }
-        else{
+        // if(this.props.selectedNotebook){
+            // this.props.fetchNotes(this.props.match.params.notebookId);
+        // }
+        // else{
             this.props.fetchNotes();
-        }
+        // }
     }
 
     closeButton(){
@@ -32,12 +40,13 @@ class NoteIndex extends React.Component {
 
     render() {
         // debugger
-        console.log("inside render in NoteIndex -------", this.props.notes);
-        
+        // console.log("inside render in NoteIndex -------", this.props.notes);
+        console.log("note_index line 43")
         let notes = this.props.notes.map( note => (
             <NoteIndexItem 
                 key={note.id}
                 note={note}
+                setSelectedNote={this.setSelectedNote}
             />
     ));
         // debugger
@@ -54,16 +63,21 @@ class NoteIndex extends React.Component {
         }
 
         return(
-            <div className="notes-index">
-                <h2>All Notes</h2>
-                <div className="header">
-                    <span className="notes-count">{notes_length} Notes</span>
-                    <div className="header-btns">
-                        <button><i className="fa fa-sort-amount-desc"></i></button>
-                        <button><i className="fa fa-tag"></i></button>
+            <div>
+                <div className="notes-index">
+                    <h2>All Notes</h2>
+                    <div className="header">
+                        <span className="notes-count">{notes_length} Notes</span>
+                        <div className="header-btns">
+                            <button><i className="fa fa-sort-amount-desc"></i></button>
+                            <button><i className="fa fa-tag"></i></button>
+                        </div>
                     </div>
+                    { notes } 
                 </div>
-                { notes } 
+                <div>
+                    <NoteEditorContainer />
+                </div>
             </div>
         );
     }

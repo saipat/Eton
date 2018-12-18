@@ -1,7 +1,10 @@
 .grid-container{
-     display: grid;
+    display: grid;
+    // align-items: row;
+    height: 920px;
      grid-template-columns: 20% auto;
-     grid-template-rows: 800px;
+    //  grid-template-rows: 800px;
+
 }
 
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
 import NoteIndexContainer from '../notes/note_index_container';
-import NotebookDropdown from './notebook_dropdown'; 
+import NotebookDropdownContainer from './notebook_dropdown_container'; 
 import NoteEditorContainer from '../notes/note_editor_container';
 import { logout } from '../../actions/session_actions';
 import NoteIndexItem from '../notes/note_index_item';
+import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -17,16 +18,18 @@ class Sidebar extends React.Component {
             showNotebooks: false,
             showEditor: false,
             showNotes: false,
-            // notes: this.props.notes,
             notes: [{title: 'note 1'}, [{title: ""}]],
-            selectedNotebook: null
+            // selectedNotebook: null
         };
 
-        this.props.notebooks.forEach((notetbook) => {
-            if (notebook.title === '<inbox>'){
-                this.state.selectedNotebook = notebook;
-            }
-        });
+        // this.props.notebooks.forEach((notetbook) => {
+        //     if (notebook.title === '<inbox>'){
+        //         this.state.selectedNotebook = notebook;
+        //     }
+        // });
+
+        // console.log("inside sidebar constructor----", this.props);
+        
         
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
@@ -104,7 +107,7 @@ class Sidebar extends React.Component {
     }
 
     render() {
-        console.log("Inside render in Sidebar ------", this.props.notes);
+        // console.log("Inside render in Sidebar ------", this.props.notes);
 
         if (this.props.notebooks === undefined) {
             return null;
@@ -127,16 +130,16 @@ class Sidebar extends React.Component {
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
                    </div>
                     <div className="divs">
-                        <button className="all-notes-btn" onClick={this.showNotesClick}>
-                            <i className="fa fa fa-bookmark-o" ></i>All Notes
-                        </button>
+                        <Link to="/notes"><i className="fa fa fa-bookmark-o"></i>
+                            All Notes
+                        </Link>
                    </div>
 
                     <div className="divs">
                         <button className="button-dropdown" onClick={this.handleSubmit}>
                             <i className="fa fa-caret-right"></i>
                             <i className="fa fa-book"></i>
-                             Notebooks
+                            <Link to="/notebooks">Notebooks</Link>
                          </button>
                         {
                             this.state.showMenu ? 
@@ -146,7 +149,7 @@ class Sidebar extends React.Component {
                                     }}
                                     >
                                     
-                                     <NotebookDropdown notebooks={this.props.notebooks} notes={this.props.notes} setSelectedNotebook={this.setSelectedNotebook} />
+                                     <NotebookDropdownContainer />
                                     
                                 </ul>
                             ) : ( null ) 
@@ -168,20 +171,7 @@ class Sidebar extends React.Component {
                     </div> 
                 </div>
 
-                { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
-                       
-                        <div className="notes">
-                        <NoteIndexContainer notes={this.state.notes} selectedNotebook={this.state.selectedNotebook} />
-                        </div>
-                    {   this.state.showEditor ? 
-                            <NoteEditorContainer notes={this.props.notes} selectedNotebook={this.state.selectedNotebook} /> 
-                             : 
-                            <div></div>
-                        
-                    }
-                     
-                    </div>
-                }
+                 
                
             </div>
             

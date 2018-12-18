@@ -1,8 +1,7 @@
 import {
     RECEIVE_NOTEBOOKS,
     RECEIVE_NOTEBOOK,
-    REMOVE_NOTEBOOK,
-    CURRENT_NOTEBOOK
+    REMOVE_NOTEBOOK
 } from '../actions/notebook_actions';
 import { merge } from 'lodash';
 import { LOGOUT_USER
@@ -34,8 +33,6 @@ const notebookReducer = (state = {}, action) => {
             let newState = merge({}, state);
             delete newState[action.notebook.id];
             return newState;
-        case CURRENT_NOTEBOOK:
-            return action.currentNotebookId;
         case LOGOUT_USER:
             return {};
         default:

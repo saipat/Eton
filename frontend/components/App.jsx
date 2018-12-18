@@ -8,16 +8,19 @@ import SidebarContainer from './sidebar/sidebar_container';
 import NotebookModalContainer from './notebooks/notebook_modal_container';
 import NoteIndexContainer from './notes/note_index_container';
 
+
 const App = () => (
     <div className="main">
         <div>
             <NotebookModalContainer />
-                <ProtectedRoute path="/" component={SidebarContainer} />
+            <ProtectedRoute path="/" component={SidebarContainer} />
             <Switch>
+                <ProtectedRoute path="notebook/:notebookId/notes" component={NoteIndexContainer} />
+                <ProtectedRoute path="/notes" component={NoteIndexContainer}/>
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <Route exact path="/" component={GreetingContainer} />
-                <Redirect to="/" component={GreetingContainer} />
+                {/* <Redirect to="/" component={GreetingContainer} /> */}
             </Switch>
         </div>
 
