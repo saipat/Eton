@@ -15,8 +15,19 @@ class Api::NotesController < ApplicationController
             notebook = current_user.notebooks.where(id: params[:notebook_id])
             @notes = notebook ? notebook.notes : []
         else
-            @notes = current_user.notebooks
+            current_user.notebooks.each do |notebook|
+                if (!notebook.notes.empty?)
+                    # puts notebook.notes.length 
+                    @notes.push(notebook.notes)
+                else
+                    puts "Empty Notes for " + notebook.name
+                end
+            end
+            # puts "i am rails"
+            # puts @notes
+            @notes
         end
+        @notes
     end
 
     def show

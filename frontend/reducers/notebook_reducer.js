@@ -14,19 +14,19 @@ const notebookReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_NOTEBOOKS:
             let obj = {};
-            let input = {   notebook: {
-                    id: 1,
-                    name: '<inbox>', 
-                    created_at: '',
-                    updated_at: ''
-                }
-            };
-
+            // let inbox = {   notebook: {
+            //         id: 1,
+            //         name: '<inbox>', 
+            //         created_at: '',
+            //         updated_at: ''
+            //     }
+            // };
+            
             action.notebooks.forEach((notebook) => {
                 obj[notebook.id] = notebook;
             });
 
-            return merge( {}, state, input, obj);
+            return merge( {}, state, obj);
             
         case RECEIVE_NOTEBOOK:
             return merge({}, state, {[action.notebook.id]: action.notebook});

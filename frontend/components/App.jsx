@@ -6,6 +6,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import SidebarContainer from './sidebar/sidebar_container';
 import NotebookModalContainer from './notebooks/notebook_modal_container';
+import NoteIndexContainer from './notes/note_index_container';
 
 const App = () => (
     <div className="main">
@@ -15,8 +16,8 @@ const App = () => (
             <Switch>
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
-                <Route exact path="/" component={GreetingContainer} />
-                <Redirect to="/" component={GreetingContainer} />
+                <Route exact path="/home" component={GreetingContainer} />
+                <Redirect to="/home" component={GreetingContainer} />
             </Switch>
         </div>
 

@@ -25,7 +25,19 @@ notebook2 = Notebook.create!(
   user_id: demo1.id
 )
 
-# defaultNotebook = Notebook.create!(
-#   name: '<input>',
+defaultNotebook = Notebook.create!(
+  name: '<inbox>',
+  user_id: demo1.id
+)
 
-# )
+note1 = Note.create!(
+  title: 'foxy',
+  notebook_id: notebook1.id,
+  plain_txt_body: 'hi how are you?',
+)
+
+note2 = Note.create!(
+  title: 'default note',
+  notebook_id: defaultNotebook.id,
+  plain_txt_body: 'I am in default note book',
+)

@@ -5,12 +5,23 @@ import NoteIndexItem from './note_index_item';
 class NoteIndex extends React.Component {
     constructor(props) {
         super(props);
+
+        // notebook:this.props.notebook
         this.state = {
             showMessage: this.props.notes.length === 0
         };
         this.closeButton = this.closeButton.bind(this);
-        console.log("inside constructor in NoteIndex -----", this.props.notes);
+        // console.log("inside constructor in NoteIndex -----", this.props);
         
+    }
+
+    componentDidMount(){
+        if(this.props.selectedNotebook){
+            this.props.fetchNotes(this.props.selectedNotebook.id);
+        }
+        else{
+            this.props.fetchNotes();
+        }
     }
 
     closeButton(){
@@ -25,7 +36,7 @@ class NoteIndex extends React.Component {
         
         let notes = this.props.notes.map( note => (
             <NoteIndexItem 
-                key={note.title}
+                key={note.id}
                 note={note}
             />
     ));

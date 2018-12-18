@@ -12,9 +12,9 @@ class NotebookIndex extends React.Component{
         this.handleClick = this.handleClick.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchNotebooks();
-    }
+    // componentDidMount() {
+    //     this.props.fetchNotebooks();
+    // }
 
     componentDidUpdate(){
         this.props.fetchNotebooks();

@@ -18,10 +18,15 @@ class Sidebar extends React.Component {
             showEditor: false,
             showNotes: false,
             // notes: this.props.notes,
-            notes: [{title: 'note 1'}, [{title: ""}]]
+            notes: [{title: 'note 1'}, [{title: ""}]],
+            selectedNotebook: null
         };
 
-        
+        this.props.notebooks.forEach((notetbook) => {
+            if (notebook.title === '<inbox>'){
+                this.state.selectedNotebook = notebook;
+            }
+        });
         
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
@@ -31,11 +36,15 @@ class Sidebar extends React.Component {
         this.saveNote = this.saveNote.bind(this);
         this.showNotesClick = this.showNotesClick.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
+        this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
+    }
+
+    setSelectedNotebook(notebook) {
+        this.setState({selectedNotebook: notebook});
     }
 
     componentDidMount() {
         this.props.fetchNotebooks();
-        this.props.fetchNotes();
     }
 
     showMenu(event) {
@@ -80,15 +89,10 @@ class Sidebar extends React.Component {
     }
 
     showNotesClick() {
-        console.log("I clicked u!!!!");
-        console.log(this.state.notes);
-        
         this.setState({
             showNotes: true,
             showNotebooks: false
         });
-        // console.log("this.props.fetchNotes()");
-        // this.props.fetchNotes();
     }
 
     logoutUser() {
@@ -105,13 +109,6 @@ class Sidebar extends React.Component {
         if (this.props.notebooks === undefined) {
             return null;
         }
-        const notebooks = Object.values(this.props.notebooks);
-
-        // let displayNotes;
-        // if(this.state.showNotes){
-        //     debugger
-        //     displayNotes = <NoteIndexItem notes={this.state.notes} />;
-        // }
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -149,7 +146,7 @@ class Sidebar extends React.Component {
                                     }}
                                     >
                                     
-                                     <NotebookDropdown notebooks={notebooks} notes={this.props.notes}/>
+                                     <NotebookDropdown notebooks={this.props.notebooks} notes={this.props.notes} setSelectedNotebook={this.setSelectedNotebook} />
                                     
                                 </ul>
                             ) : ( null ) 
@@ -174,10 +171,10 @@ class Sidebar extends React.Component {
                 { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
                        
                         <div className="notes">
-                            <NoteIndexContainer notes={this.state.notes} />
+                        <NoteIndexContainer notes={this.state.notes} selectedNotebook={this.state.selectedNotebook} />
                         </div>
                     {   this.state.showEditor ? 
-                            <NoteEditorContainer notes={this.props.notes} notebooks={this.props.notebooks}/> 
+                            <NoteEditorContainer notes={this.props.notes} selectedNotebook={this.state.selectedNotebook} /> 
                              : 
                             <div></div>
                         

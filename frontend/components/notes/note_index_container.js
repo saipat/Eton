@@ -3,16 +3,13 @@ import NoteIndex from './note_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state,ownProps) => {
     if (!state.entities.notes){
         state.entities.notes = [];
     }
 
-    // console.log(state," ******* " ,oxwnProps);
-    // debugger
     return ({
         notes: ownProps.notes
-        // currentUser: state.entities.users[state.session.id]
     });
 };
 
