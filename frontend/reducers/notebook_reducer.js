@@ -1,7 +1,8 @@
 import {
     RECEIVE_NOTEBOOKS,
     RECEIVE_NOTEBOOK,
-    REMOVE_NOTEBOOK
+    REMOVE_NOTEBOOK,
+    CURRENT_NOTEBOOK
 } from '../actions/notebook_actions';
 import { merge } from 'lodash';
 import { LOGOUT_USER
@@ -13,19 +14,28 @@ const notebookReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_NOTEBOOKS:
             let obj = {};
+            let input = {   notebook: {
+                    id: 1,
+                    name: '<inbox>', 
+                    created_at: '',
+                    updated_at: ''
+                }
+            };
+
             action.notebooks.forEach((notebook) => {
                 obj[notebook.id] = notebook;
             });
-            // debugger
-            return merge( {}, state,  obj);
+
+            return merge( {}, state, input, obj);
+            
         case RECEIVE_NOTEBOOK:
             return merge({}, state, {[action.notebook.id]: action.notebook});
         case REMOVE_NOTEBOOK:
             let newState = merge({}, state);
-            // console.log(newState);
             delete newState[action.notebook.id];
-            // console.log(newState);
             return newState;
+        case CURRENT_NOTEBOOK:
+            return action.currentNotebookId;
         case LOGOUT_USER:
             return {};
         default:

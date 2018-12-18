@@ -1,4 +1,5 @@
 import React from 'react';
+import notebookReducer from '../../reducers/notebook_reducer';
 // import NotebookIndexContainer from '../notebooks/notebook_index_container'
 
 class NoteEditor extends React.Component{
@@ -12,10 +13,11 @@ class NoteEditor extends React.Component{
                 rich_txt_body: ''
         
         };
-        console.log("inside noteEditor constructor, this.state.note =>", this.state);
-        console.log("inside noteEditor constructor, this.state.note.title =>", this.state.title);
-        console.log("what is props/", this.props);
-        
+        // console.log("inside noteEditor constructor, this.state.note =>", this.state);
+        // console.log("inside noteEditor constructor, this.state.note.title =>", this.state.title);
+        // console.log("what is props/", this.props);
+
+       
         
         this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
@@ -29,15 +31,16 @@ class NoteEditor extends React.Component{
 
     saveNote() {
         console.log("clicked Save!!!");
-        console.log(this.state.note);
-        
+        console.log(this.props);
+        // if(!this.props.note.notebook.id){
+        //     this.props.note.notebook.id = 1;
+        // }
         this.props.createNote(this.state);
         this.updateTitle();
         this.updateBody();
     }
 
     updateTitle(){
-        console.log(this.state);
         
         return e => this.setState({
             title: e.currentTarget.value

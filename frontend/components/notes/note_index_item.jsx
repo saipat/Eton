@@ -11,8 +11,6 @@ class NoteIndexItem extends React.Component {
         return (
             <div>
                 <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
-                <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
-                <p>{(this.props.note.title ? this.props.note.title : 'Untitled')}</p>
             </div>
            
         );

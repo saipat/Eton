@@ -25,3 +25,7 @@ notebook2 = Notebook.create!(
   user_id: demo1.id
 )
 
+# defaultNotebook = Notebook.create!(
+#   name: '<input>',
+
+# )

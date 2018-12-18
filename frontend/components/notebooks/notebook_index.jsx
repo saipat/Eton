@@ -56,7 +56,7 @@ class NotebookIndex extends React.Component{
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
-                   
+               
                
             </table>
                 

@@ -5,36 +5,36 @@ class NotebookDropdown extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            notebooks: props.notebooks,
-            showNotes: false, 
-            notes: props.notes
+            showNotes: false
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(){
-        this.setState({
-            showNotes: true
-        });
+        // console.log("Dropdown is clicked!!!");
+        
+        // this.setState({
+        //     showNotes: true
+        // });
     }
 
     render(){
-        // console.log("Inside dropdown -------", this.state);
-        let lists = this.state.notebooks.map((notebook) => {
+        let lists = this.props.notebooks.map((notebook) => {
             return (
 
                 <li key={notebook.id} className="list-name"><i className="fa fa-book" onClick={this.handleClick}></i>{notebook.name}</li>
 
             )
         });
+
         let component;
         if(this.state.showNotes){
-            component = <NoteIndexContainer note={notes} />;
+            component = <NoteIndexContainer note={this.props.notes} />;
         }
         return(
                 <div>
                     {lists}
-                    {component}
+                   
                 </div>
             
         );

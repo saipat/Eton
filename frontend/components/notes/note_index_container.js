@@ -7,9 +7,10 @@ const mapStateToProps = (state, ownProps) => {
     if (!state.entities.notes){
         state.entities.notes = [];
     }
+
+    // console.log(state," ******* " ,oxwnProps);
     // debugger
     return ({
-        // notes: Object.values(state.entities.notes)
         notes: ownProps.notes
         // currentUser: state.entities.users[state.session.id]
     });

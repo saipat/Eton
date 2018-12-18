@@ -9,7 +9,7 @@ class NoteIndex extends React.Component {
             showMessage: this.props.notes.length === 0
         };
         this.closeButton = this.closeButton.bind(this);
-        console.log("inside constructor in NotIndex -----", this.props.notes);
+        console.log("inside constructor in NoteIndex -----", this.props.notes);
         
     }
 

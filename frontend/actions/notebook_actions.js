@@ -3,6 +3,7 @@ import * as NotebookAPIUtil from '../util/notebook_api_util';
 export const RECEIVE_NOTEBOOKS = 'RECEIVE_NOTEBOOKS';
 export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
+export const CURRENT_NOTEBOOK = 'CURRENT_NOTEBOOK';
 
 const receiveALLNotebooks = notebooks => ({
     type: RECEIVE_NOTEBOOKS,
@@ -19,24 +20,34 @@ const removeNotebooks = notebook => ({
     notebook
 });
 
+export const  fetchCurrentNotebook = notebook => {
+    return ({
+        type: CURRENT_NOTEBOOK,
+        currentNotebookId: notebook.id,
+        currentNotebookTitle: notebook.title
+    });
+};
+
 export const fetchNotebooks = () => dispatch => (
     NotebookAPIUtil.fetchNotebooks()
     .then(notebooks => dispatch(receiveALLNotebooks(notebooks)))
-
-    // dispatch(receiveALLNotebooks([{},{},{}]))
 );
+
 export const fetchNotebook = id => dispatch => (
     NotebookAPIUtil.fetchNotebook(id)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
+
 export const createNotebook = notebook => dispatch => (
     NotebookAPIUtil.createNotebook(notebook)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
+
 export const updateNotebook = notebook => dispatch => (
     NotebookAPIUtil.updateNotebook(notebook)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 );
+
 export const deleteNotebook = notebookId => dispatch => (
     NotebookAPIUtil.deleteNotebook(notebookId)
     .then(notebook => dispatch(removeNotebooks(notebook)))

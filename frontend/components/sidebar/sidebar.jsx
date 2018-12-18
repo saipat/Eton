@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
             showEditor: false,
             showNotes: false,
             // notes: this.props.notes,
-            // notes: [{title: 'note 1'}]
+            notes: [{title: 'note 1'}, [{title: ""}]]
         };
 
         
@@ -81,7 +81,7 @@ class Sidebar extends React.Component {
 
     showNotesClick() {
         console.log("I clicked u!!!!");
-        console.log(this.props.notes);
+        console.log(this.state.notes);
         
         this.setState({
             showNotes: true,
@@ -172,9 +172,9 @@ class Sidebar extends React.Component {
                 </div>
 
                 { this.state.showNotebooks ? <div    className="notbook-grid"><NotebookIndexContainer /></div> : <div   className="note-grid">
-                        {this.state.showNotes}
+                       
                         <div className="notes">
-                            <NoteIndexContainer notes={this.props.notes} />
+                            <NoteIndexContainer notes={this.state.notes} />
                         </div>
                     {   this.state.showEditor ? 
                             <NoteEditorContainer notes={this.props.notes} notebooks={this.props.notebooks}/> 

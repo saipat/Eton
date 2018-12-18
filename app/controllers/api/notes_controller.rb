@@ -10,8 +10,13 @@ class Api::NotesController < ApplicationController
     end
 
     def index
-        @notes = current_user.notes
-        render :index
+        @notes = []
+        if params[:notebook_id]
+            notebook = current_user.notebooks.where(id: params[:notebook_id])
+            @notes = notebook ? notebook.notes : []
+        else
+            @notes = current_user.notebooks
+        end
     end
 
     def show
