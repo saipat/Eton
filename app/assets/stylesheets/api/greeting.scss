@@ -1,12 +1,12 @@
 .main{
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .nav-bar {
     display: flex;
     position: relative;
     justify-content: space-between;
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .nav-left{
@@ -141,7 +141,8 @@
     width: 12%;
     height: 12%;
     display: block;
-    margin: 6% auto;
+    margin: 0 auto;
+    padding-top: 30px;
 }
 
 .below-bg h1{
@@ -149,7 +150,7 @@
     font-size: 48px;
     line-height: 64px;
     margin-left:  30%;
-    
+    padding-bottom: 50px;
 }
 
 .below-brain{
@@ -185,11 +186,11 @@
     margin: 0 auto;
     width: 10%;
     height: 10%;
-    padding-top: 8%;
+    padding-top: 5%;
 }
 
 .steps-div{
-    margin-top: 20px;
+    padding-top: 0;
     background-color: white;
 }
 
@@ -198,7 +199,7 @@
     font-size: 48px;
     line-height: 64px;
     text-align: center;
-    margin-top: 3%;
+    margin-top: 4%;
 }
 .steps-div h2{
     font-size: 24px;
@@ -207,6 +208,7 @@
     max-width: 800px;
     width: auto;
     margin-top: 22px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
