@@ -1,6 +1,7 @@
 import React from 'react';
 import notebookReducer from '../../reducers/notebook_reducer';
-// import ReactQuill from 'react-quill';
+import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
 
 
 class NoteEditor extends React.Component{
@@ -40,7 +41,7 @@ class NoteEditor extends React.Component{
     updateBody() {
         return e => this.setState({
             plain_txt_body: e.currentTarget.value ,
-            rich_txt_body: e.currentTarget.value
+            rich_txt_body: e.currentTarget.defaultValue
         });
     }
 
@@ -48,17 +49,23 @@ class NoteEditor extends React.Component{
         return (
             <div className="editor">
                 <form className="e-form" onSubmit={this.saveNote}>
-                    <div className="e-div-top">
-                        <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
-                        <input type="submit" className="e-save"  value="Save"/>
+                    <div className="quill-top">
+                        <div className="e-div-top">
+                            <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
+                            <input type="submit" className="e-save"  value="Save"/>
+                        </div>
+                        {/* <div>{this.props.notebook.name}</div> */}
+                        <div>
+                            <input type="text" placeholder="Note Title" onChange={this.updateTitle()} defaultValue={this.state.title} className="note-title" />
+                        </div>
                     </div>
-                    {/* <div>{this.props.notebook.name}</div> */}
-                    <input type="text" placeholder="Note Title" onChange={this.updateTitle()} value={this.state.title}/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className="quill-div">
+                        <ReactQuill placeholder="Type notes content in here" onChange={this.updateBody()} modules={modules} value={this.state.rich_txt_body} className="quill-body" />
+                    </div>
                     
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <textarea placeholder="Type notes content in here" onChange={this.updateBody()} value={this.state.plain_txt_body}></textarea>
                 </form>
                     <div className="footer">
                     <form className="footer-form">
@@ -72,6 +79,22 @@ class NoteEditor extends React.Component{
             </div>
         )
     }
+}
+const toolBarOpts = [
+    [{ font: [] }],
+    [{ size: ["small", false, "large", "huge"] }],
+    ["bold", "italic", "underline", "strike"],
+    [{ color: [] }, { background: [] }],
+    ["blockquote", "code-block"],
+    [{ align: [] }],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ script: "sub" }, { script: "super" }],
+    ["clean"],
+    ["link", "image", "video", "formula"]
+];
+
+const modules = {
+    toolbar: toolBarOpts
 }
 
 

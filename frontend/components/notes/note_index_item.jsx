@@ -20,11 +20,15 @@ class NoteIndexItem extends React.Component {
     }
 
     render() {
+        console.log("this.props.note------inside line 26:", this.props.note);
         return (
             <div className="note-index-item">
                 <div className="each-note">
+                    
+                    
                     <h4 onClick={this.clickNote()}>{(this.props.note.title ? this.props.note.title : 'Untitled')}</h4>
-                    <p>preview</p>
+                    <p>{this.props.note.plain_txt_body}</p>
+                    <p>{this.props.note.rich_txt_body}</p>
                 </div>
                 
             </div>

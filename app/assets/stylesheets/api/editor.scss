@@ -1,8 +1,9 @@
 .editor{
-        position: absolute;
-        bottom: 40%;
-        width: 40%;
-        left: 33%;
+    position: absolute;
+    bottom: 40%;
+    width: 40%;
+    left: 33%;
+    top: 1%;
 }
 
 .e-trash{
@@ -16,10 +17,18 @@
     background-color: white;
 }
 
+.quill-top{
+    // display: flex;
+    // justify-content: space-between;
+    // flex-direction: row;
+}
+
 .e-div-top{
-    margin-left: 78%;
+    margin-left: 270%;
     display: flex;
     align-items: right;
+    // padding-top: 40px;
+    margin-bottom: -15%;
 }
 
 .e-form{
@@ -52,4 +61,20 @@
     background-color: white;
     border: none;
     box-shadow: none;
+}
+
+// .note-title {
+//     margin-bottom: 10%;
+// }
+
+.quill-div{
+    margin-top: -30%;
+    padding-top: 20px;
+}
+
+.quill-body{
+    width: 340%;
+    height: 220px;
+    margin-top: -20%;
+    padding-top: 10%;
 }
