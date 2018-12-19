@@ -1,5 +1,6 @@
 import React from 'react';
 import notebookReducer from '../../reducers/notebook_reducer';
+// import ReactQuill from 'react-quill';
 
 
 class NoteEditor extends React.Component{
