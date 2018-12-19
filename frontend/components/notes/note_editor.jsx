@@ -1,6 +1,6 @@
 import React from 'react';
 import notebookReducer from '../../reducers/notebook_reducer';
-// import NotebookIndexContainer from '../notebooks/notebook_index_container'
+
 
 class NoteEditor extends React.Component{
     constructor(props){
