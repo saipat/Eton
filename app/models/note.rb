@@ -12,7 +12,7 @@
 #
 
 class Note < ApplicationRecord
-    validate :notebook_id_null
+    # validate :notebook_id_null
     validates :title, :notebook_id, presence: true
 
 
@@ -20,11 +20,15 @@ class Note < ApplicationRecord
         foreign_key: :notebook_id,
         class_name: 'Notebook'
 
-    private
-    def notebook_id_null
-        if self.notebook_id.nil?
-            self.notebook_id = 6
-        end
-    end
+    # has_one :user,
+    #     through: :notebook,
+    #     source: :user
+
+    # private
+    # def notebook_id_null
+    #     if self.notebook_id.nil?
+    #         self.notebook_id = Notebook.all.find { |notebook| notebook.name == "<Inbox>" }.id
+    #     end
+    # end
     
 end

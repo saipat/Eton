@@ -16,30 +16,30 @@ demo1 = User.create!(
 Notebook.delete_all
 
 defaultNotebook = Notebook.create!(
-  name: '<inbox>',
+  name: '<Inbox>',
   user_id: demo1.id
 )
 
-notebook1 = Notebook.create!(
-  name: 'Fsp',
-  user_id: demo1.id
-)
+# notebook1 = Notebook.create!(
+#   name: 'Fsp',
+#   user_id: demo1.id
+# )
 
-notebook2 = Notebook.create!(
-  name: 'Physics',
-  user_id: demo1.id
-)
+# notebook2 = Notebook.create!(
+#   name: 'Physics',
+#   user_id: demo1.id
+# )
 
 
 
-note1 = Note.create!(
-  title: 'foxy',
-  notebook_id: notebook1.id,
-  plain_txt_body: 'hi how are you?',
-)
+# note1 = Note.create!(
+#   title: 'foxy',
+#   notebook_id: notebook1.id,
+#   plain_txt_body: 'hi how are you?',
+# )
 
-note2 = Note.create!(
-  title: 'default note',
-  notebook_id: defaultNotebook.id,
-  plain_txt_body: 'I am in default note book',
-)
+# note2 = Note.create!(
+#   title: 'default note',
+#   notebook_id: defaultNotebook.id,
+#   plain_txt_body: 'I am in default note book',
+# )

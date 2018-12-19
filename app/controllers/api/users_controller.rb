@@ -2,6 +2,9 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            @notebook = Notebook.new(name: "<Inbox>", user_id: @user.id)
+            @notebook.save
+            # debugger
             login(@user)
             render "api/users/show"
         else

@@ -7,18 +7,12 @@ class NoteEditor extends React.Component{
         super(props);
 
         this.state = {
-       
                 title: '', 
                 plain_txt_body: '',
-                rich_txt_body: ''
-        
+                rich_txt_body: '',
+                notebook_id: this.props.notebookId                
         };
-        // console.log("inside noteEditor constructor, this.state.note =>", this.state);
-        // console.log("inside noteEditor constructor, this.state.note.title =>", this.state.title);
-        // console.log("what is props/", this.props);
-
        
-        
         this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
@@ -31,18 +25,12 @@ class NoteEditor extends React.Component{
 
     saveNote(e) {
         e.preventDefault();
-        console.log("clicked Save!!!");
-        console.log(this.props);
-        // if(!this.props.note.notebook.id){
-        //     this.props.note.notebook.id = 1;
-        // }
-        this.props.createNote(this.state);
+        this.props.createNote(this.state, this.state.notebook_id);
         this.updateTitle();
         this.updateBody();
     }
 
     updateTitle(){
-        
         return e => this.setState({
             title: e.currentTarget.value
         });
@@ -51,7 +39,7 @@ class NoteEditor extends React.Component{
     updateBody() {
         return e => this.setState({
             plain_txt_body: e.currentTarget.value ,
-           rich_txt_body: e.currentTarget.value
+            rich_txt_body: e.currentTarget.value
         });
     }
 
@@ -63,7 +51,7 @@ class NoteEditor extends React.Component{
                         <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
                         <input type="submit" className="e-save"  value="Save"/>
                     </div>
-               
+                    {/* <div>{this.props.notebook.name}</div> */}
                     <input type="text" placeholder="Note Title" onChange={this.updateTitle()} value={this.state.title}/>
                     
                     <br></br>

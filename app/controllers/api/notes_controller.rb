@@ -1,7 +1,13 @@
 class Api::NotesController < ApplicationController
 
     def create
-        @note = Note.new(note_params)
+        temp_params = note_params
+        if(temp_params[:notebook_id].nil?) 
+            temp_params[:notebook_id] = current_user.notebooks.find{ |notebook| notebook.name == "<Inbox>" }.id
+        end        
+        puts("temp_params")
+        puts(temp_params)
+        @note = Note.new(temp_params)
         if @note.save!
             render "api/notes/show"
         else
@@ -18,7 +24,6 @@ class Api::NotesController < ApplicationController
         @notes = []
         if params[:notebook_id]
             notebook = Notebook.where(id: params[:notebook_id])
-            # debugger
             @notes = (notebook != nil ) ? notebook[0].notes : []
         else
            @notes = current_user.notes
@@ -38,7 +43,6 @@ class Api::NotesController < ApplicationController
 
     def update
         @note = current_user.notes.find(params[:id])
-        debugger
         if @note.update(note_params)
             render "api/notes/show"
         else

@@ -6,8 +6,7 @@ import NoteEditorContainer from './note_editor_container';
 class NoteIndex extends React.Component {
     constructor(props) {
         super(props);
-        // debugger
-        // notebook:this.props.notebook
+
         this.state = {
             showMessage: this.props.notes.length === 0,
             selectedNote: null
@@ -28,6 +27,7 @@ class NoteIndex extends React.Component {
             // this.props.fetchNotes(this.props.match.params.notebookId);
         // }
         // else{
+        console.log("Fetching Notes for ", this.props.match.params.notebookId);    
         this.props.fetchNotes(this.props.match.params.notebookId);
         // }s
     }
@@ -39,12 +39,12 @@ class NoteIndex extends React.Component {
     }
 
     render() {
-        console.log("note_index line 43")
+        console.log("note_index line 43", this.props);
         let notes = this.props.notes.map( note => (
             <NoteIndexItem 
                 key={note.id}
                 note={note}
-                setSelectedNote={this.setSelectedNote}
+                // setSelectedNote={this.setSelectedNote}
             />
     ));
         let notes_length = notes.length;
@@ -73,7 +73,7 @@ class NoteIndex extends React.Component {
                     { notes } 
                 </div>
                 <div className="editor">
-                    <NoteEditorContainer />
+                    <NoteEditorContainer notebookId={this.props.match.params.notebookId}/>
                 </div>
             </div>
         );

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-    if (!state.entities.notes){
-        state.entities.notes = [];
-    }
+    // if (!state.entities.notes){
+    //     state.entities.notes = [];
+    // }
     // debugger
     return ({
         notes: Object.values(state.entities.notes)

@@ -10,16 +10,14 @@ const mapStateToProps = (state) => {
     // let noteId = ownProps.match.params.noteId;
     // let note = state.entities.notes[noteId];
     return ({
-        // notebook, 
-        // note
-        // currentUser: state.entities.users[state.session.id]
+        
     });
 };
 
 const mapDispatchToProps = dispatch => {
     return ({
         fetchNote: id => dispatch(fetchNote(id)),
-        createNote: note => dispatch(createNote(note)),
+        createNote: (note, notebookId) => dispatch(createNote(note, notebookId)),
         updateNote: note => dispatch(updateNote(note)),
         deleteNote: noteId => dispatch(deleteNote(noteId))
     });

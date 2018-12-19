@@ -5,14 +5,16 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
     // debugger
-    if (!state.entities.notes){
-        state.entities.notes = [];
-    }
-    let notebookId = ownProps.match.params.notebookId;
+    // if (!state.entities.notes){
+    //     state.entities.notes = [];
+    // }
+    console.log(ownProps.match.params.notebookId);
+    // let notebookId = ownProps.match.params.notebookId;
     return ({
-        notes: Object.values(state.entities.notes).filter( note => {
-           return note.notebook_id === notebookId
-        })
+        notes: Object.values(state.entities.notes)        
+        // .filter( note => {
+        //    return note.notebook_id === notebookId
+        // })        
     });
 };
 
