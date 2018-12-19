@@ -1,11 +1,17 @@
-.grid-container{
-    display: flex;
-    // align-items: row;
-    height: 920px;
-    position: relative;
-    //  grid-template-columns: 20% auto;
-    //  grid-template-rows: 800px;
+.top-level{
+    grid-template-columns: 20% auto;
+    grid-template-rows: 800px;
+    display: grid;
 
+}
+
+.grid-container{
+   
+    align-items: row;
+    height: 920px;
+    position: fixed;
+    display: grid;
+    
 }
 
 

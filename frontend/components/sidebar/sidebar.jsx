@@ -16,34 +16,22 @@ class Sidebar extends React.Component {
             showMenu: false,
             showNotebooks: false,
             showEditor: false,
-            // showNotes: false,
             // notes: [{title: 'note 1'}, [{title: ""}]],
-            // selectedNotebook: null
+    
         };
-        // debugger
-        // this.props.notebooks.forEach((notetbook) => {
-        //     if (notebook.title === '<inbox>'){
-        //         this.state.selectedNotebook = notebook;
-        //     }
-        // });
 
-        // console.log("inside sidebar constructor----", this.props);
-        
         
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.createNewNote = this.createNewNote.bind(this);
-        this.saveNote = this.saveNote.bind(this);
-        // this.showNotesClick = this.showNotesClick.bind(this);
-        this.logoutUser = this.logoutUser.bind(this);
-        this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
+         this.logoutUser = this.logoutUser.bind(this);
+        // this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
     }
 
-    setSelectedNotebook(notebook) {
-        this.setState({selectedNotebook: notebook});
-    }
+    // setSelectedNotebook(notebook) {
+    //     this.setState({selectedNotebook: notebook});
+    // }
 
     componentDidMount() {
         this.props.fetchNotebooks();
@@ -53,10 +41,6 @@ class Sidebar extends React.Component {
         event.preventDefault();
         this.setState({ showMenu: true });
     }
-
-//     , () => {
-//     document.addEventListener('click', this.closeMenu);
-// }
 
     closeMenu(event) {
         if (!this.dropdownMenu.contains(event.target)) {
@@ -79,36 +63,17 @@ class Sidebar extends React.Component {
         });
     }
 
-    // createNewNote() {
-    //     this.setState({
-    //         showEditor: true
-    //     });
-    //     this.setState({
-    //         showNotebooks: false
-    //     });
-    // }
-
-    saveNote() {
-
-    }
-
-    // showNotesClick() {
-    //     this.setState({
-    //         showNotes: true,
-    //         showNotebooks: false
-    //     });
-    // }
 
     logoutUser() {
         return (e) => {
             e.preventDefault();
             this.props.logout();
-            this.props.history.push('/');
+            // this.props.history.push('/');
         };
     }
 
     render() {
-        // console.log("Inside render in Sidebar ------", this.props.notes);
+
 
         if (this.props.notebooks === undefined) {
             return null;

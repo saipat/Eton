@@ -4,9 +4,7 @@ class Api::NotesController < ApplicationController
         temp_params = note_params
         if(temp_params[:notebook_id].nil?) 
             temp_params[:notebook_id] = current_user.notebooks.find{ |notebook| notebook.name == "<Inbox>" }.id
-        end        
-        puts("temp_params")
-        puts(temp_params)
+        end  
         @note = Note.new(temp_params)
         if @note.save!
             render "api/notes/show"

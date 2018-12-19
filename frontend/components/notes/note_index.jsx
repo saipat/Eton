@@ -8,7 +8,7 @@ class NoteIndex extends React.Component {
         super(props);
 
         this.state = {
-            showMessage: this.props.notes.length === 0,
+            showMessage: true,
             selectedNote: null
         };
 
@@ -23,13 +23,8 @@ class NoteIndex extends React.Component {
     }
 
     componentDidMount(){
-        // if(this.props.selectedNotebook){
-            // this.props.fetchNotes(this.props.match.params.notebookId);
-        // }
-        // else{
-        console.log("Fetching Notes for ", this.props.match.params.notebookId);    
+        // console.log("Fetching Notes for ", this.props.match.params.notebookId);    
         this.props.fetchNotes(this.props.match.params.notebookId);
-        // }s
     }
 
     closeButton(){
@@ -44,15 +39,16 @@ class NoteIndex extends React.Component {
             <NoteIndexItem 
                 key={note.id}
                 note={note}
-                // setSelectedNote={this.setSelectedNote}
             />
     ));
+
+        
         let notes_length = notes.length;
 
-        if(this.state.showMessage) {
+        if (notes.length === 0) {
             notes = (<div className="welcome">
                         <div className="welcome-head">
-                            <p>Welcome to Eton</p>
+                            <p>Start creating notes</p>
                             <button onClick={this.closeButton}><i className="fa fa-close"></i></button>
                         </div>
                         <p className="click">Click + to create a new note.</p>
@@ -70,7 +66,10 @@ class NoteIndex extends React.Component {
                             <button><i className="fa fa-tag"></i></button>
                         </div>
                     </div>
-                    { notes } 
+                    <div className="display-notes">
+                        {notes} 
+                    </div>
+                    
                 </div>
                 <div className="editor">
                     <NoteEditorContainer notebookId={this.props.match.params.notebookId}/>

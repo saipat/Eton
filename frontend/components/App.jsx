@@ -13,7 +13,7 @@ import NotebookIndexContainer from './notebooks/notebook_index_container';
 
 const App = () => (
     <div className="main">
-        <div>
+        <div className="top-level">
             <NotebookModalContainer />
             <ProtectedRoute path="/" component={SidebarContainer} />
             <Switch>
