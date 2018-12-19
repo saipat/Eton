@@ -1,8 +1,9 @@
 .grid-container{
-    display: grid;
+    display: flex;
     // align-items: row;
     height: 920px;
-     grid-template-columns: 20% auto;
+    position: relative;
+    //  grid-template-columns: 20% auto;
     //  grid-template-rows: 800px;
 
 }
@@ -83,6 +84,7 @@
 .fa-plus {
     margin-right: 10px;
     margin-left: 10px;
+    margin-top: 4px;
     padding: 8px;
     color: #00a82d;
     background-color: white;
@@ -105,18 +107,28 @@
     border-radius: 5px;
     border: none;
     padding: 0 6px;
-    margin: 12px 12px;
+    margin: 25px 12px;
     cursor: pointer;
     white-space: nowrap;
     color: #fff;
     width: 230px;
     height: 40px;
+    
+}
+
+.new-note a{
     font-size: 14px;
+    text-decoration: none;
     padding-right: 1px;
+    margin-left: 10px;
     text-align: left;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     text-rendering: optimizeLegibility;
     line-height: 1.5;
+}
+
+.star-btn{
+    margin-top: 15px;
 }
 
 .star-btn,
@@ -138,6 +150,19 @@
     margin-right: 3px;
     margin-left: 10px;
     border: 0;
+}
+
+.all-notes-btn{
+    font-size: 15px;
+    padding-left: 8px;
+}
+
+.all-notes{
+    margin-top: 10px;
+}
+
+.divs a{
+    text-decoration: none;
 }
 
 .star-btn:hover,

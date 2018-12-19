@@ -19,7 +19,8 @@ class EditNotebookForm extends React.Component {
 
     handleEditSubmit() {
         // console.log(this.state.notebook);
-        this.props.updateNotebook(this.state.notebook);
+        this.props.updateNotebook(this.state.notebook)
+            .then(() => this.props.history.push('/notebooks'));
         this.closeForm();
     }
 
@@ -44,7 +45,7 @@ class EditNotebookForm extends React.Component {
                     </h2>
                 </div>
 
-                <form onSubmit={this.handleSubmit} className="e-nb-form">
+                <form onSubmit={this.handleEditSubmit} className="e-nb-form">
                     <label>
                         Name
                         <br></br>
@@ -53,7 +54,7 @@ class EditNotebookForm extends React.Component {
                     <div className="line"></div>
                     <div className="nf-btn">
                         <button onClick={this.closeForm} className="btns">Close</button>
-                        <input type="submit" value="Continue" onClick={this.handleEditSubmit} className="btns"/>
+                        <input type="submit" value="Continue"  className="btns"/>
                     </div>
                 </form>
             </div>

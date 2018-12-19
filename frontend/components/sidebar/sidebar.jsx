@@ -1,6 +1,5 @@
 import React from 'react';
 import NotebookIndexContainer from '../notebooks/notebook_index_container';
-import NoteIndexContainer from '../notes/note_index_container';
 import NotebookDropdownContainer from './notebook_dropdown_container'; 
 import NoteEditorContainer from '../notes/note_editor_container';
 import { logout } from '../../actions/session_actions';
@@ -17,11 +16,11 @@ class Sidebar extends React.Component {
             showMenu: false,
             showNotebooks: false,
             showEditor: false,
-            showNotes: false,
-            notes: [{title: 'note 1'}, [{title: ""}]],
+            // showNotes: false,
+            // notes: [{title: 'note 1'}, [{title: ""}]],
             // selectedNotebook: null
         };
-
+        // debugger
         // this.props.notebooks.forEach((notetbook) => {
         //     if (notebook.title === '<inbox>'){
         //         this.state.selectedNotebook = notebook;
@@ -35,9 +34,9 @@ class Sidebar extends React.Component {
         this.closeMenu = this.closeMenu.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.createNewNote = this.createNewNote.bind(this);
+        // this.createNewNote = this.createNewNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
-        this.showNotesClick = this.showNotesClick.bind(this);
+        // this.showNotesClick = this.showNotesClick.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
         this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
     }
@@ -52,10 +51,12 @@ class Sidebar extends React.Component {
 
     showMenu(event) {
         event.preventDefault();
-        this.setState({ showMenu: true }, () => {
-            document.addEventListener('click', this.closeMenu);
-        });
+        this.setState({ showMenu: true });
     }
+
+//     , () => {
+//     document.addEventListener('click', this.closeMenu);
+// }
 
     closeMenu(event) {
         if (!this.dropdownMenu.contains(event.target)) {
@@ -78,25 +79,25 @@ class Sidebar extends React.Component {
         });
     }
 
-    createNewNote() {
-        this.setState({
-            showEditor: true
-        });
-        this.setState({
-            showNotebooks: false
-        });
-    }
+    // createNewNote() {
+    //     this.setState({
+    //         showEditor: true
+    //     });
+    //     this.setState({
+    //         showNotebooks: false
+    //     });
+    // }
 
     saveNote() {
 
     }
 
-    showNotesClick() {
-        this.setState({
-            showNotes: true,
-            showNotebooks: false
-        });
-    }
+    // showNotesClick() {
+    //     this.setState({
+    //         showNotes: true,
+    //         showNotebooks: false
+    //     });
+    // }
 
     logoutUser() {
         return (e) => {
@@ -123,14 +124,14 @@ class Sidebar extends React.Component {
                         <input type="search" placeholder="search all values" className="sd-search-input"></input>
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
                     </form>
-                    <div className="new-btn">
-                        <button className="new-note" onClick={this.createNewNote}><i className="fa fa-plus"></i>New Note</button>
+                    <div className="new-note">
+                       <Link to="/notes" ><i className="fa fa-plus"></i>New Note</Link>
                     </div>
                     <div className="divs">
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
                    </div>
-                    <div className="divs">
-                        <Link to="/notes"><i className="fa fa fa-bookmark-o"></i>
+                    <div className="divs all-notes">
+                        <Link to="/notes" className="all-notes-btn"><i className="fa fa fa-bookmark-o"></i>
                             All Notes
                         </Link>
                    </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import NoteIndexItem from '../notes/note_index_item';
-import NoteIndexContainer from '../notes/note_index_container';
+// import NoteIndexContainer from '../notes/note_index_container';
 import { Link } from 'react-router-dom';
 
 class NotebookDropdown extends React.Component {

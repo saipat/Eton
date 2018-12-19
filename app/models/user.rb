@@ -20,6 +20,10 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: 'Notebook'
 
+    has_many :notes,
+        through: :notebooks,
+        source: :notes
+
     attr_reader :password
     after_initialize :ensure_session_token
 

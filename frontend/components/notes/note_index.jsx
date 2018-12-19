@@ -6,7 +6,7 @@ import NoteEditorContainer from './note_editor_container';
 class NoteIndex extends React.Component {
     constructor(props) {
         super(props);
-
+        // debugger
         // notebook:this.props.notebook
         this.state = {
             showMessage: this.props.notes.length === 0,
@@ -15,7 +15,7 @@ class NoteIndex extends React.Component {
 
         this.closeButton = this.closeButton.bind(this);
         this.setSelectedNote= this.setSelectedNote.bind(this);
-        // console.log("inside constructor in NoteIndex -----", this.props);
+        console.log("inside constructor in NoteIndex -----", this.props);
         
     }
 
@@ -28,8 +28,8 @@ class NoteIndex extends React.Component {
             // this.props.fetchNotes(this.props.match.params.notebookId);
         // }
         // else{
-            this.props.fetchNotes();
-        // }
+        this.props.fetchNotes(this.props.match.params.notebookId);
+        // }s
     }
 
     closeButton(){
@@ -75,7 +75,7 @@ class NoteIndex extends React.Component {
                     </div>
                     { notes } 
                 </div>
-                <div>
+                <div className="editor">
                     <NoteEditorContainer />
                 </div>
             </div>

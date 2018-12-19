@@ -29,7 +29,8 @@ class NoteEditor extends React.Component{
 
     }
 
-    saveNote() {
+    saveNote(e) {
+        e.preventDefault();
         console.log("clicked Save!!!");
         console.log(this.props);
         // if(!this.props.note.notebook.id){
@@ -57,10 +58,10 @@ class NoteEditor extends React.Component{
     render(){
         return (
             <div className="editor">
-                <form className="e-form">
+                <form className="e-form" onSubmit={this.saveNote}>
                     <div className="e-div-top">
                         <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
-                        <button onClick={this.saveNote} className="e-save" >Save</button>
+                        <input type="submit" className="e-save"  value="Save"/>
                     </div>
                
                     <input type="text" placeholder="Note Title" onChange={this.updateTitle()} value={this.state.title}/>

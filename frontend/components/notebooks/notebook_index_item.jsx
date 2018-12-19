@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import { formatTime } from '../../util/date_util';
 
 
@@ -34,7 +34,8 @@ class NotebookIndexItem extends React.Component{
 
     deleteClick(){
         this.myFunction();
-        this.props.deleteNotebook(this.props.notebook.id);
+        this.props.deleteNotebook(this.props.notebook.id)
+            .then(() => this.props.history.push('/notebooks'));
     }
 
     clickNotebook() {
@@ -70,4 +71,4 @@ class NotebookIndexItem extends React.Component{
    
 
 
-export default NotebookIndexItem;
+export default withRouter(NotebookIndexItem);

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchNotebook, updateNotebook } from '../../actions/notebook_actions';
 import EditNotebookForm from './edit_notebook';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
    console.log("ownprops", ownProps);
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => {
     });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditNotebookForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditNotebookForm));

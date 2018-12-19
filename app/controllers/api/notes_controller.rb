@@ -9,25 +9,22 @@ class Api::NotesController < ApplicationController
         end
     end
 
+    def all_notes
+        @notes = current_user.notes
+        render "api/notes/index"
+    end
+
     def index
         @notes = []
         if params[:notebook_id]
-            notebook = current_user.notebooks.where(id: params[:notebook_id])
-            @notes = notebook ? notebook.notes : []
+            notebook = Notebook.where(id: params[:notebook_id])
+            # debugger
+            @notes = (notebook != nil ) ? notebook[0].notes : []
         else
-            current_user.notebooks.each do |notebook|
-                if (!notebook.notes.empty?)
-                    # puts notebook.notes.length 
-                    @notes.push(notebook.notes)
-                else
-                    puts "Empty Notes for " + notebook.name
-                end
-            end
-            # puts "i am rails"
-            # puts @notes
-            @notes
+           @notes = current_user.notes
         end
-        @notes
+        
+        render "api/notes/index"
     end
 
     def show
@@ -41,6 +38,7 @@ class Api::NotesController < ApplicationController
 
     def update
         @note = current_user.notes.find(params[:id])
+        debugger
         if @note.update(note_params)
             render "api/notes/show"
         else

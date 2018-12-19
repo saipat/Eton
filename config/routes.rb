@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
 
     resources :notes, except: [:index, :create]
+    get '/all_notes', to: 'notes#all_notes'
 
     resources :notebooks, only: [:create, :index, :show, :update, :destroy] do
       resources :notes, only: [:index, :create]

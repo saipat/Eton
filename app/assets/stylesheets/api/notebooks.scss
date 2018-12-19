@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.notebook-container{
+    position: absolute;
+    bottom: 60%;
+    width: 75%;
+    left: 20%;
+}
+
 .notebook-container h2{
     flex: 1;
     min-width: 200px;

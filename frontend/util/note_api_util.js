@@ -1,12 +1,20 @@
 export const fetchNotes = (notebook_id) => {
     return $.ajax({
         method: 'GET',
-        url: 'api/notes',
+        url: `api/notebooks/${notebook_id}/notes`,
         data: {
             notebook_id: notebook_id
         }
     });
 };
+
+export const fetchAllNotes = () => {
+     return $.ajax({
+         method: 'GET',
+         url: 'api/all_notes',
+     });
+    
+}
 
 export const fetchNote = id => {
     return $.ajax({
@@ -18,7 +26,7 @@ export const fetchNote = id => {
 export const createNote =  (note, notebookId) => (
     $.ajax({
         method: 'POST',
-        url: `/api/notebooks/${notebookId}/notes`,
+        url: `api/notebooks/${notebookId}/notes`,
         data: {note},
     })
 );
