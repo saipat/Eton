@@ -15,6 +15,11 @@ demo1 = User.create!(
 
 Notebook.delete_all
 
+defaultNotebook = Notebook.create!(
+  name: '<inbox>',
+  user_id: demo1.id
+)
+
 notebook1 = Notebook.create!(
   name: 'Fsp',
   user_id: demo1.id
@@ -25,10 +30,7 @@ notebook2 = Notebook.create!(
   user_id: demo1.id
 )
 
-defaultNotebook = Notebook.create!(
-  name: '<inbox>',
-  user_id: demo1.id
-)
+
 
 note1 = Note.create!(
   title: 'foxy',

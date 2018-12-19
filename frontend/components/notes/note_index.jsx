@@ -39,8 +39,6 @@ class NoteIndex extends React.Component {
     }
 
     render() {
-        // debugger
-        // console.log("inside render in NoteIndex -------", this.props.notes);
         console.log("note_index line 43")
         let notes = this.props.notes.map( note => (
             <NoteIndexItem 
@@ -49,7 +47,6 @@ class NoteIndex extends React.Component {
                 setSelectedNote={this.setSelectedNote}
             />
     ));
-        // debugger
         let notes_length = notes.length;
 
         if(this.state.showMessage) {

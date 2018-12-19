@@ -27,13 +27,15 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-etween;
 }
 
 .nb-navbar p{
     font-size: 15px;
     font-weight: 500;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    width: 120%;
+    margin-left:3px;
     text-rendering: optimizeLegibility;
 }
 
@@ -47,7 +49,9 @@
 }
 
 .move-center{
-    margin-left: 57em;
+    margin-right: -16em;
+    font-size: 14px;
+    width: 120%;
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
