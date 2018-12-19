@@ -9,7 +9,11 @@
 //     z-index: 100;
 // }
 
+.notes-container{
+}
+
 .notes-index{
+    border-right: 1px solid #e6e6e6;
     position: fixed;
     display: grid;
     margin-left: 20%;
@@ -46,21 +50,22 @@
 .header {
     display: flex;
     align-items: row;
-    padding-bottom: 0px;
+    position: fixed;
+    top: 13%;
     // border: 1px solid rgba(0, 0, 0, 0);
     // border-bottom: 1px solid #e6e6e6;
-    margin-top: 0%;
 }
 
 .notes-count {
     font-size: 13px;
-    min-width: 50px;
+    min-width: 90px;
+    margin-left: 20px;
     font-weight: 300;
     color: #a6a6a6;
 }
 
 .header-btns {
-    margin-left: 62%;
+    margin-left: 117%;
 }
 
 .header-btns button {
@@ -71,7 +76,8 @@
 
 .header-btns .fa-tag {
     padding-left: 0;
-    margin: 0;
+    
+    // width: 00%;
 }
 
 .welcome-head {
@@ -118,9 +124,9 @@
 
 .display-notes {
     overflow: scroll;
-    margin-top: 30% ;
+    margin-top: 50% ;
     padding-top: -40%;
-    height: 100%;
+    height: 30%;
     overflow-y: scroll;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;

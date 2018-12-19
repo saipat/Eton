@@ -13,7 +13,7 @@ class NoteIndexItem extends React.Component {
     }
 
     clickNote(){
-        // console.log("clicked note title!!");
+        console.log("clicked note with note_id ----", this.props.note.id);
         return e => this.setState({
             showNote: true
         });

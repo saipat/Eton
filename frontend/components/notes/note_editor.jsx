@@ -22,8 +22,16 @@ class NoteEditor extends React.Component{
     }
 
     deleteNote() {
-
+        // console.log("this.state.id", this.state);
+        // this.props.deleteNote(this.state.id);
     }
+
+    // parsetHTML() {
+    //     let text = getDocumentElementById();
+
+    // }
+
+    
 
     saveNote(e) {
         e.preventDefault();
@@ -39,10 +47,14 @@ class NoteEditor extends React.Component{
     }
 
     updateBody() {
-        return e => this.setState({
-            plain_txt_body: e.currentTarget.value ,
-            rich_txt_body: e.currentTarget.defaultValue
+        return e => {
+            console.log(e);
+            
+            this.setState({
+            plain_txt_body: e,
+            rich_txt_body: e
         });
+    };
     }
 
     render(){
@@ -63,16 +75,17 @@ class NoteEditor extends React.Component{
                     <br></br>
                     <br></br>
                     <div className="quill-div">
-                        <ReactQuill placeholder="Type notes content in here" onChange={this.updateBody()} modules={modules} value={this.state.rich_txt_body} className="quill-body" />
+                        <ReactQuill placeholder="Type notes content in here" onChange={this.updateBody()} modules={modules} value={this.state.rich_txt_body} defaultValue={this.state.plain_txt_body} className="quill-body" id="quillText"/>
                     </div>
                     
                 </form>
                     <div className="footer">
                     <form className="footer-form">
-                        <button className="e-tag">
-                            <i className="fa fa-tag"></i>Add Tag
-                        </button>
-                        <input type="text" className="e-input" />
+                        <div className="e-tag">
+                            <button className="inside-tag"><i className="fa fa-plus "></i></button>
+                            <i className="fa fa-tag tag-editor"></i>
+                            <input type="text" placeholder="Add Tag" className="e-input" />
+                        </div>
                     </form>
                     
                     </div>
@@ -96,6 +109,8 @@ const toolBarOpts = [
 const modules = {
     toolbar: toolBarOpts
 }
+
+
 
 
 export default NoteEditor;

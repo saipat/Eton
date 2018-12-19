@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
          e.preventDefault();
          this.props.processForm(this.state)
-            .then(() => this.props.history.push('/side'));
+            .then(() => this.props.history.push('/notes'));
     }
 
     demoUser(){
@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
             password: '123456'
         };
         this.props.demo(user)
-            .then(() => this.props.history.push('/side'));
+            .then(() => this.props.history.push('/notes'));
     }
 
     renderErrors() {

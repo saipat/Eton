@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item';
 import NoteEditorContainer from './note_editor_container';
-
+import SidebarContainer from '../sidebar/sidebar_container';
 
 class NoteIndex extends React.Component {
     constructor(props) {
@@ -56,14 +56,15 @@ class NoteIndex extends React.Component {
         }
 
         return(
-            <div>
+            // <SidebarContainer />
+            <div className="notes-container">
                 <div className="notes-index">
                     <h2>All Notes</h2>
                     <div className="header">
                         <span className="notes-count">{notes_length} Notes</span>
                         <div className="header-btns">
                             <button><i className="fa fa-sort-amount-desc"></i></button>
-                            <button><i className="fa fa-tag"></i></button>
+                            {/* <button><i className="fa fa-tag"></i></button> */}
                         </div>
                     </div>
                     <div className="display-notes">
