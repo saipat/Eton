@@ -37,7 +37,11 @@ class NoteEditor extends React.Component{
 
     saveNote(e) {
         e.preventDefault();
-        this.props.createNote(this.state, this.state.notebook_id);
+        if( this.state.id){
+            this.props.updateNote(this.state)
+        }else{
+            this.props.createNote(this.state, this.state.notebook_id);
+        }
         this.update();
         alert("Note Saved!");
     }
