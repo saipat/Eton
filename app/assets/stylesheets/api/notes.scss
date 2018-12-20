@@ -101,7 +101,7 @@
 
 .welcome-head p {
     margin-right: 0;
-    margin-left: 14%;
+    margin-left: 16%;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
@@ -117,7 +117,7 @@
     font-size: 14px;
     color: #fff;
     font-weight: 300;
-    margin-left: 675%;
+    margin-left: 505%;
 }
 
 .welcome .click {
@@ -125,29 +125,35 @@
     font-size: 16px;
     line-height: 18px;
     margin-top: 12px;
-    margin-left: 14%;
+    margin-left: 16%;
     padding-bottom: 20px;
 }
 
 .welcome {
     background-color: rgb(0, 129, 194);
-    width: 110%;
-    margin-left: -36px;
-    padding-right: 20px;
-    // margin-top: -10%;
+    border: 1px solid rgb(0, 129, 194);
+    border-radius: 2px;
+    width: 105%;
+    margin-left: -42px;
+    margin-right: 50px;
+    //margin-top: -10%;
     position: absolute;
     bottom: 60%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .display-notes {
     overflow: scroll;
-    margin-top: 20% ;
+    margin-top: 50% ;
     padding-top: -40%;
     height: 70%;
-    overflow-y: scroll;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    z-index: 1;
+    // overflow-y: scroll;
+    // -ms-flex-wrap: wrap;
+    // flex-wrap: wrap;
+    // z-index: 1;
 }
 
 .each-note{
