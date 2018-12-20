@@ -7,5 +7,6 @@ import currentNotebookTitleReducer from './current_notebookTitle_reducer';
 export default combineReducers({
   modal: modalReducer,
   currentNotebookId: currentNotebookIdReducer,
-  currentNotebookTitle: currentNotebookTitleReducer
+  currentNotebookTitle: currentNotebookTitleReducer,
+  
 });

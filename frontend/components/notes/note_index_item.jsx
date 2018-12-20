@@ -1,4 +1,6 @@
 import React from 'react';
+import NoteEditor from './note_editor';
+// import NoteEditorContainer from './note_editor_container';
 
 class NoteIndexItem extends React.Component {
     constructor(props) {
@@ -7,43 +9,43 @@ class NoteIndexItem extends React.Component {
         this.state = {
             showNote: false
         };
-        console.log("inside NoteIndexItem constructor", this.props);
-        this.clickNote = this.clickNote.bind(this);
-        // this.deleteNote = this.deleteNote.bind(this);
+
+        console.log("this.props in note index item", this.props);
         
+        this.showNote = this.showNote.bind(this);
+        // this.clickNote = this.clickNote.bind(this);
     }
 
-    clickNote(){
-        console.log("clicked note with note_id ----", this.props);
-        return e => this.setState({
-            showNote: true
-        });
-        
-    }
-
-    // deleteNote(){
-        
-    //     this.props.deleteNote(this.props.note.id)
-    //         .then(() => this.props.history.push('/notes'));
+    // clickNote(){
+    //     return e => this.setState({
+    //         showNote: true
+    //     });
     // }
 
+    showNote(){
+        console.log("hi inside note index item");       
+        this.props.fetchCurrentNote(this.props.note);
+    }
+
     render() {
-        // console.log("this.props.note------inside line 26:", this.props.note);
         return (
-            <div className="note-index-item">
-                <div className="each-note">
-                    <div className="title-close">
-                        <h4 onClick={this.clickNote()}>{(this.props.note.title ? this.props.note.title : 'Untitled')} </h4>
-                        <button className="c-trash" 
-                        onClick={() => this.props.deleteNote(this.props.note.id)}>
-                            <i className="fa fa-trash-o"></i>
-                        </button>
+            <div>
+                <div className="note-index-item">
+                    <div className="each-note">
+                        <div className="title-close">
+                            <h4 onClick={this.showNote}>{(this.props.note.title ? this.props.note.title : 'Untitled')} </h4>
+                            <button className="c-trash"
+                                onClick={() => this.props.deleteNote(this.props.note.id)}>
+                                <i className="fa fa-trash-o"></i>
+                            </button>
+                        </div>                        
+                        <p>{this.props.note.plain_txt_body.slice(0,20) + '...'}</p>
                     </div>
-                    <p>{this.props.note.plain_txt_body}</p>
-                    {/* <p>{this.props.note.rich_txt_body}</p> */}
+
                 </div>
                 
             </div>
+            
            
         );
     }

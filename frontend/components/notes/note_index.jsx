@@ -39,6 +39,8 @@ class NoteIndex extends React.Component {
                 key={note.id}
                 note={note}
                 deleteNote={this.props.deleteNote}
+                updateNote={this.props.updateNote}
+                fetchCurrentNote={this.props.fetchCurrentNote}
             />
     ));
 
@@ -63,7 +65,7 @@ class NoteIndex extends React.Component {
                         <span className="notes-count">{notes_length} Notes</span>
                         <div className="header-btns">
                             <button><i className="fa fa-sort-amount-desc"></i></button>
-                        </div>
+                        </div>  
                     </div>
                     <div className="display-notes">
                         {notes} 
@@ -72,6 +74,7 @@ class NoteIndex extends React.Component {
                 </div>
                 <div className="editor">
                     <NoteEditorContainer notebookId={this.props.match.params.notebookId}
+                                        
                     />
                 </div>
             </div>

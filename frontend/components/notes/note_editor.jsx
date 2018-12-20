@@ -1,7 +1,6 @@
 import React from 'react';
 import notebookReducer from '../../reducers/notebook_reducer';
 import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
 
 
 class NoteEditor extends React.Component{
@@ -12,52 +11,61 @@ class NoteEditor extends React.Component{
                 title: '', 
                 plain_txt_body: '',
                 rich_txt_body: '',
-                notebook_id: this.props.notebookId                
+                notebook_id: this.props.notebookId,
         };
-       
-        // this.deleteNote = this.deleteNote.bind(this);
+
+        console.log("this.props in note editor", this.props);
+        
         this.saveNote = this.saveNote.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
         this.updateBody = this.updateBody.bind(this);
+        this.update = this.update.bind(this);
+
+        this.quillRef = React.createRef();
     }
 
-    deleteNote() {
-        // console.log("this.state.id", this.state);
-        // this.props.deleteNote(this.state.id);
+    componentDidUpdate(prevProps) {
+        if(this.props.currentNote !== prevProps.currentNote && this.props.currentNote) {
+            this.setState({
+                title: this.props.currentNote.title,
+                id: this.props.currentNote.id,
+                plain_txt_body: this.props.currentNote.plain_txt_body,
+                rich_txt_body: this.props.currentNote.rich_txt_body
+            });
+        }    
     }
-
-    // parsetHTML() {
-    //     let text = getDocumentElementById();
-
-    // }
-
-    
 
     saveNote(e) {
         e.preventDefault();
         this.props.createNote(this.state, this.state.notebook_id);
+        this.update();
+        alert("Note Saved!");
+    }
+
+    updateTitle(event){
+        this.setState({
+            title:  event.target.value
+        });
+    }
+
+    updateBody(value) {
+            this.setState({
+                rich_txt_body: value
+            });            
+            if(this.quillRef.current && this.quillRef.current.getEditor()) {
+                this.setState({
+                    plain_txt_body: this.quillRef.current.getEditor().getText(0)
+                });
+            }
+        }
+    
+     update(){
         this.updateTitle();
         this.updateBody();
     }
 
-    updateTitle(){
-        return e => this.setState({
-            title: e.currentTarget.value
-        });
-    }
-
-    updateBody() {
-        return e => {
-            console.log(e);
-            
-            this.setState({
-            plain_txt_body: e,
-            rich_txt_body: e
-        });
-    };
-    }
-
     render(){
+        console.log("note editor rener: ");
         return (
             <div className="editor">
                 <form className="e-form" onSubmit={this.saveNote}>
@@ -67,14 +75,15 @@ class NoteEditor extends React.Component{
                         </div>
                         {/* <div>{this.props.notebook.name}</div> */}
                         <div>
-                            <input type="text" placeholder="Note Title" onChange={this.updateTitle()} defaultValue={this.state.title} className="note-title" />
+                            <input type="text" placeholder="Note Title" onChange={this.updateTitle} value={this.state.title} 
+                            className="note-title" />
                         </div>
                     </div>
                     <br></br>
                     <br></br>
                     <br></br>
                     <div className="quill-div">
-                        <ReactQuill placeholder="Type notes content in here" onChange={this.updateBody()} modules={modules} value={this.state.rich_txt_body} defaultValue={this.state.plain_txt_body} className="quill-body" id="quillText"/>
+                        <ReactQuill placeholder="Type note content in here" onChange={this.updateBody} modules={modules} value={this.state.rich_txt_body} className="quill-body" id="quillText" ref={this.quillRef} />
                     </div>
                     
                 </form>
