@@ -24,7 +24,7 @@ class NotebookDropdown extends React.Component {
 
         let lists = this.props.notebooks.map((notebook) => {
             return (
-                <li>
+                <li className="nb-links">
                     <Link to={`/notebook/${notebook.id}/notes`} >
                         {notebook.name}
                     </Link>
