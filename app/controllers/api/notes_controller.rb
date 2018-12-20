@@ -50,8 +50,8 @@ class Api::NotesController < ApplicationController
 
     def destroy
         @note = current_user.notes.find(params[:id])
-        @notes.destroy
-        render "api/notes/index"
+        @note.destroy
+        render "api/notes/show"
     end
 
     def note_params

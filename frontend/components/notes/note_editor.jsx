@@ -15,7 +15,7 @@ class NoteEditor extends React.Component{
                 notebook_id: this.props.notebookId                
         };
        
-        this.deleteNote = this.deleteNote.bind(this);
+        // this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
         this.updateBody = this.updateBody.bind(this);
@@ -63,7 +63,6 @@ class NoteEditor extends React.Component{
                 <form className="e-form" onSubmit={this.saveNote}>
                     <div className="quill-top">
                         <div className="e-div-top">
-                            <button className="e-trash" onClick={this.deleteNote}><i className="fa fa-trash-o"></i></button>
                             <input type="submit" className="e-save"  value="Save"/>
                         </div>
                         {/* <div>{this.props.notebook.name}</div> */}

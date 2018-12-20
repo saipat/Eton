@@ -13,8 +13,16 @@
 }
 
 .e-save{
-    border: none;
-    background-color: white;
+    color: #fff;
+    border-color: #00a82d;
+    background-color: #00a82d;
+    font-size: 13px;
+    padding: 6px 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-family: sans-serif;
+    line-height: 1;
+    cursor: pointer;
 }
 
 .quill-top{

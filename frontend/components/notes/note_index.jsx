@@ -22,8 +22,7 @@ class NoteIndex extends React.Component {
         this.setState({ selectedNote: note });
     }
 
-    componentDidMount(){
-        // console.log("Fetching Notes for ", this.props.match.params.notebookId);    
+    componentDidMount(){  
         this.props.fetchNotes(this.props.match.params.notebookId);
     }
 
@@ -39,6 +38,7 @@ class NoteIndex extends React.Component {
             <NoteIndexItem 
                 key={note.id}
                 note={note}
+                deleteNote={this.props.deleteNote}
             />
     ));
 
@@ -56,7 +56,6 @@ class NoteIndex extends React.Component {
         }
 
         return(
-            // <SidebarContainer />
             <div className="notes-container">
                 <div className="notes-index">
                     <h2>All Notes</h2>
@@ -64,7 +63,6 @@ class NoteIndex extends React.Component {
                         <span className="notes-count">{notes_length} Notes</span>
                         <div className="header-btns">
                             <button><i className="fa fa-sort-amount-desc"></i></button>
-                            {/* <button><i className="fa fa-tag"></i></button> */}
                         </div>
                     </div>
                     <div className="display-notes">
@@ -73,7 +71,8 @@ class NoteIndex extends React.Component {
                     
                 </div>
                 <div className="editor">
-                    <NoteEditorContainer notebookId={this.props.match.params.notebookId}/>
+                    <NoteEditorContainer notebookId={this.props.match.params.notebookId}
+                    />
                 </div>
             </div>
         );
