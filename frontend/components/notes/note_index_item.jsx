@@ -1,6 +1,5 @@
 import React from 'react';
 import NoteEditor from './note_editor';
-// import NoteEditorContainer from './note_editor_container';
 
 class NoteIndexItem extends React.Component {
     constructor(props) {
@@ -9,21 +8,11 @@ class NoteIndexItem extends React.Component {
         this.state = {
             showNote: false
         };
-
-        console.log("this.props in note index item", this.props);
         
         this.showNote = this.showNote.bind(this);
-        // this.clickNote = this.clickNote.bind(this);
     }
 
-    // clickNote(){
-    //     return e => this.setState({
-    //         showNote: true
-    //     });
-    // }
-
-    showNote(){
-        console.log("hi inside note index item");       
+    showNote(){   
         this.props.fetchCurrentNote(this.props.note);
     }
 

@@ -11,10 +11,11 @@ const mapStateToProps = (state) => {
     // let noteId = ownProps.match.params.noteId;
     // let note = state.entities.notes[noteId];
 
-    console.log("NoteEditorContainer State>>>>>>>", state);
+    // console.log("NoteEditorContainer State>>>>>>>", state);
 
     return ({
         currentNote: state.entities.notes[state.ui.currentNoteId],
+        currentNoteId: state.ui.currentNoteId
         // currentNotebookTitle: state.entities.notebooks[state.ui.currentNotebookTitle]
     });
 };
@@ -25,7 +26,8 @@ const mapDispatchToProps = dispatch => {
         createNote: (note, notebookId) => dispatch(createNote(note, notebookId)),
         updateNote: note => dispatch(updateNote(note)), 
         createTag: tag => dispatch(createTag(tag)),
-        deleteTag: tagId => dispatch(deleteTag(tagId))
+        deleteTag: tagId => dispatch(deleteTag(tagId)),
+        receiveUpdating: () => dispatch({ type: 'RECEIVE_UPDATING'})
     });
 };
 

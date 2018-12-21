@@ -14,7 +14,7 @@ const noteReducer = (state = {}, action) => {
             let newState = merge({}, state);
             delete newState[action.noteId.id];
             return newState;
-       
+        
         case LOGOUT_USER:
             return {};
         default:

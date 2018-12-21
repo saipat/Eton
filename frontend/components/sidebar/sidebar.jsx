@@ -26,6 +26,7 @@ class Sidebar extends React.Component {
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
          this.logoutUser = this.logoutUser.bind(this);
+        //  this.makeNewNote = this.makeNewNote.bind(this);
         // this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
     }
 

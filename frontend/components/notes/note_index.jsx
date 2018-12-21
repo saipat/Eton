@@ -2,6 +2,7 @@ import React from 'react';
 import NoteIndexItem from './note_index_item';
 import NoteEditorContainer from './note_editor_container';
 import SidebarContainer from '../sidebar/sidebar_container';
+import { log } from 'util';
 
 class NoteIndex extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class NoteIndex extends React.Component {
 
         this.closeButton = this.closeButton.bind(this);
         this.setSelectedNote= this.setSelectedNote.bind(this);
-        console.log("inside constructor in NoteIndex -----", this.props);
+        console.log(this.props);
         
     }
 
@@ -33,7 +34,6 @@ class NoteIndex extends React.Component {
     }
 
     render() {
-        console.log("note_index line 43", this.props);
         let notes = this.props.notes.map( note => (
             <NoteIndexItem 
                 key={note.id}
@@ -60,7 +60,7 @@ class NoteIndex extends React.Component {
         return(
             <div className="notes-container">
                 <div className="notes-index">
-                    <h2>{this.props.notebook ? this.props.notebook.name : "All Notes"}</h2>
+                    <h2>All{this.props.notebookName ? this.props.notebookName : " Notes"}</h2>
                     <div className="header">
                         <span className="notes-count">{notes_length} Notes</span>
                         <div className="header-btns">

@@ -5,7 +5,7 @@ import { fetchCurrentNotebook } from '../../actions/notebook_actions';
 import NotebookDropdown from './notebook_dropdown';
 
 const mapStateToProps = (state) => {
-    // debugger
+ 
     return ({
         currentNotebookId: state.ui.currentNotebookId,
         currentNotebookTitle: state.ui.currentNotebookTitle, 

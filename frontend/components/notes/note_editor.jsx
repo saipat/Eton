@@ -11,14 +11,12 @@ class NoteEditor extends React.Component{
                 title: '', 
                 plain_txt_body: '',
                 rich_txt_body: '',
-                notebook_id: this.props.notebookId                                
+                notebook_id: this.props.notebookId                               
         };
 
         this.tag = {
 
         };
-
-        console.log("this.props in note editor", this.props);
         
         this.saveNote = this.saveNote.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
@@ -29,9 +27,12 @@ class NoteEditor extends React.Component{
     }
 
     componentDidUpdate(prevProps) {
-        console.log("componentDidUpdate", this.props.currentNote);
+
+        if(this.props.currentNoteId  === null && this.state.title === ''){
+            return null;
+        }
         
-        if(this.props.currentNote !== prevProps.currentNote && this.props.currentNote) {
+        if(this.props.currentNote !== prevProps.currentNote && this.props.currentNoteId) {
             let state = {
                 title: this.props.currentNote.title,
                 id: this.props.currentNote.id,
@@ -40,17 +41,27 @@ class NoteEditor extends React.Component{
             };
             // sets the first tag
             if (this.props.currentNote.tags && this.props.currentNote.tags.length > 0) {
-                console.log(">>>>>", this.props.currentNote.tags[0]);
                 state.tag = this.props.currentNote.tags[0].tag_name;                
             }
             this.setState(state);
+        }
             
-        }   
+        if(this.props.currentNoteId === null && prevProps.currentNote){
+           this.setState({
+                title: "",
+                id: '',
+                plain_txt_body: '',
+                rich_txt_body: '',
+                notebook_id: this.props.notebookId,
+                tag: '',
+
+            });
+         } 
     }
 
     saveNote(e) {
         e.preventDefault();
-        if(this.state.id){
+        if(this.props.currentNoteId){
             this.props.updateNote(this.state);
             // .then((res) => {
             //         const tag = {
@@ -60,7 +71,7 @@ class NoteEditor extends React.Component{
             //         this.props.createTag(tag);
             //     });
         }else{
-            this.props.createNote(this.state, this.state.notebook_id);
+            this.props.createNote(this.state, this.props.notebook_id);
             // .then((res) => {
             //     const tag = {
             //         tag_name: this.tag, 
@@ -69,10 +80,11 @@ class NoteEditor extends React.Component{
             //     this.props.createTag(tag);
             // });
         }
-        this.update();
+        // this.update(e);
     }
 
     updateTitle(event){
+        this.title = event.target.value;
         this.setState({
             title:  event.target.value
         });
@@ -89,8 +101,9 @@ class NoteEditor extends React.Component{
             }
         }
     
-     update(){
-        this.updateTitle();
+     update(e){
+        // this.props.receiveUpdating();
+        this.updateTitle(e);
         this.updateBody();
     }
 
@@ -101,7 +114,6 @@ class NoteEditor extends React.Component{
     }
 
     render(){
-        console.log("note editor rener: ");
         return (
             <div className="editor">
                 <form className="e-form" onSubmit={this.saveNote}>
@@ -111,7 +123,7 @@ class NoteEditor extends React.Component{
                         </div>
                         <div>
                             <input type="text" placeholder="Note Title" onChange={this.updateTitle} value={this.state.title} 
-                            className="note-title"/>
+                            className="note-title" id="note-title"/>
                         </div>
                             {/* <div>{this.props.currentNotebookTitle}</div> */}
                     </div>
@@ -128,7 +140,7 @@ class NoteEditor extends React.Component{
                         <div className="e-tag">
                             <button className="inside-tag"><i className="fa fa-plus "></i></button>
                             <i className="fa fa-tag tag-editor"></i>
-                            <input type="text" placeholder="Add Tag" className="e-input" onChange={this.newTag} value={this.state.tag}/>
+                            <input type="text" placeholder="Add Tag" className="e-input" onChange={this.newTag} value={this.state.tag} id="note-tag"/>
                         </div>
                     </form>
                     
