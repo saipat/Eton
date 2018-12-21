@@ -17,6 +17,7 @@ class TagIndex extends React.Component {
                 <TagIndexItem 
                     key={tag.id}
                     tag={tag}
+                    deleteTag={this.props.deleteTag}
                 />
             )
         })
@@ -24,7 +25,7 @@ class TagIndex extends React.Component {
             <div className="tags-index">
                 <h3>Tags</h3>
                 <div></div>
-                <div>
+                <div className="tags_lists">
                     {tag_lists}
                 </div>
             </div>

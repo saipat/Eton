@@ -5,6 +5,8 @@ export const fetchTags = () => (
     })
 );
 
+
+
 export const createTag = tag => (
     $.ajax({
         method: "POST",

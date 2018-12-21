@@ -3,36 +3,63 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tags-index{
-     border-right: 1px solid #e6e6e6;
-     position: fixed;
-     display: grid;
-     margin-left: 20%;
-     min-width: 100%;
-     height: 100%;
-     overflow-y: scroll;
-     -ms-flex-wrap: wrap;
-     flex-wrap: wrap;
-     padding-right: 20px;
+    display: grid;
+    margin-left: 20%;
+    min-width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .tags_index h2{
-          min-width: 20px;
-          padding-right: 12px;
-          font-size: 18px;
-          letter-spacing: 0.03em;
-          color: #333;
-          font-weight: 400;
-          margin-top: 30px;
-          margin-bottom: -20%;
-          display: flex;
-          flex-direction: column;
+    min-width: 200px;
+    font-size: 20px;
+    color: #333;
+    white-space: nowrap;
+    padding-right: 12px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.tag_index{
+    position: relative;
 }
 
 .tag-letter{
-    margin-left: 20%;
-    font-size: 20px;
+    margin-bottom: 9px;
+    font-size: 15px;
+    color: #333;
+    -webkit-box-flex: 0;
+    flex: 0 0 100%;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
 }
 
-.tags-item{
-    
+.tags_lists {
+   border-top: 2px solid #5b6b70;
+   padding: 25px 0;
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+}
+
+.tag-name{
+    cursor: pointer;
+    line-height: 24px;
+    font-size: 13px;
+    color: #333;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    text-decoration: none;
+}
+
+.tag-trash{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.tag-links{
+    display: flex;
 }

@@ -15,7 +15,7 @@ const receiveTag = tag => ({
 }); 
 
 const removeTag = tagId => ({
-    type: RECEIVE_TAGS,
+    type: REMOVE_TAG,
     tagId
 }); 
 
@@ -30,7 +30,7 @@ export const createTag = tag => dispatch => (
 );
 
 export const deleteTag = tagId => dispatch => (
-    TagAPIUtil.fetchTag(tagId)
+    TagAPIUtil.deleteTag(tagId)
     .then(tagId => dispatch(removeTag(tagId)))
 );
 
