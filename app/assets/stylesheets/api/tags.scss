@@ -8,7 +8,6 @@
      display: grid;
      margin-left: 20%;
      min-width: 100%;
-     //  display: block;
      height: 100%;
      overflow-y: scroll;
      -ms-flex-wrap: wrap;
@@ -17,7 +16,16 @@
 }
 
 .tags_index h2{
-    font-size: 30px;
+          min-width: 20px;
+          padding-right: 12px;
+          font-size: 18px;
+          letter-spacing: 0.03em;
+          color: #333;
+          font-weight: 400;
+          margin-top: 30px;
+          margin-bottom: -20%;
+          display: flex;
+          flex-direction: column;
 }
 
 .tag-letter{

@@ -11,7 +11,7 @@ class NoteEditor extends React.Component{
                 title: '', 
                 plain_txt_body: '',
                 rich_txt_body: '',
-                notebook_id: this.props.notebookId,
+                notebook_id: this.props.notebookId                                
         };
 
         this.tag = {
@@ -29,29 +29,45 @@ class NoteEditor extends React.Component{
     }
 
     componentDidUpdate(prevProps) {
+        console.log("componentDidUpdate", this.props.currentNote);
+        
         if(this.props.currentNote !== prevProps.currentNote && this.props.currentNote) {
-            this.setState({
+            let state = {
                 title: this.props.currentNote.title,
                 id: this.props.currentNote.id,
                 plain_txt_body: this.props.currentNote.plain_txt_body,
                 rich_txt_body: this.props.currentNote.rich_txt_body
-            });
+            };
+            // sets the first tag
+            if (this.props.currentNote.tags && this.props.currentNote.tags.length > 0) {
+                console.log(">>>>>", this.props.currentNote.tags[0]);
+                state.tag = this.props.currentNote.tags[0].tag_name;                
+            }
+            this.setState(state);
+            
         }   
     }
 
     saveNote(e) {
         e.preventDefault();
-        if( this.state.id){
+        if(this.state.id){
             this.props.updateNote(this.state);
+            // .then((res) => {
+            //         const tag = {
+            //             tag_name: this.tag,
+            //             note_ids: [res.note.id]
+            //         };
+            //         this.props.createTag(tag);
+            //     });
         }else{
-            this.props.createNote(this.state, this.state.notebook_id)
-            .then((res) => {
-                const tag = {
-                    tag_name: this.tag, 
-                    note_ids: [res.note.id]
-                };
-                this.props.createTag(tag);
-            });
+            this.props.createNote(this.state, this.state.notebook_id);
+            // .then((res) => {
+            //     const tag = {
+            //         tag_name: this.tag, 
+            //         note_ids: [res.note.id]
+            //     };
+            //     this.props.createTag(tag);
+            // });
         }
         this.update();
     }
@@ -79,7 +95,9 @@ class NoteEditor extends React.Component{
     }
 
     newTag(e){
-        this.tag = e.target.value;
+        this.setState({
+            tag: e.target.value
+        });        
     }
 
     render(){
@@ -91,11 +109,11 @@ class NoteEditor extends React.Component{
                         <div className="e-div-top">
                             <input type="submit" className="e-save"  value="Save"/>
                         </div>
-                        {/* <div>{this.props.notebook.name}</div> */}
                         <div>
-                            <input type="text" placeholder="Note Title" onChange={this.updateTitle} defaultValue={this.state.title} 
+                            <input type="text" placeholder="Note Title" onChange={this.updateTitle} value={this.state.title} 
                             className="note-title"/>
                         </div>
+                            {/* <div>{this.props.currentNotebookTitle}</div> */}
                     </div>
                     <br></br>
                     <br></br>
@@ -110,7 +128,7 @@ class NoteEditor extends React.Component{
                         <div className="e-tag">
                             <button className="inside-tag"><i className="fa fa-plus "></i></button>
                             <i className="fa fa-tag tag-editor"></i>
-                            <input type="text" placeholder="Add Tag" className="e-input" onChange={this.newTag}/>
+                            <input type="text" placeholder="Add Tag" className="e-input" onChange={this.newTag} value={this.state.tag}/>
                         </div>
                     </form>
                     

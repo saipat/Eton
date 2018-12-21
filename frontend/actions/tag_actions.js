@@ -21,7 +21,7 @@ const removeTag = tagId => ({
 
 export const fetchTags = () => dispatch => (
     TagAPIUtil.fetchTags()
-    .then( () => dispatch(receiveTags()))
+    .then( tags => dispatch(receiveTags(tags)))
 );
 
 export const createTag = tag => dispatch => (

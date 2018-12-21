@@ -7,11 +7,15 @@ class TagIndex extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.fetchTags();
+    }
+
     render() {
         let tag_lists = this.props.tags.map( tag => {
             return (
                 <TagIndexItem 
-                    key={key}
+                    key={tag.id}
                     tag={tag}
                 />
             )

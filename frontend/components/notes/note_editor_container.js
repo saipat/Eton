@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
     console.log("NoteEditorContainer State>>>>>>>", state);
 
     return ({
-        currentNote: state.entities.notes[state.ui.currentNoteId]
+        currentNote: state.entities.notes[state.ui.currentNoteId],
+        // currentNotebookTitle: state.entities.notebooks[state.ui.currentNotebookTitle]
     });
 };
 

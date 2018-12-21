@@ -60,7 +60,7 @@ class NoteIndex extends React.Component {
         return(
             <div className="notes-container">
                 <div className="notes-index">
-                    <h2>All Notes</h2>
+                    <h2>{this.props.notebook ? this.props.notebook.name : "All Notes"}</h2>
                     <div className="header">
                         <span className="notes-count">{notes_length} Notes</span>
                         <div className="header-btns">

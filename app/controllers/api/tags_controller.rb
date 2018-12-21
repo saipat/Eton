@@ -10,7 +10,7 @@ class Api::TagsController < ApplicationController
   end
 
   def show
-    @tag = current_user.tag.find(params[:id])
+    @tag = current_user.tags.find(params[:id])
     if @tag
       render 'api/tags/show'
     else

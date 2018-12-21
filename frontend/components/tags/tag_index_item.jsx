@@ -10,9 +10,11 @@ class TagIndexItem extends React.Component{
     render(){
         return (
             <div className="tags-item">
-                <h1>fsalgjhlesjorhg;sejrgh'speitjdg'ostheg</h1>
                 <h2 className="tag-letter">{this.props.tag.tag_name.slice(0,1).toUpperCase()}</h2>
+                <p>{this.props.tag.tag_name}</p>
             </div>
         )
     }
 }
+
+export default TagIndexItem;

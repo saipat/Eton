@@ -4,9 +4,12 @@ class Api::NotesController < ApplicationController
         temp_params = note_params
         if(temp_params[:notebook_id].nil?) 
             temp_params[:notebook_id] = current_user.notebooks.find{ |notebook| notebook.name == "<Inbox>" }.id
-        end  
+        end
+        tag_name = temp_params[:tag]
+        temp_params = temp_params.except(:tag)  
         @note = Note.new(temp_params)
         if @note.save!
+            create_tag(tag_name, @note.id)
             render "api/notes/show"
         else
             render json: @note.errors.full_messages,status: 422
@@ -54,8 +57,19 @@ class Api::NotesController < ApplicationController
         render "api/notes/show"
     end
 
+    private
+    def create_tag(tag_name, note_id)
+        @tag = current_user.tags.find { |tag| tag.tag_name == tag_name }
+        if(@tag.nil?)
+            @tag = Tag.new({:tag_name => tag_name, :note_ids => [note_id]})
+            @tag.user_id = current_user.id
+            @tag.save!
+        end            
+        puts @tag
+    end 
+
     def note_params
-        params.require(:note).permit(:title, :notebook_id, :plain_txt_body, :rich_txt_body, tag_ids: [])
+        params.require(:note).permit(:title, :notebook_id, :plain_txt_body, :rich_txt_body, :tag)
     end
 
 end
