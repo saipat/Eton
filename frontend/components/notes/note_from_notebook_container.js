@@ -4,20 +4,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
-    // if (!state.entities.notes){
-    //     state.entities.notes = [];
-    // }
-    // console.log(ownProps.match.params.notebookId);
-    // let notebookId = ownProps.match.params.notebookId;
-    // let notebook = Object.values(state.entities.notebooks).find(notebook =>            notebookId == notebook.id
-    // );
+ 
 
     return ({
         notes: Object.values(state.entities.notes)
-        // .filter( note => {
-        //    return note.notebook_id === notebookId
-        // })        
+          
     });
 };
 
