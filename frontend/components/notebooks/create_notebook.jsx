@@ -7,7 +7,6 @@ class CreateNotebookForm extends React.Component{
         this.state = {
             name: ''
         };
-        // console.log(this.state);
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -35,7 +34,7 @@ class CreateNotebookForm extends React.Component{
             <div className="createForm">
                 <div className="form-top">
                     <h2>Create New Notebook</h2>
-                    <button onClick={this.closeForm} className="close-btn"><i className="fa fa-close"></i></button>
+                    <button onClick={this.closeForm} className="close-btn"><i className="fa fa-close create-close"></i></button>
                 </div>
                 <p>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
                 <form onSubmit={this.handleSubmit} className="new-nb-form">

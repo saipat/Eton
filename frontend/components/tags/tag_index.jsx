@@ -51,7 +51,7 @@ class TagIndex extends React.Component {
 
         return (
             <div className="tags-index">
-                <h3>Tags</h3>
+                <h3 className="tag-header">Tags</h3>
                 <div></div>
                 <div className="tags_lists">
                     {tag_lists}

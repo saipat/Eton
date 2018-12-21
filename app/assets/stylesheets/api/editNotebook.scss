@@ -32,13 +32,13 @@
 .e-close-btn {
     background-color: white;
     border: none;
-    margin-left: 9%;
+    margin-left: 46%;
 }
 
-.fa-close {
-    font-size: 14px;
-    color: #ccc;
-    font-weight: 300;
+.edit-close:before {
+      font-size: 14px;
+      color: #555;
+      font-weight: 300;
 }
 
 .e-nb-form label {
@@ -57,7 +57,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     text-rendering: optimizeLegibility;
     z-index: 1;
-    width: 85%;
+    width: 90%;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

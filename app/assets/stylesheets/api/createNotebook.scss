@@ -49,13 +49,14 @@
 .close-btn{
     background-color: white;
     border: none;
-    margin-left: 56%;
+    margin-left: 46%;
 }
 
-.fa-close{
+.create-close:before{
     font-size: 14px;
-    color: #ccc;
+    color: #555;
     font-weight: 300;
+    // margin-right: -30%;
 }
 
 .createForm p{

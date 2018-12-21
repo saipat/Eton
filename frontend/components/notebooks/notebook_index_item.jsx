@@ -6,10 +6,6 @@ import { formatTime } from '../../util/date_util';
 class NotebookIndexItem extends React.Component{
     constructor(props){
         super(props);
-        // this.state = {
-        //     notebook: this.props.notebook
-        // };
-        // console.log("inside index item-----", this.state);
         
         this.myFunction = this.myFunction.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -27,7 +23,6 @@ class NotebookIndexItem extends React.Component{
     }
 
     handleClick() {   
-        // console.log("inside handle click-----", this.state.notebook);
         this.myFunction();
         this.props.openModal('editNotebook', this.props.notebook);
     }
@@ -35,11 +30,10 @@ class NotebookIndexItem extends React.Component{
     deleteClick(){
         this.myFunction();
         this.props.deleteNotebook(this.props.notebook.id);
-            // .then(() => this.props.history.push('/notebooks'));
     }
 
     clickNotebook() {
-        console.log("clicked the notebook inside th notebookindexitem!");
+        // console.log("clicked the notebook inside th notebookindexitem!");
         
     }
 

@@ -5,7 +5,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-   console.log("ownprops", ownProps);
     return ({
         currentUser: state.entities.users[state.session.id]
         // notebook: state.entities.notebooks[state.entities.notebooks[currentUserId]]

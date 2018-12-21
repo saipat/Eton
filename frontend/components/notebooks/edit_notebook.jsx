@@ -7,7 +7,6 @@ class EditNotebookForm extends React.Component {
         this.state ={
             notebook: this.props.notebook
         };
-        // console.log("inside edit-----",this.state);
         
         this.closeForm = this.closeForm.bind(this);
         this.handleEditSubmit = this.handleEditSubmit.bind(this);
@@ -18,7 +17,6 @@ class EditNotebookForm extends React.Component {
     }
 
     handleEditSubmit() {
-        // console.log(this.state.notebook);
         this.props.updateNotebook(this.state.notebook)
             .then(() => this.props.history.push('/notebooks'));
         this.closeForm();
@@ -35,14 +33,13 @@ class EditNotebookForm extends React.Component {
     }
 
     render(){
-        // console.log("inside render: ",this.state);
         
         return(
             <div className="renameNotebook">
                 <div className="e-form-top">
-                    <h2>Rename notebook
-                    <button onClick={this.closeForm} className="e-close-btn"><i className="fa fa-close"></i></button>
-                    </h2>
+                    <h2>Rename notebook</h2>
+                    <button onClick={this.closeForm} className="e-close-btn"><i className="fa fa-close edit-close"></i></button>
+                    
                 </div>
 
                 <form onSubmit={this.handleEditSubmit} className="e-nb-form">
