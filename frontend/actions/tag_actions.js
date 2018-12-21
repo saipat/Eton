@@ -19,6 +19,14 @@ const removeTag = tagId => ({
     tagId
 }); 
 
+export const fetchCurrentTag = tag => {
+    return {
+        type: CURRENT_TAG,
+        currentTagId: tag.id,
+        currentTagName: tag.name
+    };
+};
+
 export const fetchTags = () => dispatch => (
     TagAPIUtil.fetchTags()
     .then( tags => dispatch(receiveTags(tags)))

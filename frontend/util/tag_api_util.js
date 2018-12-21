@@ -5,8 +5,6 @@ export const fetchTags = () => (
     })
 );
 
-
-
 export const createTag = tag => (
     $.ajax({
         method: "POST",
@@ -21,3 +19,5 @@ export const deleteTag = tagId => (
         url: `api/tags/${tagId}`,
     })
 );
+
+

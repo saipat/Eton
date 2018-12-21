@@ -13,7 +13,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return({
         fetchTags: () => dispatch(fetchTags()),
-        deleteTag: tagId => dispatch(deleteTag(tagId))
+        deleteTag: tagId => dispatch(deleteTag(tagId)),
+        fetchCurrentTag: tag => dispatch(fetchCurrentTag(tag))
     });
 };
 
