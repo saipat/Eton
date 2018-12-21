@@ -37,7 +37,7 @@ class Greeting extends React.Component {
                     <div className="content">
                         <h2>Feel organized without the effort</h2>
                         <p>Evernote helps you capture and prioritize ideas, projects, and to-do lists, so nothing falls through the cracks.</p>
-                        <button className="home-btn">Sign up for free</button>
+                            <button className="home-btn">Sign up for free</button>
                     </div>
                 </div>
                 <div className="below-bg">

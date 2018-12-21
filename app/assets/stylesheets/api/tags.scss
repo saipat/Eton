@@ -1,0 +1,30 @@
+// Place all the styles related to the api/Tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tags-index{
+     border-right: 1px solid #e6e6e6;
+     position: fixed;
+     display: grid;
+     margin-left: 20%;
+     min-width: 100%;
+     //  display: block;
+     height: 100%;
+     overflow-y: scroll;
+     -ms-flex-wrap: wrap;
+     flex-wrap: wrap;
+     padding-right: 20px;
+}
+
+.tags_index h2{
+    font-size: 30px;
+}
+
+.tag-letter{
+    margin-left: 20%;
+    font-size: 20px;
+}
+
+.tags-item{
+    
+}

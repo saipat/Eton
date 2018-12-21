@@ -1,11 +1,12 @@
 import * as NoteAPIUtil from '../util/note_api_util';
-import { CURRENT_NOTEBOOK } from './notebook_actions';
+// import { CURRENT_NOTEBOOK } from './notebook_actions';
 
 export const RECEIVE_NOTES = "RECEIVE_NOTES";
 export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 export const CURRENT_NOTE = "CURRENT_NOTE";
 export const CLOSE_CURRENT_NOTE = 'CLOSE_CURRENT_NOTE';
+export const MAKE_NEW_NOTE = 'MAKE_NEW_NOTE';
 
 const receiveAllNotes = notes => ({
     type: RECEIVE_NOTES,
@@ -32,6 +33,10 @@ export const closeCurrentNote = () => {
         type: CLOSE_CURRENT_NOTE
     };
 };
+
+export const makeNewNote = () => ({
+    type: MAKE_NEW_NOTE
+});
 
 export const fetchNotes = (notebookId) => dispatch => (
     NoteAPIUtil.fetchNotes(notebookId)

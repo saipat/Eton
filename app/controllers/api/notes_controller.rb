@@ -55,7 +55,7 @@ class Api::NotesController < ApplicationController
     end
 
     def note_params
-        params.require(:note).permit(:title, :notebook_id, :plain_txt_body, :rich_txt_body)
+        params.require(:note).permit(:title, :notebook_id, :plain_txt_body, :rich_txt_body, tag_ids: [])
     end
 
 end

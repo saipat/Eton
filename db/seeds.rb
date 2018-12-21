@@ -40,7 +40,8 @@ defaultNotebook = Notebook.create!(
 # Note.delete_all
 
 # note2 = Note.create!(
-#   title: 'default note',
-#   notebook_id: defaultNotebook.id,
+#    title: 'default note',
+#   notebook_id: Notebook.first.id,
 #   plain_txt_body: 'I am in default note book',
-# )
+#   tag_ids: [Tag.first.id]
+#  )

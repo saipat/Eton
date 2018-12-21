@@ -34,8 +34,8 @@ class NotebookIndexItem extends React.Component{
 
     deleteClick(){
         this.myFunction();
-        this.props.deleteNotebook(this.props.notebook.id)
-            .then(() => this.props.history.push('/notebooks'));
+        this.props.deleteNotebook(this.props.notebook.id);
+            // .then(() => this.props.history.push('/notebooks'));
     }
 
     clickNotebook() {
@@ -59,8 +59,8 @@ class NotebookIndexItem extends React.Component{
                     </tbody>
                 </table>
                 <div id={`menu-${this.props.notebook.id}`} className="w3-dropdown-content w3-bar-block w3-border">
-                    <a href="#" className="w3-bar-item w3-button" onClick={this.handleClick}>Rename Notebook</a>
-                    <a href="#" className="w3-bar-item w3-button" onClick={this.deleteClick}>Delete Notebook</a>
+                    <a className="w3-bar-item w3-button" onClick={this.handleClick}>Rename Notebook</a>
+                    <a className="w3-bar-item w3-button" onClick={this.deleteClick}>Delete Notebook</a>
                 </div>
             </div>
         )

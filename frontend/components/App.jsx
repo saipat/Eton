@@ -9,6 +9,7 @@ import NotebookModalContainer from './notebooks/notebook_modal_container';
 import AllNotesContainer from './notes/all_notes_container';
 import NoteFromNotebookContainer from './notes/note_from_notebook_container';
 import NotebookIndexContainer from './notebooks/notebook_index_container';
+import TagsIndexContainer from './tags/tags_index_container';
 
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
                 <ProtectedRoute path="/notebook/:notebookId/notes" component={NoteFromNotebookContainer} />
                 <ProtectedRoute path="/notebooks" component={NotebookIndexContainer} />
                 <ProtectedRoute path="/notes" component={AllNotesContainer}/>
+                <ProtectedRoute path="/tags" component={TagsIndexContainer}/>
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <Route exact path="/" component={GreetingContainer} />

@@ -90,7 +90,7 @@ class Sidebar extends React.Component {
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
                     </form>
                     <div className="new-note">
-                       <Link to="/notes" ><i className="fa fa-plus"></i>New Note</Link>
+                       <Link to="/notes" onClick={() => this.props.makeNewNote()}><i className="fa fa-plus"></i>New Note</Link>
                     </div>
                     <div className="divs">
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
@@ -124,7 +124,7 @@ class Sidebar extends React.Component {
 
                     <div className="divs">
                         <button className="tags-btn">
-                            <i className="fa fa-tag"></i>Tags
+                            <i className="fa fa-tag"></i> <Link to="/tags">Tags</Link>
                         </button>
                     </div>
                     <div className="divs">

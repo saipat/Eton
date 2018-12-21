@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { fetchNotebook, fetchNotebooks } from '../../actions/notebook_actions';
-import { fetchNotes, createNote } from '../../actions/note_actions';
+import { fetchNotes, createNote, makeNewNote } from '../../actions/note_actions';
+import { fetchTags, createTag, deleteTag } from '../../actions/tag_actions';
 import Sidebar from './sidebar';
 
 const mapStateToProps = state => {
@@ -20,7 +21,8 @@ const mapDispatchToProps = dispatch => {
         fetchNotebook: id => dispatch(fetchNotebook(id)),
         createNote: (note, notebookId) => dispatch(createNote(note, notebookId)),
         fetchNotes: () => dispatch(fetchNotes()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()), 
+        makeNewNote: () => dispatch(makeNewNote())
     });
 };
 

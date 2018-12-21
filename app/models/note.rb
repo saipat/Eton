@@ -20,15 +20,12 @@ class Note < ApplicationRecord
         foreign_key: :notebook_id,
         class_name: 'Notebook'
 
-    # has_one :user,
-    #     through: :notebook,
-    #     source: :user
+    has_many :tags_notes,
+        inverse_of: :note, 
+        dependent: :destroy
 
-    # private
-    # def notebook_id_null
-    #     if self.notebook_id.nil?
-    #         self.notebook_id = Notebook.all.find { |notebook| notebook.name == "<Inbox>" }.id
-    #     end
-    # end
+    has_many :tags,
+        through: :tags_notes, 
+        source: :tag
     
 end

@@ -47,7 +47,8 @@ class CreateNotebookForm extends React.Component{
                     <div className="line"></div>
                     <div className="nf-btn">
                         <button onClick={this.closeForm}className="btns">Close</button>
-                        <input type="submit" value="Continue" onClick={this.handleSubmit} className="btns"/>
+                        <input type="submit" value="Continue"
+                        className="btns"/>
                     </div>
                 </form>
             </div>

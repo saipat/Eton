@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       resources :notes, only: [:index, :create]
     end
 
+    resources :tags, only: [:create, :show, :index, :destroy] do
+      resources :notes, only: :index
+    end
 
+    resources :tags_notes, only: [:index, :create, :destroy]
     
   end
   root to: "static_pages#root"

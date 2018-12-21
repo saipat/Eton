@@ -14,13 +14,17 @@ class NoteEditor extends React.Component{
                 notebook_id: this.props.notebookId,
         };
 
+        this.tag = {
+
+        };
+
         console.log("this.props in note editor", this.props);
         
         this.saveNote = this.saveNote.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
         this.updateBody = this.updateBody.bind(this);
         this.update = this.update.bind(this);
-
+        this.newTag = this.newTag.bind(this);
         this.quillRef = React.createRef();
     }
 
@@ -32,18 +36,24 @@ class NoteEditor extends React.Component{
                 plain_txt_body: this.props.currentNote.plain_txt_body,
                 rich_txt_body: this.props.currentNote.rich_txt_body
             });
-        }    
+        }   
     }
 
     saveNote(e) {
         e.preventDefault();
         if( this.state.id){
-            this.props.updateNote(this.state)
+            this.props.updateNote(this.state);
         }else{
-            this.props.createNote(this.state, this.state.notebook_id);
+            this.props.createNote(this.state, this.state.notebook_id)
+            .then((res) => {
+                const tag = {
+                    tag_name: this.tag, 
+                    note_ids: [res.note.id]
+                };
+                this.props.createTag(tag);
+            });
         }
         this.update();
-        alert("Note Saved!");
     }
 
     updateTitle(event){
@@ -68,6 +78,10 @@ class NoteEditor extends React.Component{
         this.updateBody();
     }
 
+    newTag(e){
+        this.tag = e.target.value;
+    }
+
     render(){
         console.log("note editor rener: ");
         return (
@@ -79,8 +93,8 @@ class NoteEditor extends React.Component{
                         </div>
                         {/* <div>{this.props.notebook.name}</div> */}
                         <div>
-                            <input type="text" placeholder="Note Title" onChange={this.updateTitle} value={this.state.title} 
-                            className="note-title" />
+                            <input type="text" placeholder="Note Title" onChange={this.updateTitle} defaultValue={this.state.title} 
+                            className="note-title"/>
                         </div>
                     </div>
                     <br></br>
@@ -96,7 +110,7 @@ class NoteEditor extends React.Component{
                         <div className="e-tag">
                             <button className="inside-tag"><i className="fa fa-plus "></i></button>
                             <i className="fa fa-tag tag-editor"></i>
-                            <input type="text" placeholder="Add Tag" className="e-input" />
+                            <input type="text" placeholder="Add Tag" className="e-input" onChange={this.newTag}/>
                         </div>
                     </form>
                     
