@@ -47,15 +47,15 @@ class NoteIndex extends React.Component {
         
         let notes_length = notes.length;
 
-        if (notes.length === 0) {
-            notes = (<div className="welcome">
-                        <div className="welcome-head">
-                            <p>Start creating notes</p>
-                            <button onClick={this.closeButton}><i className="fa fa-close"></i></button>
-                        </div>
-                        <p className="click">Click + to create a new note.</p>
-                    </div>)
-        }
+        // if (notes.length === 0) {
+        //     notes = (<div className="welcome">
+        //                 <div className="welcome-head">
+        //                     <p>Start creating notes</p>
+        //                     <button onClick={this.closeButton}><i className="fa fa-close"></i></button>
+        //                 </div>
+        //                 <p className="click">Click + to create a new note.</p>
+        //             </div>)
+        // }
 
         return(
             <div className="notes-container">

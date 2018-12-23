@@ -9,9 +9,10 @@
 User.delete_all
 
 demo1 = User.create!(
-  email: 'demouser11@email',
+  email: 'q@12.com',
   password: '123456'
 )
+
 
 Notebook.delete_all
 
@@ -20,24 +21,24 @@ defaultNotebook = Notebook.create!(
   user_id: demo1.id
 )
 
-# notebook1 = Notebook.create!(
-#   name: 'Fsp',
-#   user_id: demo1.id
-# )
+notebook1 = Notebook.create!(
+  name: 'Fsp',
+  user_id: demo1.id
+)
 
-# notebook2 = Notebook.create!(
-#   name: 'Physics',
-#   user_id: demo1.id
-# )
+notebook2 = Notebook.create!(
+  name: 'Physics',
+  user_id: demo1.id
+)
 
 
+# Note.delete_all
 
 # note1 = Note.create!(
 #   title: 'foxy',
 #   notebook_id: notebook1.id,
 #   plain_txt_body: 'hi how are you?',
 # )
-# Note.delete_all
 
 # note2 = Note.create!(
 #    title: 'default note',
