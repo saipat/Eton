@@ -1,8 +1,10 @@
 # Eton
 
-Eton is a clone of Evernote, which is a note taking application. Eton implements identical appearance and limited functionaly;
+Eton is a clone of Evernote, which is a note taking application. Eton implements identical appearance and limited functionaly. 
 
-Eton is single page application developed using Ruby, Rails, and PostgreSQL for the backend and React and Redux for the frontend. The project was designed and built in 10 days. 
+Eton is a creation of Sai Lakshmi Pattabiraman.
+
+Eton is single page application developed using Ruby, Rails, and PostgreSQL for the backend and React and Redux for the frontend. The project was designed and built in 10 days. Considering 10-day working time period, Eton was focused on simplicity with few of the crucial functionalities of Evernote. 
 
 ### Access
 
@@ -37,4 +39,5 @@ Redux
 React-Quill (text editing)
 BCrypt (authorization)
 ES6
+
 
