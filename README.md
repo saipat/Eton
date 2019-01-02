@@ -23,6 +23,20 @@ Eton lets users to upload images into their notes.
 #### CRUD experience
 The ability to create, read, update and destroy notes, and notebooks and tags.
 
+#### All notes
+
+![Imgur](https://i.imgur.com/5dGij0M.png)
+
+#### All Tags
+
+![Imgur](https://i.imgur.com/ntctYXp.png)
+
+
+#### All Notebooks
+
+![Imgur](https://i.imgur.com/CcdC1vE.png)
+
+
 ### Future Features.
 Search notes by tags
 Note Search
