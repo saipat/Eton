@@ -14,9 +14,11 @@ You can access the site at http://eton-fsp.herokuapp.com/#/
 
 #### Rich Text Editing
 Eton implements ReactQuill, a React Component that wraps around the popular Quill.js library. This allows for Rich Text Editing in all of the user's notes.
+![Imgur](https://i.imgur.com/4bQxUOa.png)
 
 #### Image Upload
 Eton lets users to upload images into their notes.
+![Imgur](https://i.imgur.com/pMvAdUT.png)
 
 #### CRUD experience
 The ability to create, read, update and destroy notes, and notebooks and tags.
