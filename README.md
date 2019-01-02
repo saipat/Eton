@@ -27,11 +27,11 @@ Autosave
 
 ### Technologies
 
-####Back End
+#### Back End
 Ruby on Rails
 PostgreSQL (database)
 AJAX with a JSON API
-####Front End
+#### Front End
 React
 Redux
 React-Quill (text editing)
