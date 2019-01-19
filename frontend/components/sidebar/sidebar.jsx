@@ -90,8 +90,8 @@ class Sidebar extends React.Component {
                         <input type="search" placeholder="search all values" className="sd-search-input"></input>
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
                     </form>
-                    <div className="new-note">
-                       <Link to="/notes" onClick={() => this.props.makeNewNote()}><i className="fa fa-plus"></i>New Note</Link>
+                    <div className="new-note" onClick={() => this.props.makeNewNote()}>
+                       <Link to="/notes"><i className="fa fa-plus"></i>New Note</Link>
                     </div>
                     <div className="divs">
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>

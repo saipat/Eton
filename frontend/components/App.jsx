@@ -10,6 +10,7 @@ import AllNotesContainer from './notes/all_notes_container';
 import NoteFromNotebookContainer from './notes/note_from_notebook_container';
 import NotebookIndexContainer from './notebooks/notebook_index_container';
 import TagsIndexContainer from './tags/tags_index_container';
+import Greeting from './greeting/greeting';
 
 
 const App = () => (
@@ -24,8 +25,8 @@ const App = () => (
                 <ProtectedRoute path="/tags" component={TagsIndexContainer}/>
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
-                <Route exact path="/" component={GreetingContainer} />
-                <Redirect to="/" component={GreetingContainer} />
+                <AuthRoute exact path="/" component={Greeting} />
+                <Redirect to="/" />
             </Switch>
         </div>
 
