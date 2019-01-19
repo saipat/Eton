@@ -4,7 +4,7 @@ import { LOGOUT_USER } from '../actions/session_actions';
 
 
 export default function currentNoteReducer(state = null, action) {
-    console.log("action:======", action);
+    // console.log("action:======", action);
   switch (action.type) {
     case CURRENT_NOTE:
       return action.currentNote.id;

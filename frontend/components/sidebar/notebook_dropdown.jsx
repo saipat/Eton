@@ -9,7 +9,7 @@ class NotebookDropdown extends React.Component {
         this.state = {
             showNotes: false,     
         };
-        console.log("props inside notebook dropdown: ", props);
+        // console.log("props inside notebook dropdown: ", props);
     }
 
     render(){
