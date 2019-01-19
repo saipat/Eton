@@ -17,15 +17,16 @@ class Sidebar extends React.Component {
             showNotebooks: false,
             showEditor: false,
             // notes: [{title: 'note 1'}, [{title: ""}]],
-    
+
         };
 
         
         this.showMenu = this.showMenu.bind(this);
-        this.closeMenu = this.closeMenu.bind(this);
+        // this.closeMenu = this.closeMenu.bind(this);
+        this.renderbooks = this.renderbooks.bind(this);
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-         this.logoutUser = this.logoutUser.bind(this);
+        this.logoutUser = this.logoutUser.bind(this);
         //  this.makeNewNote = this.makeNewNote.bind(this);
         // this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
     }
@@ -43,19 +44,13 @@ class Sidebar extends React.Component {
         this.setState({ showMenu: true });
     }
 
-    closeMenu(event) {
-        if (!this.dropdownMenu.contains(event.target)) {
-
-            this.setState({ showMenu: false }, () => {
-                document.removeEventListener('click', this.closeMenu);
-            });
-        }
-    }
 
     handleSubmit(event){
         event.preventDefault();
         this.showMenu(event);
-        this.showNotebooks(); 
+        this.setState({
+            showNotebooks: !this.state.showNotebooks
+        });
     }
 
     showNotebooks(){
@@ -64,6 +59,19 @@ class Sidebar extends React.Component {
         });
     }
 
+    renderbooks() {
+        if (this.state.showNotebooks) {
+            return (
+                this.props.notebooks.map(notebook => (
+                    <li key={notebook.id} className="nb-links">
+                        <Link to={`/notebook/${notebook.id}/notes`}>
+                            {notebook.name}
+                        </Link>
+                    </li>
+                ))
+            );
+        }
+    }
 
     logoutUser() {
         return (e) => {
@@ -79,6 +87,8 @@ class Sidebar extends React.Component {
         if (this.props.notebooks === undefined) {
             return null;
         }
+
+       
         return (
             <div className="grid-container">
                 <div className="sidebar">
@@ -108,21 +118,8 @@ class Sidebar extends React.Component {
                             <i className="fa fa-book"></i>
                             <Link to="/notebooks">Notebooks</Link>
                          </button>
-                        {
-                            this.state.showMenu ? 
-                            (
-                                    <ul className="dropdown-menu" ref={(element) => {
-                                        this.dropdownMenu = element;
-                                    }}
-                                    >
-                                    
-                                     <NotebookDropdownContainer />
-                                    
-                                </ul>
-                            ) : ( null ) 
-                        }
                     </div>
-
+                        {this.renderbooks()}
                     <div className="divs">
                         <button className="tags-btn">
                             <i className="fa fa-tag"></i> <Link to="/tags">Tags</Link>
@@ -139,7 +136,7 @@ class Sidebar extends React.Component {
                 </div>
 
                  
-               {/* <h1>hi mark</h1> */}
+               
             </div>
             
         )

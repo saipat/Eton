@@ -7,10 +7,10 @@ import NotebookDropdown from './notebook_dropdown';
 const mapStateToProps = (state) => {
  
     return ({
-        currentNotebookId: state.ui.currentNotebookId,
-        currentNotebookTitle: state.ui.currentNotebookTitle, 
+        // currentNotebookId: state.ui.currentNotebookId,
+        // currentNotebookTitle: state.ui.currentNotebookTitle, 
         notebooks: Object.values(state.entities.notebooks),
-        notes: Object.values(state.entities.notes), 
+        // notes: Object.values(state.entities.notes), 
         // history: ownProps.history
     });
 };

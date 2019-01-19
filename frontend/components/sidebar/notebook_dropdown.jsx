@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 class NotebookDropdown extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            showNotes: false,     
-        };
+        // this.state = {
+        //     showNotes: false,     
+        // };
         // console.log("props inside notebook dropdown: ", props);
     }
 
