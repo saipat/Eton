@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { formatTime } from '../../util/date_util';
+import { Link } from 'react-router-dom';
 
 
 class NotebookIndexItem extends React.Component{
@@ -39,25 +40,32 @@ class NotebookIndexItem extends React.Component{
 
     render(){
         let updated_at = formatTime(this.props.notebook.updated_at);
-        return (
-            <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td className="nb-name" onClick={this.clickNotebook}><i className="fa fa-caret-right"></i>{this.props.notebook.name}</td>
-                            <td className="nb-create"> - </td>
-                            <td className="nb-update">{updated_at}</td>
-                            <td className="nb-only">Only you</td>
-                            <td className="nb-u"><button onClick={this.myFunction}>...</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id={`menu-${this.props.notebook.id}`} className="w3-dropdown-content w3-bar-block w3-border">
-                    <a className="w3-bar-item w3-button" onClick={this.handleClick}>Rename Notebook</a>
-                    <a className="w3-bar-item w3-button" onClick={this.deleteClick}>Delete Notebook</a>
-                </div>
-            </div>
-        )
+        return <div>
+				<table>
+					<tbody>
+						<tr>
+							<td className="nb-name" onClick={this.clickNotebook}>
+								<i className="fa fa-caret-right" />
+								<Link to={`/notebook/${this.props.notebook.id}/notes`}>{this.props.notebook.name}</Link>
+							</td>
+							<td className="nb-create"> - </td>
+							<td className="nb-update">{updated_at}</td>
+							<td className="nb-only">Only you</td>
+							<td className="nb-u">
+								<button onClick={this.myFunction}>...</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div id={`menu-${this.props.notebook.id}`} className="w3-dropdown-content w3-bar-block w3-border">
+					<a className="w3-bar-item w3-button" onClick={this.handleClick}>
+						Rename Notebook
+					</a>
+					<a className="w3-bar-item w3-button" onClick={this.deleteClick}>
+						Delete Notebook
+					</a>
+				</div>
+			</div>;
     }
 }
 
