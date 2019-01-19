@@ -26,32 +26,38 @@ class CreateNotebookForm extends React.Component{
     handleSubmit(){
         const notebook = {name: this.state.name, user_id: this.props.currentUser.id};
         this.props.createNotebook(notebook);
+        // console.log("hi");
         this.closeForm();
     }
 
     render(){
-        return (
-            <div className="createForm">
-                <div className="form-top">
-                    <h2>Create New Notebook</h2>
-                    <button onClick={this.closeForm} className="close-btn"><i className="fa fa-close create-close"></i></button>
-                </div>
-                <p>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
-                <form onSubmit={this.handleSubmit} className="new-nb-form">
-                    <label>
-                        Name
-                        <br></br>
-                        <input type="text" value={this.state.name} onChange={this.update()} placeholder="Notebook name" className="input" />
-                    </label>
-                    <div className="line"></div>
-                    <div className="nf-btn">
-                        <button onClick={this.closeForm}className="btns">Close</button>
-                        <input type="submit" value="Continue"
-                        className="btns"/>
-                    </div>
-                </form>
-            </div>
-        )
+        return <div className="createForm">
+				<div className="form-top">
+					<h2>Create New Notebook</h2>
+					<button onClick={this.closeForm} className="close-btn">
+						<i className="fa fa-close create-close" />
+					</button>
+				</div>
+				<p>
+					Notebooks are useful for grouping notes around a common topic. They can be private or
+					shared.
+				</p>
+				<form onSubmit={this.handleSubmit} className="new-nb-form">
+					<label>
+						Name
+						<br />
+						<input type="text" value={this.state.name} onChange={this.update()} placeholder="Notebook name" className="input" />
+					</label>
+					<div className="line" />
+					<div className="nf-btn">
+						<button onClick={this.closeForm} className="btns">
+							Close
+						</button>
+						<button type="submit" className="btns">Continue
+						</button>
+					</div>
+				</form>
+			</div>;
     }
 }
 
