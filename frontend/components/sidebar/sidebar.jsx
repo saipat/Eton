@@ -27,9 +27,9 @@ class Sidebar extends React.Component {
         this.showNotebooks = this.showNotebooks.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.logoutUser = this.logoutUser.bind(this);
-        this.shortcuts = this.shortcuts.bind(this);
-        this.trash = this.trash.bind(this);
-        this.search = this.search.bind(this);
+        // this.shortcuts = this.shortcuts.bind(this);
+        // this.trash = this.trash.bind(this);
+        // this.search = this.search.bind(this);
 
         //  this.makeNewNote = this.makeNewNote.bind(this);
         // this.setSelectedNotebook = this.setSelectedNotebook.bind(this);
@@ -85,17 +85,17 @@ class Sidebar extends React.Component {
         };
     }
 
-    shortcuts() {
-        alert("Shortcuts is comming soon...");
-    }
+    // shortcuts() {
+    //     alert("Shortcuts is comming soon...");
+    // }
 
-    trash() {
-        alert("Trash is comming soon...");
-    }
+    // trash() {
+    //     alert("Trash is comming soon...");
+    // }
 
-    search() {
-        alert("Search is comming soon...");
-    }
+    // search() {
+    //     alert("Search is comming soon...");
+    // }
 
     render() {
 
@@ -112,16 +112,16 @@ class Sidebar extends React.Component {
                         <img src={window.sidebarLogoURL} alt="sidebar_logo" className="sidebar-logo" />
                         <h3>{this.state.currentUser.email}</h3>
                     </div>
-                    <form className="sd-search" onClick={this.search}>
+                    {/* <form className="sd-search" onClick={this.search}>
                         <input type="search" placeholder="search all values" className="sd-search-input"></input>
                         <button type="submit" id="search-icon"><i className="fa fa-search"></i></button>
-                    </form>
+                    </form> */}
                     <div className="new-note" onClick={() => this.props.makeNewNote()}>
                        <Link to="/notes"><i className="fa fa-plus"></i>New Note</Link>
                     </div>
-                    <div className="divs" onClick={this.shortcuts}>
+                    {/* <div className="divs" onClick={this.shortcuts}>
                         <button className="star-btn"><i className="fa fa-caret-right"></i><i className="fa fa-star fa_custom"></i>Shortcuts</button>
-                   </div>
+                   </div> */}
                     <div className="divs all-notes">
                         <Link to="/notes" className="all-notes-btn"><i className="fa fa fa-bookmark-o"></i>
                             All Notes
@@ -141,11 +141,11 @@ class Sidebar extends React.Component {
                             <i className="fa fa-tag"></i> <Link to="/tags">Tags</Link>
                         </button>
                     </div>
-                    <div className="divs" onClick={this.trash}>
+                    {/* <div className="divs" onClick={this.trash}>
                         <button className="trash-btn">
                             <i className="fa fa-trash-o"></i>Trash
                         </button>
-                    </div>
+                    </div> */}
                     <div>
                         <button className="signout-btn" onClick={this.logoutUser()}><i className="fa fa-sign-out"></i>Sign Out</button>
                     </div> 
