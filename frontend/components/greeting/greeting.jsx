@@ -33,7 +33,7 @@ class Greeting extends React.Component {
 									</a>
 								</li>
 								<li>
-									<a href="https://github.com/saipat">
+								<a href="https://github.com/saipat/Eton">
 										<i className="fa fa-github" /> Github
 									</a>
 								</li>
