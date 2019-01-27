@@ -14,6 +14,11 @@ You can access the site at http://eton-fsp.herokuapp.com/#/
 
 #### Rich Text Editing
 Eton implements ReactQuill, a React Component that wraps around the popular Quill.js library. This allows for Rich Text Editing in all of the user's notes.
+
+`   <div className="quill-div">
+                        <ReactQuill placeholder="Type note content in here" onChange={this.updateBody} modules={modules} value={this.state.rich_txt_body} className="quill-body" id="quillText" ref={this.quillRef} />
+                    </div>`
+                    
 ![Imgur](https://i.imgur.com/4bQxUOa.png)
 
 #### Image Upload
@@ -53,6 +58,22 @@ AJAX with a JSON API
 React
 Redux
 React-Quill (text editing)
+`const toolBarOpts = [
+    [{ font: [] }],
+    [{ size: ["small", false, "large", "huge"] }],
+    ["bold", "italic", "underline", "strike"],
+    [{ color: [] }, { background: [] }],
+    ["blockquote", "code-block"],
+    [{ align: [] }],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ script: "sub" }, { script: "super" }],
+    ["clean"],
+    ["link", "image", "video", "formula"]
+];
+
+const modules = {
+    toolbar: toolBarOpts
+}`
 BCrypt (authorization)
 ES6
 
