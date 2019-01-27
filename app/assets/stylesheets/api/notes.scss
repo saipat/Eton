@@ -12,13 +12,14 @@
 
 .notes-index{
     border-right: 1px solid #e6e6e6;
-    overflow: scroll;
+    overflow-y: scroll;
     position: fixed;
     margin-left: 20%;
     box-sizing: border-box;
     padding-right: 20px;
     bottom: 0px;
     top: 40px;
+    min-width: 22%;
 }
 
 .notes-index h2 {
